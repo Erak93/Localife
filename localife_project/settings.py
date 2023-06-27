@@ -47,7 +47,8 @@ INSTALLED_APPS = [
     "search_app",
     "post_app",
     "match_app",
-    "finished_app"
+    "finished_app",
+    
 ]
 
 MIDDLEWARE = [
@@ -97,7 +98,7 @@ DATABASES = {
 
 
 #Password hasher
-
+"""
 PASSWORD_HASHERS=[
     'django.contrib.auth.hashers.Argon2PasswordHasher', # argon2 hasher
     'django.contrib.auth.hashers.BCryptSHA256PasswordHasher', # bcrypt sha26 version
@@ -105,6 +106,7 @@ PASSWORD_HASHERS=[
     'django.contrib.auth.hashers.PBKDF2PasswordHasher', # built in
     'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher', # built in
 ]
+"""
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
