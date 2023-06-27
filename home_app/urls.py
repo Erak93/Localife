@@ -1,7 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
-
 app_name="home_app"
 
 def home_app(request):
