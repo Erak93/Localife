@@ -4,6 +4,6 @@ from user_app import views
 
 urlpatterns = [
    
-    path("",views.user_app, name="user_app"),
+    path("",views.user_app, name="user_app"),  #This is shown when we go to www...../user
   
 ]
