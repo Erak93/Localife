@@ -5,4 +5,4 @@ from django.shortcuts import render
 app_name="user_app"
 
 def user_app(request):
-    return render(request,'user_app/user_app.html')
+    return render(request, 'user_app/user_app.html')
