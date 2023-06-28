@@ -1,0 +1,35 @@
+{% extends 'user_app/base.html' %} {% load static %} {% block body_block %}
+
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card mt-5">
+        <div class="card-body">
+          <div class="text-center">
+            {% if registered %}
+            <h1 class="mb-4">Thank you for registering!</h1>
+            {% else %}
+            <h1 class="mb-4">Register Here!</h1>
+            <h3 class="mb-4">Fill out the form:</h3>
+            {% endif %}
+          </div>
+          <form enctype="multipart/form-data" method="post" class="row g-3">
+            {% csrf_token %}
+            <div class="col-12">
+                {{ user_form.as_p }}</div>
+                
+              <div class="col-12">
+              {{ UserProfileForm.as_p }}
+            </div>
+
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary">Register</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

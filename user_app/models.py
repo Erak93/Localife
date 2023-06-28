@@ -43,7 +43,7 @@ class Experience(models.Model):
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag)
-    region = models.ManyToOneRel(Region)    
+    #region = models.ManyToOneRel(Region)    
     experience_image = models.ImageField(upload_to='experience_pics',blank=False)
 
 
