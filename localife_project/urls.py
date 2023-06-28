@@ -26,5 +26,6 @@ urlpatterns = [
     path("post/",include('post_app.urls')),
     path("book/",include('match_app.urls')),
     path("finished/",include('finished_app.urls')),
+    path("api/",include('api.urls')),
 
 ]
