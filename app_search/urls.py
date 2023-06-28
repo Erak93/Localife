@@ -2,11 +2,9 @@ from django.contrib import admin
 from django.urls import path , include
 from app_search import views
 
-
-app_name="search_app"
+from django.urls import path
+from .views import ExperienceSearchView
 
 urlpatterns = [
-   
-    path("",views.search_app, name="search_app"),
-  
+    path('experiences/search/', ExperienceSearchView.as_view(), name='experience_search'),
 ]
