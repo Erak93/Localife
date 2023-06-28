@@ -32,7 +32,9 @@ class ExperienceTag(models.Model):
     def __str__(self):
         return self.tag_name
 
-
+class Region(models.Model):
+    region_name=models.CharField(max_length=255)
+    region_desc=models.TextField(max_length=1000)
 
 class Experience(models.Model):
     host = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
@@ -40,7 +42,8 @@ class Experience(models.Model):
     description = models.TextField(max_length=1000,blank=False)
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
-    experience_tags = models.ManyToManyField(ExperienceTag)    
+    experience_tags = models.ManyToManyField(ExperienceTag)
+    region = models.ManyToOneRel(Region)    
     experience_image = models.ImageField(upload_to='experience_pics',blank=False)
 
 
