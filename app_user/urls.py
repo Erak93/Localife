@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path , include
-from user_app import views
+from app_user import views
 
 
 app_name="user_app"

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from home_app import views
+from app_home import views
 
 app_name="home_app"
 

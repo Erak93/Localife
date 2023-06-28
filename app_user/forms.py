@@ -1,5 +1,5 @@
 from django import forms
-from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
+from app_user.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
 
 
 

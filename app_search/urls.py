@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path , include
-from search_app import views
+from app_search import views
 
 from django.urls import path
 from .views import ExperienceSearchView
