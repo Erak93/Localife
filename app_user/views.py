@@ -1,7 +1,7 @@
 from django.shortcuts import render
 
 # I am adding the following from django level 5
-from user_app.forms import NewUserForm
+from app_user.forms import NewUserForm
 
 from django.contrib.auth import authenticate,login,logout
 from django.http import HttpResponseRedirect,HttpResponse
