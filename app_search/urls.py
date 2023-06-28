@@ -6,5 +6,6 @@ from django.urls import path
 from .views import ExperienceSearchView
 
 urlpatterns = [
+    path("", views.index, name="index"),
     path('experiences/search/', ExperienceSearchView.as_view(), name='experience_search'),
 ]

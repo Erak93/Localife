@@ -6,6 +6,10 @@ from user_app.models import Experience
 from django.views.generic import ListView
 from django.db.models import Q
 
+def index(request):
+    return render(request, "search_app/search_app.html")
+
+
 class ExperienceSearchView(ListView):
     model = Experience
     template_name = 'experience_search.html'
