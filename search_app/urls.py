@@ -1,12 +1,12 @@
-from django.contrib import admin
-from django.urls import path , include
-from search_app import views
+from django.urls import path, include
+from rest_framework import routers
+from .views import ExperienceViewSet
 
-
-app_name="search_app"
+router = routers.DefaultRouter()
+router.register('experiences', ExperienceViewSet)
 
 urlpatterns = [
-   
-    path("",views.search_app, name="search_app"),
-  
+    # Other URLs in your project
+    path('api/', include(router.urls)),
 ]
+
