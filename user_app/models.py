@@ -5,12 +5,17 @@ from django.contrib.auth.models import User
 
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    username = models.CharField(max_length=250, unique=True)
+    first_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(("email address"), blank=True, unique=True)
+    password = models.CharField(max_length=200)
     # The user inherit from abstractUser which already has username, first name, last name, email and password
    
-    location=models.CharField(max_length=50)
+    location=models.CharField(max_length=200, blank=False)
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
-    user_profile_image= models.ImageField(upload_to='profile_pics')
+    user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=False)
    
     def __str__(self):
         return self.user.username
