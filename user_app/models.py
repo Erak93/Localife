@@ -1,10 +1,9 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser, Group, Permission
 #from django_google_maps import fields as map_fields
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class UserProfile(AbstractUser):
     username = models.CharField(max_length=250, unique=True)
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
@@ -16,6 +15,22 @@ class UserProfile(models.Model):
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
     user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=True, null=True)
+
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name='user permissions',
+        blank=True,
+        related_name='userprofile_set'  # Provide a unique related_name
+    )
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name='groups',
+        blank=True,
+        related_name='userprofile_set'  # Provide a unique related_name
+    )
+
+    # additional customizations if needed
+
    
     def __str__(self):
         return self.user.username
