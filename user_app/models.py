@@ -43,8 +43,9 @@ class Experience(models.Model):
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag)
-    #region = models.ManyToOneRel(Region)    
     experience_image = models.ImageField(upload_to='experience_pics',blank=False)
+    #region = models.ManyToOneRel(Region)    
+
 
 
     def __str__(self):
@@ -59,7 +60,11 @@ class Booking(models.Model):
     
 
     def __str__(self):
-        return f"{self.traveler.user_profile.user.username} - {self.listing.title}"
+        return f"{self.traveler.user_profile.user.username} - {self.experience.title}"
+    
+    def clean(self):
+        if self.traveler.user_profile == self.experience.host:
+            raise ValidationError("Traveler and experience cannot be the same person.")
 
 
 class Review(models.Model):
