@@ -8,14 +8,14 @@ class UserProfile(models.Model):
     username = models.CharField(max_length=250, unique=True)
     first_name = models.CharField(max_length=250)
     last_name = models.CharField(max_length=250)
-    email = models.EmailField(("email address"), blank=True, unique=True)
+    email = models.EmailField(("email address"), blank=False, unique=True)
     password = models.CharField(max_length=200)
     # The user inherit from abstractUser which already has username, first name, last name, email and password
    
-    location=models.CharField(max_length=200, blank=False)
+    location=models.CharField(max_length=200, blank=True)
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
-    user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=False)
+    user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=True, null=True)
    
     def __str__(self):
         return self.user.username

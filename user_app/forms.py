@@ -5,6 +5,7 @@ from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experie
 
 class UserProfileForm(forms.ModelForm):           
     password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    
 
     
     class Meta:
