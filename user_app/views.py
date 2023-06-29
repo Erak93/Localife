@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
+from django.contrib import messages
 from user_app.forms import UserProfileForm
 from user_app.models import UserProfile
 
@@ -18,12 +19,20 @@ def register(request):
         user_form = UserProfileForm(data=request.POST)
 
         if user_form.is_valid():
-            user = user_form.save()  # Save the user instance
+            username= user_form.cleaned_data['username']
+            
+
+            if UserProfile.objects.filter(username=username).exists():
+                error_message = 'Username already exists. Please choose a different username.'
+                return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
 
             # Create the UserProfile instance and assign the user_id field
+            user = user_form.save()
             profile = UserProfile()
             profile.user = user
             profile.save()
+
+            messages.success(request, 'Registration successful!')
 
             registered = True
             return redirect('registration_success')
