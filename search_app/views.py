@@ -20,3 +20,5 @@ def continent_offers(request, continent_id):
     return render(request, 'continent_offers.html', {'continent': continent, 'offers': offers})
 
 
+def index(request):
+    return render(request, "search_app/base.html")

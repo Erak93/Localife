@@ -1,9 +1,10 @@
 from django.urls import path
-from .views import world_map
+from search_app import views
 
 app_name = 'search_app'
 
 urlpatterns = [
-    path('worldmap/', world_map, name='world_map'),
+    path("", views.index, name='index'  ),
+    path('worldmap/', views.world_map, name='world_map'),
     # other URL patterns...
 ]
