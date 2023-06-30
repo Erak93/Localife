@@ -33,7 +33,7 @@ class UserProfile(AbstractUser):
 
    
     def __str__(self):
-        return self.user.username
+        return self.username
 
 
 class TravelerProfile(models.Model):

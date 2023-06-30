@@ -12,30 +12,31 @@ def registration_success(request):
     return HttpResponse('Registration successful!')
 
 def register(request):
-    """This function is handling the registration"""
+    """This function handles the registration"""
     registered = False
 
     if request.method == 'POST':
         user_form = UserProfileForm(data=request.POST)
 
         if user_form.is_valid():
-            username= user_form.cleaned_data['username']
+            # Save the user_form before checking for username existence
             
 
-            if UserProfile.objects.filter(username=username).exists():
-                error_message = 'Username already exists. Please choose a different username.'
-                return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
+            username = user_form.cleaned_data['username']
 
-            # Create the UserProfile instance and assign the user_id field
+            if UserProfile.objects.filter(username=username).exists():
+
+                error_message = 'Username already exists. Please choose a different username.'
+                user.delete()  # Delete the user if username exists
+                return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
             user = user_form.save()
-            profile = UserProfile()
-            profile.user = user
-            profile.save()
+            # Create the UserProfile instance and assign the user_id field
+            
 
             messages.success(request, 'Registration successful!')
 
             registered = True
-            return redirect('registration_success')
+            return redirect('user_app:success')
 
     else:
         user_form = UserProfileForm()
