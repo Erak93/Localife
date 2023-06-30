@@ -1,19 +1,39 @@
 from django.db import models
-from django.contrib.auth.models import User
+from django.contrib.auth.models import User, AbstractUser, Group, Permission
 #from django_google_maps import fields as map_fields
 
 
-class UserProfile(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+class UserProfile(AbstractUser):
+    username = models.CharField(max_length=250, unique=True)
+    first_name = models.CharField(max_length=250)
+    last_name = models.CharField(max_length=250)
+    email = models.EmailField(("email address"), blank=False, unique=True)
+    password = models.CharField(max_length=200)
     # The user inherit from abstractUser which already has username, first name, last name, email and password
    
-    location=models.CharField(max_length=50)
+    location=models.CharField(max_length=200, blank=True)
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
-    user_profile_image= models.ImageField(upload_to='profile_pics')
+    user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=True, null=True)
+
+    user_permissions = models.ManyToManyField(
+        Permission,
+        verbose_name='user permissions',
+        blank=True,
+        related_name='userprofile_set'  # Provide a unique related_name
+    )
+    groups = models.ManyToManyField(
+        Group,
+        verbose_name='groups',
+        blank=True,
+        related_name='userprofile_set'  # Provide a unique related_name
+    )
+
+    # additional customizations if needed
+
    
     def __str__(self):
-        return self.user.username
+        return self.username
 
 
 class TravelerProfile(models.Model):
@@ -32,7 +52,9 @@ class ExperienceTag(models.Model):
     def __str__(self):
         return self.tag_name
 
-
+class Region(models.Model):
+    region_name=models.CharField(max_length=255)
+    region_desc=models.TextField(max_length=1000)
 
 class Experience(models.Model):
     host = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
@@ -40,7 +62,8 @@ class Experience(models.Model):
     description = models.TextField(max_length=1000,blank=False)
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
-    experience_tags = models.ManyToManyField(ExperienceTag)    
+    experience_tags = models.ManyToManyField(ExperienceTag)
+    #region = models.ManyToOneRel(Region)    
     experience_image = models.ImageField(upload_to='experience_pics',blank=False)
 
 

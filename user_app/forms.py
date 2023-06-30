@@ -1,13 +1,24 @@
 from django import forms
+from django.contrib.auth.models import User
 from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
 
 
+class UserProfileForm(forms.ModelForm):           
+    password = forms.CharField(label='Password', widget=forms.PasswordInput)
+    
 
-
-class UserProfileForm(forms.ModelForm):
+    
     class Meta:
         model = UserProfile
-        fields = ['location', 'user_profile_image']
+        fields = ('username','password', 'first_name', 'last_name', 'email', 'location', 'user_profile_image')
+        labels = {
+            
+            'email': 'Email',
+            'location': 'Location',
+            'user_profile_image': 'Profile Image',
+        }
+
+  
 
 class TravelerProfileForm(forms.ModelForm):
     class Meta:
