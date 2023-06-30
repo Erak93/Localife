@@ -1,31 +1,23 @@
 from django.db import models
+from django_countries.fields import CountryField
 
-# Create your models here.
+class Continent(models.Model):
+    name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
 
-from django.views.generic import ListView
-from django.db.models import Q
-from user_app.models import Experience
+class Country(models.Model):
+    name = models.CharField(max_length=100)
+    continent = models.ForeignKey(Continent, on_delete=models.CASCADE)
 
+    def __str__(self):
+        return self.name
 
-class ExperienceSearchView(ListView):
-    model = Experience
-    template_name = 'experience_search.html'
-    context_object_name = 'experiences'
-    paginate_by = 10
+class Offer(models.Model):
+    name = models.CharField(max_length=100)
+    country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    # Other fields for the offer
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-
-        regions = self.request.GET.getlist('regions')
-        tags = self.request.GET.getlist('tags')
-
-        # Filter by regions
-        if regions:
-            queryset = queryset.filter(host__region__in=regions)
-
-        # Filter by tags
-        if tags:
-            queryset = queryset.filter(experience_tags__in=tags)
-
-        return queryset
+    def __str__(self):
+        return self.name

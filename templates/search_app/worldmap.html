@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load leaflet_tags %}
+
+{% block content %}
+<div id="map" style="height: 500px;"></div>
+
+<script>
+var map = L.map('map').setView([0, 0], 2);  // Set initial map view
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+{% for continent in continents %}
+var continentBounds = L.geoJSON({{ continent.geojson }}).getBounds();
+var continentOffers = [];
+
+{% for offer in offers %}
+    {% if offer.continent == continent %}
+        continentOffers.push(
+            L.marker([{{ offer.latitude }}, {{ offer.longitude }}])
+                .bindPopup("<h3>{{ offer.title }}</h3><p>{{ offer.description }}</p>")
+        );
+    {% endif %}
+{% endfor %}
+
+var continentGroup = L.layerGroup(continentOffers);
+
+L.geoJSON({{ continent.geojson }}).addTo(map).on('click', function () {
+    map.fitBounds(continentBounds);
+    continentGroup.addTo(map);
+});
+{% endfor %}
+</script>
+{% endblock %}

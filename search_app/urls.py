@@ -1,10 +1,9 @@
-from django.contrib import admin
-from django.urls import path , include
-from search_app import views
-
 from django.urls import path
-from .views import ExperienceSearchView
+from .views import world_map
+
+app_name = 'search_app'
 
 urlpatterns = [
-    path('experiences/search/', ExperienceSearchView.as_view(), name='experience_search'),
+    path('worldmap/', world_map, name='world_map'),
+    # other URL patterns...
 ]

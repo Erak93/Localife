@@ -1,0 +1,8 @@
+<h1>{{ continent.name }}</h1>
+<ul>
+    {% for offer in offers %}
+        <li>{{ offer.name }}</li>
+    {% empty %}
+        <li>No offers available</li>
+    {% endfor %}
+</ul>

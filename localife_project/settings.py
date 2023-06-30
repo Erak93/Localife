@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     "post_app",
     "match_app",
     "finished_app",
+    "leaflet",
     
 ]
 
