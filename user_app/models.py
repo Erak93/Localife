@@ -66,7 +66,7 @@ class Experience(models.Model):
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag)
-    #region = models.ManyToOneRel(Region)    
+    region = models.ManyToOneRel(Region, on_delete=models.CASCADE, field_name='region_name', to='Region') # or models.ForeignKey(Region, on_delete=models.CASCADE)
     experience_image = models.ImageField(upload_to='experience_pics',blank=False)
 
 
