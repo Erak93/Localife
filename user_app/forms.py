@@ -4,6 +4,10 @@ from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experie
 
 
 class RegistrationForm(forms.ModelForm):
+    username = forms.CharField(
+        max_length=150,
+        widget=forms.TextInput(attrs={'pattern': '[\w.@+-]+', 'title': 'Username should only contain letters, digits, and @/./+/-/_ characters.'})
+    )
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model= User

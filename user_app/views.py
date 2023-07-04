@@ -61,7 +61,7 @@ def user_login(request):
         if user is not None:
             if user.is_active:
                 login(request, user)
-                return redirect('login')  # Replace 'login' with the correct URL name
+                return redirect('user_app:index')  # Replace 'login' with the correct URL name
             else:
                 return HttpResponse('ACCOUNT NOT ACTIVE')
 
