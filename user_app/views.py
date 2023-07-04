@@ -2,8 +2,9 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from user_app.forms import UserProfileForm
+from user_app.forms import UserProfileForm, RegistrationForm
 from user_app.models import UserProfile
+from django.contrib.auth.models import User
 
 def index(request):
     return HttpResponse('index')
@@ -16,7 +17,7 @@ def register(request):
     registered = False
 
     if request.method == 'POST':
-        user_form = UserProfileForm(data=request.POST)
+        user_form = RegistrationForm(data=request.POST)
 
         if user_form.is_valid():
             # Save the user_form before checking for username existence
@@ -24,22 +25,25 @@ def register(request):
 
             username = user_form.cleaned_data['username']
 
-            if UserProfile.objects.filter(username=username).exists():
+            if User.objects.filter(username=username).exists():
 
                 error_message = 'Username already exists. Please choose a different username.'
                 user.delete()  # Delete the user if username exists
                 return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
-            user = user_form.save()
+            user = user_form.save(commit=False)
+            user.set_password(user_form.cleaned_data['password'])
+            user.save()
+            # new_user.set_password(user_form.cleaned_data['password'])
             # Create the UserProfile instance and assign the user_id field
             
-
+            UserProfile.objects.create(user=user)
             messages.success(request, 'Registration successful!')
 
             registered = True
             return redirect('user_app:success')
 
     else:
-        user_form = UserProfileForm()
+        user_form = RegistrationForm()
 
     return render(request, 'user_app/registration.html', {
         'user_form': user_form,
