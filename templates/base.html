@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TraWell - {% block title %}{% endblock %}</title>
+    <style>
+        /* Add your custom styles here */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+        }
+        .navbar a {
+            color: #fff;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+        .navbar a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+        .logo {
+            color: #fff;
+            font-size: 24px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <span class="logo">TraWell</span>
+        <a href="#">Search</a>
+        <a href="#">Registration</a>
+        <a href="#">Login</a>
+        <a href="#">About</a>
+    </div>
+
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html>
