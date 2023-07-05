@@ -1,21 +1,15 @@
 from django.urls import path, include
-from rest_framework import routers
-from .views import ExperienceViewSet
+#from rest_framework import routers
+from .views import index
 
-<<<<<<< HEAD
-router = routers.DefaultRouter()
-router.register('experiences', ExperienceViewSet)
+#router = routers.DefaultRouter()
+#router.register('experiences', ExperienceViewSet)
 
+app_name = "search_app"
 urlpatterns = [
     # Other URLs in your project
-    path('api/', include(router.urls)),
+    path("index/", index, name="search_index"),
+    #path("granular/", granular, name="granular_search" )
+    #path('api/', include(router.urls)),
 ]
 
-=======
-from django.urls import path
-from .views import ExperienceSearchView
-
-urlpatterns = [
-    path('experiences/search/', ExperienceSearchView.as_view(), name='experience_search'),
-]
->>>>>>> aleksV2

@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User, AbstractUser, Group, Permission
+from django.utils import timezone
 #from django_google_maps import fields as map_fields
 
 
@@ -54,13 +55,17 @@ class ExperienceTag(models.Model):
 
 class Region(models.Model):
     region_name=models.CharField(max_length=255)
-    region_desc=models.TextField(max_length=1000)
+    region_desc=models.TextField(max_length=1000, blank=True)
+
+    def __str__(self) -> str:
+        return self.region_name
 
 class Experience(models.Model):
     host = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000,blank=False)
-    
+    start_date = models.DateField(default=timezone.now)
+    end_date = models.DateField(default=timezone.now)
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag)
     region = models.ForeignKey(Region, on_delete=models.CASCADE, default=1)  # Provide a default value here
@@ -79,7 +84,7 @@ class Booking(models.Model):
     
 
     def __str__(self):
-        return f"{self.traveler.user_profile.user.username} - {self.listing.title}"
+        return f"{self.traveler.user_profile.user.username} - {self.experience.title}"
 
 
 class Review(models.Model):

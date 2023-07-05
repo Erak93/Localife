@@ -4,9 +4,22 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>search app</title>
 </head>
 <body>
-    <h1>I am the template for search app</h1>
+    {% block content %}
+    <form method="get">
+        {{ filter1.form.as_p }}
+        <input type="submit" />
+    </form>
+      <form method="get">
+        {{ filter2.form.as_p }}
+        <input type="submit" />
+    </form>
+
+    {% for obj in filter2.qs %}
+    {{ obj.host }} - ${{ obj.experience_image }}<br />
+{% endfor %}
+{% endblock %}
 </body>
 </html>
