@@ -1,6 +1,12 @@
-{% extends 'base.html' %}
+
 
 {% block content %}
-  <h1>Create Post</h1>
-  <!-- Add form to create a new post -->
+  <h1>Create Experience</h1>
+
+  <form method="POST" action="{% url 'post_app:post_create' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Submit</button>
+  </form>
 {% endblock %}
+
