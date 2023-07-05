@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Booking App</title>
+    <!-- Add your CSS and JavaScript links here -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="{% static 'js/script.js' %}"></script>
+</head>
+<body>
+    <nav>
+        <!-- Add your navigation menu here -->
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/bookings/">Bookings</a></li>
+            <li><a href="/offers/">Offers</a></li>
+            <!-- Add more navigation links as needed -->
+        </ul>
+    </nav>
+    <main>
+        <!-- Content of your individual pages will go here -->
+        {% block content %}
+        {% endblock %}
+    </main>
+    <footer>
+        <!-- Add your footer content here -->
+        &copy; 2023 Booking App. All rights reserved.
+    </footer>
+</body>
+</html>
