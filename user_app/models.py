@@ -36,7 +36,7 @@ class UserProfile(models.Model):
 
    
     def __str__(self):
-        return self.username
+        return str(self.user)
 
 
 class TravelerProfile(models.Model):
