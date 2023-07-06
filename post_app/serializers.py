@@ -6,6 +6,9 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = '__all__'
 
+
+    #no need to use this one>>>
+    
     # def validate(self, data):
     #     if data['password'] != data['password2']:
     #         return serializers.ValidationError("Passwords must match.")

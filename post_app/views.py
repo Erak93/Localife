@@ -62,11 +62,11 @@ def experience_detail(request, id):
     if request.method == 'GET':
         serializer = ExperienceSerializer(experience)
         return Response(serializer.data) 
-    # elif request.method == 'PUT':
-    #     serializer = ExperienceSerializer(experience, data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response(serializer.data)
+    elif request.method == 'PUT':
+        serializer = ExperienceSerializer(experience, data=request.data)
+        serializer.is_valid(raise_exception=True)
+        serializer.save()
+        return Response(serializer.data)
     elif request.method == 'DELETE':
         experience.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
