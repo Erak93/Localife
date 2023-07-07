@@ -1,13 +1,34 @@
 from django import forms
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
 
 
+class RegistrationForm(forms.ModelForm):
+    password = forms.CharField(widget=forms.PasswordInput())
+    class Meta:
+        model= User
+        fields = ('username', 'first_name', 'last_name', 'email')
 
 
-class UserProfileForm(forms.ModelForm):
+
+class UserProfileForm(forms.ModelForm):           
+    
     class Meta:
         model = UserProfile
-        fields = ['location', 'user_profile_image']
+        fields = ('location', 'user_profile_image')
+        labels = {
+            
+    
+            'location': 'Location',
+            'user_profile_image': 'Profile Image',
+        }
+
+class UserProfileLoginForm(forms.Form):
+    username=forms.CharField()
+    password=forms.CharField(widget=forms.PasswordInput)
+    
+  
 
 class TravelerProfileForm(forms.ModelForm):
     class Meta:

@@ -1,0 +1,14 @@
+{% extends 'post_app/base.html' %}
+
+{% block content %}
+  <h1>Post List</h1>
+  <ul>
+    {% for post in posts %}
+      <li>{{ post.title }}</li>
+      <p>{{ post.content }}</p>
+      <!-- Display other fields as needed -->
+    {% empty %}
+      <li>No posts available.</li>
+    {% endfor %}
+  </ul>
+{% endblock %}

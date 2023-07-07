@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path , include
 from home_app import views
+from django.conf import settings 
+from django.conf.urls.static import static 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -27,4 +29,6 @@ urlpatterns = [
     path("book/",include('match_app.urls')),
     path("finished/",include('finished_app.urls')),
 
-]
+] + static(settings.MEDIA_URL,
+           document_root=settings.MEDIA_ROOT) 
+

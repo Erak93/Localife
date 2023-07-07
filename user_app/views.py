@@ -1,56 +1,87 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate, login
-from user_app.forms import UserProfileForm
+from django.contrib import messages
+from user_app.forms import UserProfileForm, RegistrationForm,UserProfileLoginForm
+from user_app.models import UserProfile
+from django.contrib.auth.models import User
 
 def index(request):
     return HttpResponse('index')
 
+def profile(request):
+    #Get the loggen-in user
+
+    user=request.user
+
+    context={
+        'user':user,
+        
+    }
+    return render(request,'user_app/user_profile.html',context)
+
+def registration_success(request):
+    return HttpResponse('Registration successful!')
+
 def register(request):
-    """ This function is handling the registration"""
+    """This function handles the registration"""
     registered = False
 
-    if request.method == 'POST':                              
-        user_form = UserProfileForm(data=request.POST)          # creating a variable of the object
+    if request.method == 'POST':
+        user_form = RegistrationForm(data=request.POST)
 
-        if user_form.is_valid():                                # if the object is already created
-            user = user_form.save(commit=False)
-            user.set_password(user_form.cleaned_data['password']) 
-            user.save()                                         #save to the internally database
-
-            registered = True                                       
-            return redirect('registration_success')  # Redirect to a success page 
+        if user_form.is_valid():
+            # Save the user_form before checking for username existence
             
 
-    else:
-        user_form = UserProfileForm()                               # create a object (because not registered yet)
+            username = user_form.cleaned_data['username']
 
-    return render(request, 'user_app/registration_success.html', {         # storing the data
+            if User.objects.filter(username=username).exists():
+
+                error_message = 'Username already exists. Please choose a different username.'
+                user.delete()  # Delete the user if username exists
+                return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
+            user = user_form.save(commit=False)
+            user.set_password(user_form.cleaned_data['password'])
+            user.save()
+            # new_user.set_password(user_form.cleaned_data['password'])
+            # Create the UserProfile instance and assign the user_id field
+            
+            UserProfile.objects.create(user=user)
+            messages.success(request, 'Registration successful!')
+
+            registered = True
+            return redirect('user_app:success')
+
+    else:
+        user_form = RegistrationForm()
+
+    return render(request, 'user_app/registration.html', {
         'user_form': user_form,
         'registered': registered
-    })                                                              
+    })
 
 def user_login(request):
-    """ This function is required for the login"""                                                                
-    if request.method == 'POST':                                    # if the user is sending data
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password) # checks if the user exist
-
-        if user is not None:                                                # if user exist
-            if user.is_active:
-                login(request, user)                                                # login
-                return redirect('login')  # Redirect to the desired page after login///// HUGE_BUG
+    if request.method == 'POST':
+        form = UserProfileLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    
+                    return redirect('home_app')  # Replace 'home_app' with the correct URL name
+                else:
+                    return HttpResponse('ACCOUNT NOT ACTIVE')
             else:
-                return HttpResponse('ACCOUNT NOT ACTIVE')                           #fuck the user
-
-        else:                                                                       #if user is none
-            print('Someone tried to login and failed!')
-            print("Username: {} and password {}".format(username, password))
-            return HttpResponse("Invalid login details supplied!")                  #fuck him
-
+                print('Someone tried to login and failed!')
+                print("Username: {} and password {}".format(username, password))
+                return HttpResponse("Invalid login details supplied!")
     else:
-        return render(request, 'user_app/login.html', {})                           #login site                  
-        
+        form = UserProfileLoginForm()
+    
+    return render(request, 'user_app/login.html', {'form': form})
 
