@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from user_app.models import Experience
-from .filters import ExperienceFilter, SecondFilter
+from .filters import ExperienceFilter, SecondFilter, APIFilter
+from .serializers import ExperienceSerializer, APISerializer
 # Create your views here
 
 def index(request):
@@ -8,7 +9,7 @@ def index(request):
     queryset = filter1.qs
 
     filter2 = SecondFilter(request.GET, queryset=queryset)
-    queryset2 = filter2.qs
+    #queryset2 = filter2.qs
 
     context = {
         'filter1': filter1,
@@ -21,3 +22,19 @@ def granular(request, f):
 
     return render(request, 'search_app/granular_search.html', {"filter2": f2})
 """
+
+from rest_framework import viewsets
+from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
+
+class SearchAPIView(viewsets.ModelViewSet):
+        queryset = Experience.objects.all().order_by('region')
+        serializer_class = APISerializer
+        filter_backends = [DjangoFilterBackend]
+        filterset_class = APIFilter
+        #filterset_fields = ['price', 'start_date', 'end_date', 'region__region_name', 'host__username', 'experience_tags__tag_name']
+        #filter_instance = APIFilter(request.query_params, queryset=queryset)
+        #queryset = filter_instance.qs
+
+        #serializer = ExperienceSerializer(queryset, many=True)
+    

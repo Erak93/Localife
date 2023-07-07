@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>search app</title>
 </head>
+
 <body>
     {% block content %}
     <form method="get">
@@ -18,8 +19,9 @@
     </form>
 
     {% for obj in filter2.qs %}
-    {{ obj.host }} - ${{ obj.experience_image }}<br />
+    {{ obj.host }} - <img src="{{obj.experience_image}}" alt="experience image"><br />
 {% endfor %}
 {% endblock %}
 </body>
+
 </html>
