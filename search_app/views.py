@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
 from user_app.models import Experience
@@ -11,26 +11,13 @@ from django.db.models import Q
 def search_app_result(request):
     return render(request,'search_app/experience_search_results.html')
 
+def experience_details(request,experience_id):
+    # Fetch the experience object or handle the case when it doesn't exist
+    experience = get_object_or_404(Experience, id=experience_id)
 
-class ExperienceSearchView(ListView):
-    model = Experience
-    template_name = 'experience_search.html'
-    context_object_name = 'experiences'
-    paginate_by = 10
+    context = {
+        'experience': experience,
+    }
+    return render(request, 'search_app/experience_details.html', context)
 
-    def get_queryset(self):
-        queryset = super().get_queryset()
-
-        regions = self.request.GET.getlist('regions')
-        tags = self.request.GET.getlist('tags')
-
-        # Filter by regions
-        if regions:
-            queryset = queryset.filter(host__region__in=regions)
-
-        # Filter by tags
-        if tags:
-            queryset = queryset.filter(experience_tags__in=tags)
-
-        return queryset
 

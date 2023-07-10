@@ -1,9 +1,12 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>TraWell - {% block title %}{% endblock %}</title>
-  <style>
-    /* Add your custom styles here */
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+      /* Add your custom styles here */
     body {
       margin: 0;
       padding: 0;
@@ -40,11 +43,11 @@
       display: flex;
     }
     /* Profile Section Styles */
-    .profile {
+    .experience {
       display: flex;
       align-items: flex-start;
     }
-    .profile-image {
+    .experience-picture {
       width: 300px;
       height: 300px;
       border-radius: 50%;
@@ -52,7 +55,7 @@
       margin-right: 20px;
     }
 
-    .profile-picture-file{
+    .experience-picture-file{
       width: 300px;
       height: 300px;
        
@@ -60,48 +63,40 @@
       border:6px solid #a94c77;
       margin-right: 20px;
     }
-    .profile-name {
+    .experience-title {
       font-size: 24px;
       font-weight: bold;
       margin-bottom: 35px;
       margin-top: 30px;
     }
-    .profile-biography {
+    .experience-description {
       font-size: 18px;
       line-height: 1.5;
       margin-left:30px;
       margin-top:100px
     }
 
-    .bio{
-        font-size: 18px;
-        font-weight:bold;
-
-    }
+   
   </style>
+        
+      
 </head>
 <body>
-  <div class="navbar">
-    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
-    <a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>
-    <a class="nav-link" href="{% url 'home_app' %}">Logout</a> <!--Needs to be updated-->
+    <div class="navbar">
+        <a href="{% url 'home_app' %}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+        <!--<a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>-->
+        <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+        <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+        <a href="#">About</a>
+      </div>
+    <h1>I am the experience detail</h1>
 
-    <a href="#">About</a>
-  </div>
-  {% if user.is_authenticated %}
-  <div class="content">
-    <div class="profile">
-      <div>
-        <div class="profile-name">{{user.username}}</div>
-        <div class="profile-image"><img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
-      </div>
-      <div class="profile-biography"><span class="bio">Bio:</span> <br>
-        {{user.user_profile.user_bio}}
-      </div>
-    </div>
-  </div>
-  {% else %}
-  <h1>Please create an account to view your profile</h1>
-  {% endif %}
+    <h1>{{experience.title}}</h1>
+    <img src="{{experience.experience_image.url}}" alt="experience_image">
+    <h2>Description</h2>
+    <p>{{experience.description}}</p>
+    <h2>Price</h2>
+    <p>{{experience.price}}</p>
+    <a href="#">Book</a>
 </body>
 </html>

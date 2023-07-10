@@ -71,7 +71,7 @@ class Experience(models.Model):
 
 
     def __str__(self):
-        return self.title
+        return f'{self.title,self.id}'
 
 
 class Booking(models.Model):
