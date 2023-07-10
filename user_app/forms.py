@@ -1,13 +1,10 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
 
 
 class RegistrationForm(forms.ModelForm):
-    username = forms.CharField(
-        max_length=150,
-        widget=forms.TextInput(attrs={'pattern': '[\w.@+-]+', 'title': 'Username should only contain letters, digits, and @/./+/-/_ characters.'})
-    )
     password = forms.CharField(widget=forms.PasswordInput())
     class Meta:
         model= User
@@ -27,6 +24,10 @@ class UserProfileForm(forms.ModelForm):
             'user_profile_image': 'Profile Image',
         }
 
+class UserProfileLoginForm(forms.Form):
+    username=forms.CharField()
+    password=forms.CharField(widget=forms.PasswordInput)
+    
   
 
 class TravelerProfileForm(forms.ModelForm):

@@ -1,13 +1,24 @@
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse,HttpResponseRedirect
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
-from user_app.forms import UserProfileForm, RegistrationForm
+from user_app.forms import UserProfileForm, RegistrationForm,UserProfileLoginForm
 from user_app.models import UserProfile
 from django.contrib.auth.models import User
 
 def index(request):
     return HttpResponse('index')
+
+def profile(request):
+    #Get the loggen-in user
+
+    user=request.user
+
+    context={
+        'user':user,
+        
+    }
+    return render(request,'user_app/user_profile.html',context)
 
 def registration_success(request):
     return HttpResponse('Registration successful!')
@@ -51,26 +62,27 @@ def register(request):
     })
 
 def user_login(request):
-    """This function is required for the login"""
     if request.method == 'POST':
-        username = request.POST.get('username')
-        password = request.POST.get('password')
-
-        user = authenticate(request, username=username, password=password)
-
-        if user is not None:
-            if user.is_active:
-                login(request, user)
-                return redirect('user_app:index')  # Replace 'login' with the correct URL name
+        form = UserProfileLoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                if user.is_active:
+                    login(request, user)
+                    
+                    return redirect('home_app')  # Replace 'home_app' with the correct URL name
+                else:
+                    return HttpResponse('ACCOUNT NOT ACTIVE')
             else:
-                return HttpResponse('ACCOUNT NOT ACTIVE')
-
-        else:
-            print('Someone tried to login and failed!')
-            print("Username: {} and password {}".format(username, password))
-            return HttpResponse("Invalid login details supplied!")
-
+                print('Someone tried to login and failed!')
+                print("Username: {} and password {}".format(username, password))
+                return HttpResponse("Invalid login details supplied!")
     else:
-        return render(request, 'user_app/login.html', {})
+        form = UserProfileLoginForm()
+    
+    return render(request, 'user_app/login.html', {'form': form})
 
 

@@ -1,4 +1,4 @@
-from django.conf import settings
+addfrom django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User, Group, Permission
 #from django_google_maps import fields as map_fields
@@ -18,7 +18,7 @@ class UserProfile(models.Model):
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
     user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=True, null=True)
-
+    user_bio=models.TextField(default="Insert bio")
     user_permissions = models.ManyToManyField(
         Permission,
         verbose_name='user permissions',
@@ -36,7 +36,7 @@ class UserProfile(models.Model):
 
    
     def __str__(self):
-        return str(self.user)
+        return self.user.username
 
 
 class TravelerProfile(models.Model):
@@ -65,9 +65,9 @@ class Experience(models.Model):
     description = models.TextField(max_length=1000,blank=False)
     
     price = models.DecimalField(max_digits=12, decimal_places=2)
-    experience_tags = models.ManyToManyField(ExperienceTag)
-    #region = models.ManyToOneRel(Region)    
-    experience_image = models.ImageField(upload_to='experience_pics',blank=False)
+    experience_tags = models.ManyToManyField(ExperienceTag, null=True, blank=True)
+    region = models.ManyToOneRel(Region, on_delete=models.CASCADE, field_name='region_name', to='Region') # or models.ForeignKey(Region, on_delete=models.CASCADE)
+    experience_image = models.ImageField(upload_to='experience_pics',blank=True, null=True)
 
 
     def __str__(self):

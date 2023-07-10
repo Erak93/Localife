@@ -13,7 +13,7 @@ class Experience(models.Model):
 
 class Booking(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    product = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    product = models.ForeignKey(Experience, on_delete=models.CASCADE, related_name='bookings')
     payment_status = models.BooleanField(default=False)
 
 

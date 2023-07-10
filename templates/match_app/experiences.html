@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Available Experiences</title>
+</head>
+<body>
+    <h1>Available Experiences</h1>
+
+    {% if experiences %}
+        <ul>
+            {% for experience in experiences %}
+                <li>
+                    <h3>{{ experience.name }}</h3>
+                    <p>Price: ${{ experience.price }}</p>
+                    <p>{{ experience.description }}</p>
+                    <img src="{{ experience.picture.url }}" alt="{{ experience.name }}" width="200">
+                    <a href="{% url 'match_app:book_offer' experience.id %}">Book Now</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No experiences available at the moment.</p>
+    {% endif %}
+</body>
+</html>

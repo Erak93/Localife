@@ -1,24 +1,35 @@
 from django.shortcuts import render
-from .models import Continent, Offer
 
-from django.shortcuts import render
-from .models import Continent, Offer
+# Create your views here.
+from user_app.models import Experience
 
-def world_map(request):
-    continents = Continent.objects.all()
-    offers = Offer.objects.all()
-    context = {
-        'continents': continents,
-        'offers': offers
-    }
-    return render(request, 'search_app/worldmap.html', context)
+from django.views.generic import ListView
+from django.db.models import Q
 
 
-def continent_offers(request, continent_id):
-    continent = Continent.objects.get(id=continent_id)
-    offers = Offer.objects.filter(country__continent=continent)
-    return render(request, 'continent_offers.html', {'continent': continent, 'offers': offers})
+
+def search_app_result(request):
+    return render(request,'search_app/experience_search_results.html')
 
 
-def index(request):
-    return render(request, "search_app/base.html")
+class ExperienceSearchView(ListView):
+    model = Experience
+    template_name = 'experience_search.html'
+    context_object_name = 'experiences'
+    paginate_by = 10
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+
+        regions = self.request.GET.getlist('regions')
+        tags = self.request.GET.getlist('tags')
+
+        # Filter by regions
+        if regions:
+            queryset = queryset.filter(host__region__in=regions)
+
+        # Filter by tags
+        if tags:
+            queryset = queryset.filter(experience_tags__in=tags)
+
+        return queryset

@@ -4,12 +4,14 @@ from .models import Booking
 class BookingForm(forms.ModelForm):
     class Meta:
         model = Booking
-        fields = ['user', 'product']
+        fields = ['product']
 
     def clean(self):
         cleaned_data = super().clean()
-        user = cleaned_data.get('user')
         product = cleaned_data.get('product')
+
+        if self.user.is_anonymous:
+            raise forms.ValidationError("you must be logged in to book this Experience!")
 
         if user and product:
             if Booking.objects.filter(user=user, product=product).exists():
