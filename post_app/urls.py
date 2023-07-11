@@ -22,17 +22,3 @@ urlpatterns = [
     path('test_view/', views.test_view, name='test_view'),
     path('detail/<int:id>/', views.experience_detail, name='post_detail'),
 ]
-
-# this one is for api:
-
-# from rest_framework import serializers, viewsets
-# from user_app.models import Experience
-
-# class ExperienceSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model = Experience
-#         fields = '__all__'
-
-# class ExperienceViewSet(viewsets.ModelViewSet):
-#     queryset = Experience.objects.all()
-#     serializer_class = ExperienceSerializer

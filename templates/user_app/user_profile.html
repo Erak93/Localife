@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TraWell - {% block title %}{% endblock %}</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdceaf;
+    }
+    .navbar {
+      background-color: #2a6560;
+      color: #fff;
+      padding: 10px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .logo {
+      color: #a94c77;
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    .well {
+      color: #fdceaf;
+      font-size: 24px;
+    }
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px;
+      display: flex;
+    }
+    /* Profile Section Styles */
+    .profile {
+      display: flex;
+      align-items: flex-start;
+    }
+    .profile-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #a94c77;
+      margin-right: 20px;
+    }
+
+    .profile-picture-file{
+      width: 300px;
+      height: 300px;
+       
+      border-radius: 50%;
+      border:6px solid #a94c77;
+      margin-right: 20px;
+    }
+    .profile-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 35px;
+      margin-top: 30px;
+    }
+    .profile-biography {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-left:30px;
+      margin-top:100px
+    }
+
+    .bio{
+        font-size: 18px;
+        font-weight:bold;
+
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+    <a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>
+    <a class="nav-link" href="{% url 'home_app' %}">Logout</a> <!--Needs to be updated-->
+
+    <a href="#">About</a>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="content">
+    <div class="profile">
+      <div>
+        <div class="profile-name">{{user.username}}</div>
+        <div class="profile-image"><img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
+      </div>
+      <div class="profile-biography"><span class="bio">Bio:</span> <br>
+        {{user.user_profile.user_bio}}
+      </div>
+    </div>
+  </div>
+  {% else %}
+  <h1>Please create an account to view your profile</h1>
+  {% endif %}
+</body>
+</html>

@@ -1,5 +1,6 @@
 from django import forms
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import AuthenticationForm
 from user_app.models import UserProfile, TravelerProfile, ExperienceTag, Experience, Booking, Review
 
 
@@ -23,6 +24,10 @@ class UserProfileForm(forms.ModelForm):
             'user_profile_image': 'Profile Image',
         }
 
+class UserProfileLoginForm(forms.Form):
+    username=forms.CharField()
+    password=forms.CharField(widget=forms.PasswordInput)
+    
   
 
 class TravelerProfileForm(forms.ModelForm):
