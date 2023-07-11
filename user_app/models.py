@@ -80,6 +80,7 @@ class Booking(models.Model):
     start_date = models.DateField()
     end_date = models.DateField()
     
+    
 
     def __str__(self):
         return f"{self.traveler.user_profile.user.username} - {self.listing.title}"
