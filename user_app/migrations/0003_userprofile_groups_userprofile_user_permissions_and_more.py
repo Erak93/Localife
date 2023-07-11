@@ -13,26 +13,26 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
-        migrations.AddField(
-            model_name="userprofile",
-            name="groups",
-            field=models.ManyToManyField(
-                blank=True,
-                related_name="userprofile_set",
-                to="auth.group",
-                verbose_name="groups",
-            ),
-        ),
-        migrations.AddField(
-            model_name="userprofile",
-            name="user_permissions",
-            field=models.ManyToManyField(
-                blank=True,
-                related_name="userprofile_set",
-                to="auth.permission",
-                verbose_name="user permissions",
-            ),
-        ),
+#         migrations.AddField(
+            # model_name="userprofile",
+            # name="groups",
+            # field=models.ManyToManyField(
+                # blank=True,
+                # related_name="userprofile_set",
+                # to="auth.group",
+                # verbose_name="groups",
+            # ),
+        # ),
+        # migrations.AddField(
+            # model_name="userprofile",
+            # name="user_permissions",
+            # field=models.ManyToManyField(
+                # blank=True,
+                # related_name="userprofile_set",
+                # to="auth.permission",
+                # verbose_name="user permissions",
+            # ),
+        # ),
         migrations.AlterField(
             model_name="userprofile",
             name="location",

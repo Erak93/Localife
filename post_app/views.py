@@ -9,20 +9,6 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
-
-### previouse version
-#@api_view(['GET', 'POST'])
-# def create_experience(request):
-#     serializer = ExperienceSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()Response
-#     return Response(serializer.data)
-
-### previouse version
-
-
-###new version
 from .forms import ExperienceForm
 
 def test_view(request):
@@ -38,11 +24,11 @@ def create_experience(request):
     else:
         form = ExperienceForm()
     return render(request, 'post_app/post_create.html', {'form': form})
-###new version
 
 
 
-@api_view(['GET', 'POST'])
+
+@api_view(['GET'])
 def experience_list(request): #, format=None):
     if request.method == 'GET': # and request.user.is_authenticated:
         queryset = Experience.objects.all() #.filter(user=request.user)

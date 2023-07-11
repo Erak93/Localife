@@ -9,13 +9,13 @@ class Migration(migrations.Migration):
         ('user_app', '0001_initial'),
     ]
 
-    operations = [
-        migrations.CreateModel(
-            name='Region',
-            fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('region_name', models.CharField(max_length=255)),
-                ('region_desc', models.TextField(max_length=1000)),
-            ],
-        ),
-    ]
+    # operations = [
+        # migrations.CreateModel(
+            # name='Region',
+            # fields=[
+                # ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
+                # ('region_name', models.CharField(max_length=255)),
+                # ('region_desc', models.TextField(max_length=1000)),
+            # ],
+        # ),
+    # ]
