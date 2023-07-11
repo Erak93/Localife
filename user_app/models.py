@@ -18,11 +18,7 @@ class UserProfile(models.Model):
     #address = map_fields.AddressField(max_length=200)
     #geolocation = map_fields.GeoLocationField(max_length=100)
     user_profile_image= models.ImageField(upload_to='user_app/profile_pics',blank=True, null=True)
-<<<<<<< HEAD
-
-=======
     user_bio=models.TextField(default="Insert bio")
->>>>>>> gia2
     user_permissions = models.ManyToManyField(
         Permission,
         verbose_name='user permissions',

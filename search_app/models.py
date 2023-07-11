@@ -2,8 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-<<<<<<< HEAD
-=======
 
 from django.views.generic import ListView
 from django.db.models import Q
@@ -31,4 +29,3 @@ class ExperienceSearchView(ListView):
             queryset = queryset.filter(experience_tags__in=tags)
 
         return queryset
->>>>>>> gia2

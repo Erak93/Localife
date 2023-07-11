@@ -1,8 +1,5 @@
 from django.shortcuts import render,get_object_or_404
 
-<<<<<<< HEAD
-# Create your views here.
-=======
 # Create your views here.
 from user_app.models import Experience
 
@@ -24,4 +21,3 @@ def experience_details(request,experience_id):
     return render(request, 'search_app/experience_details.html', context)
 
 
->>>>>>> gia2
