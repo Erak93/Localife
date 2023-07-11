@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  /**background-image: url(https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80)**/;
+  background-color: #F5B489;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.navbar {
+  background-color: #2A6560;
+  color: #fff;
+  padding: 10px;
+}
+.navbar a {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.navbar a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.logo {
+  color: #A94C77;
+  font-size: 30px;
+  margin-right: 10px;
+}
+.well {
+  color: #FDCEAF;
+  font-size: 24px;
+}
+.main-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 0 50px;
+  box-sizing: border-box;
+  margin-top: 100px;
+}
+.main-heading {
+  font-size: 40px;
+  color: #fff;
+  text-align: right;
+}
+.room-results {
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+.room {
+flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+margin: 20px;
+padding: 20px;
+border: 1px solid #ccc;
+border-radius: 5px;
+background-color: #fff;
+box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+display: block;
+}
+.room img {
+width: 100%;
+height: auto;
+margin-bottom: 10px;
+}
+.room-title {
+font-size: 24px;
+margin-bottom: 10px;
+}
+.room-description {
+font-size: 14px;
+color: #777;
+margin-bottom: 10px;
+}
+.room-price {
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+.book-button {
+display: inline-block;
+padding: 10px 20px;
+background-color: #A94C77;
+color: #fff;
+font-size: 16px;
+text-decoration: none;
+border-radius: 5px;
+}
+.book-button:hover {
+background-color: #FDCEAF;}
+.experience-image {
+width:100px;
+}
