@@ -67,11 +67,20 @@ class Experience(models.Model):
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag, null=True, blank=True)
     region = models.ManyToOneRel(Region, on_delete=models.CASCADE, field_name='region_name', to='Region') # or models.ForeignKey(Region, on_delete=models.CASCADE)
-    experience_image = models.ImageField(upload_to='experience_pics',blank=True, null=True)
+    experience_image = models.ImageField(upload_to='media/experience_pics',blank=True, null=True)
 
 
     def __str__(self):
         return f'{self.title,self.id}'
+    
+#mosh
+#class ExperienceImage(models.Model):
+#    experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
+#    experience_image = models.ImageField(upload_to='media/experience_pics',blank=True, null=True)
+#
+#    def __str__(self):
+#        return f'{self.experience.title,self.experience.id}'
+#mosh
 
 
 class Booking(models.Model):

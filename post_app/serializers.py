@@ -6,6 +6,11 @@ class ExperienceSerializer(serializers.ModelSerializer):
         model = Experience
         fields = '__all__'
 
+# class ExperienceImageSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Experience
+#         fields = ['id', 'experience_image']
+
 
     #no need to use this one>>>
     
