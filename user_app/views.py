@@ -33,7 +33,7 @@ def register(request):
         profile_form = UserProfileForm(data=request.POST)
 
         if user_form.is_valid() and profile_form.is_valid():
-            with transaction.atomic():
+            with transaction.atomic():  #for data integrity and stability said chatgpt 
                 user = user_form.save(commit=False)
                 user.set_password(user_form.cleaned_data['password'])
                 user.save()
