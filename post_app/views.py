@@ -1,4 +1,3 @@
-
 from django.shortcuts import render, get_list_or_404, get_object_or_404, redirect
 from rest_framework import generics, status
 from rest_framework.permissions import IsAuthenticated
@@ -9,40 +8,32 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-
-
-### previouse version
-#@api_view(['GET', 'POST'])
-# def create_experience(request):
-#     serializer = ExperienceSerializer(data=request.data)
-#     if serializer.is_valid():
-#         serializer.save()Response
-#     return Response(serializer.data)
-
-### previouse version
-
-
-###new version
 from .forms import ExperienceForm
+from rest_framework.parsers import MultiPartParser, FormParser
 
 def test_view(request):
     return render(request, 'post_app/test_view.html')
 
 def create_experience(request):
     if request.method == 'POST':
-        form = ExperienceForm(request.POST)
+        form = ExperienceForm(request.POST, request.FILES)
         if form.is_valid():
             form.save()
+            #image = request.FILES.get('experience_image')
+            #image = Experience.objects.create(experience_image=image)
+            #image.save()
+            
             #return render(request, ('home_app/home_app.html'))
             return render(request, 'post_app/test_view.html')
+        
     else:
         form = ExperienceForm()
     return render(request, 'post_app/post_create.html', {'form': form})
-###new version
 
 
 
-@api_view(['GET', 'POST'])
+
+@api_view(['GET'])
 def experience_list(request): #, format=None):
     if request.method == 'GET': # and request.user.is_authenticated:
         queryset = Experience.objects.all() #.filter(user=request.user)
@@ -62,11 +53,17 @@ def experience_detail(request, id):
     if request.method == 'GET':
         serializer = ExperienceSerializer(experience)
         return Response(serializer.data) 
-    elif request.method == 'PUT':
-        serializer = ExperienceSerializer(experience, data=request.data)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-        return Response(serializer.data)
+    # elif request.method == 'PUT':
+    #     serializer = ExperienceSerializer(experience, data=request.data)
+    #     serializer.is_valid(raise_exception=True)
+    #     serializer.save()
+    #     return Response(serializer.data)
+    
     elif request.method == 'DELETE':
         experience.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
+    
+class ExperienceUpdate(generics.RetrieveUpdateAPIView):
+    queryset = Experience.objects.all()
+    serializer_class = ExperienceSerializer
+    #permission_classes = [IsAuthenticated]

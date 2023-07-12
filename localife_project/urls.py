@@ -20,6 +20,7 @@ from home_app import views
 from django.conf import settings 
 from django.conf.urls.static import static 
 
+
 urlpatterns = [
     path("admin/", admin.site.urls),
     path("",views.home_app, name="home_app"),
@@ -28,7 +29,6 @@ urlpatterns = [
     path("post/",include('post_app.urls')),
     path("book/",include('match_app.urls')),
     path("finished/",include('finished_app.urls')),
-
 ] + static(settings.MEDIA_URL,
            document_root=settings.MEDIA_ROOT) 
 

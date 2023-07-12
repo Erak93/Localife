@@ -11,4 +11,5 @@ urlpatterns = [
     path('create/', views.create_experience, name='post_create'),
     path('test_view/', views.test_view, name='test_view'),
     path('detail/<int:id>/', views.experience_detail, name='post_detail'),
+    path('api/v1/update/<int:pk>/', views.ExperienceUpdate.as_view(), name='post_update'),
 ]

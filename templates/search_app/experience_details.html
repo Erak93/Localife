@@ -144,7 +144,7 @@
 
         <div class="host-section">
           <h2>Your Host</h2>
-          <a href="I NEED TO REDIRECT TO HOST PROFILE"><img
+          <a href="{% url 'search_app:host_profile' experience_id=experience_id %}"><img
             class="host-picture"
             src="{{experience.host.user_profile_image.url}}"
             alt="host image"

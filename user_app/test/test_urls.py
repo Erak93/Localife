@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from user_app.views import register,user_login
+from django.contrib.auth import views as auth_views
 
 # To run a test the syntax is python manage.py test "App_name". In this case is python manage.py test user_app
 

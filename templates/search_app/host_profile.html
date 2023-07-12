@@ -1,4 +1,3 @@
-{% load static%}
 <!DOCTYPE html>
 <html>
 <head>
@@ -39,14 +38,11 @@
       background-color: #fff;
       margin: 20px;
       display: flex;
-      /**background-image: url("https://wallpaperswide.com/download/light_background-wallpaper-1920x1080.jpg");
-      background-size: cover; **/
     }
     /* Profile Section Styles */
     .profile {
       display: flex;
       align-items: flex-start;
-      
     }
     .profile-image {
       width: 300px;
@@ -73,7 +69,7 @@
     .profile-biography {
       font-size: 18px;
       line-height: 1.5;
-      margin-left:40px;
+      margin-left:30px;
       margin-top:100px
     }
 
@@ -83,15 +79,43 @@
 
     }
 
-    .rocket{
-      width: 40px;
-      margin-top: 30px;
+    .experience_container{
+      background-color: rgba(17, 80, 208, 0.171);
+      border-radius: 15px;
+
     }
 
-    .calendar{
-      width: 40px;
-      margin-top: 30px;
+    .experience_title{
+      margin-left: 10px;
+      padding-top:20px;
+      margin-bottom: 2px;
     }
+    .experience_image_file{
+      margin-left: 10px;
+      padding-top:2px;
+      width:600px
+    }
+    .experience_description{
+      margin-left: 10px;
+      padding-top:5px;
+      padding-bottom: 15px;
+    }
+    .experience_button {
+        display: inline-block;
+        width: fit-content;
+        margin-top: 5px;
+        margin-left: 400px;
+        padding: 10px 20px;
+        background-color: #a94c77;
+        color: #fff;
+        font-size: 30px;
+        text-decoration: none;
+        border-radius: 10px;
+        height: auto;
+      }
+      .experience_button:hover {
+        background-color: #fdceaf; /* Update with your desired hover color */
+      }
   </style>
 </head>
 <body>
@@ -102,26 +126,34 @@
 
     <a href="#">About</a>
   </div>
-  {% if user.is_authenticated %}
+ 
   <div class="content">
     <div class="profile">
       <div>
-        <div class="edit-profile"><a href="{% url 'user_app:profile_update' pk=user_id %}">Edit your info</a></div>
-        <div class="profile-name">{{user.username}}</div>
-        <div class="profile-image"><img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
+        <div class="profile-name">{{experience.host}}</div>
+        <div class="profile-image"><img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic"></div>
       </div>
       <div class="profile-biography"><span class="bio">Bio:</span> <br>
-        {{user.user_profile.user_bio}}
-        <div class="booked-experience-list">
-          <img class="rocket" src="{% static 'rocket.png' %}" alt=""><a href="#">Your upcoming experiences</a><br>
-          <img class="calendar" src="{% static 'calendar.png' %}" alt=""><a href="#">Your hosting experiences</a>
+        {{experience.host.user_bio}}
+        <div class="experiences-offered">
+          <h2>Experiences offered by this host</h2>
+          
+          {% for i in all_experiences %}
+            {% if i.host == experience.host %}
+                  <div class="experience_container">
+                  <h2 class="experience_title">{{i.title }}</h2>
+                  <img class="experience_image_file" src="{{i.experience_image.url}}" alt="">
+                  <a class="experience_button"href="{% url 'search_app:experience_details' experience_id=i.id %}">View more</a>
+                   <p class="experience_description">{{ i.description }}</p>
+    <!-- Add more fields as needed -->
+                  </div>
+            {%endif%}
+          {% endfor %}
         </div>
       </div>
-   
+      
     </div>
   </div>
-  {% else %}
-  <h1>Please create an account to view your profile</h1>
-  {% endif %}
+  
 </body>
 </html>

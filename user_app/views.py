@@ -5,6 +5,31 @@ from django.contrib import messages
 from user_app.forms import UserProfileForm, RegistrationForm,UserProfileLoginForm
 from user_app.models import UserProfile
 from django.contrib.auth.models import User
+from django.db import transaction
+from rest_framework.views import APIView
+from rest_framework.permissions import IsAuthenticated
+from .models import UserProfile
+from .serializers import UserProfileSerializer
+from rest_framework import generics, status
+
+
+class UserProfileUpdate(generics.RetrieveUpdateAPIView):
+    queryset = UserProfile.objects.all()
+    serializer_class = UserProfileSerializer
+    #permission_classes = [IsAuthenticated]
+
+"""
+class UserProfileUpdateView(APIView):
+    permission_classes = [IsAuthenticated]
+
+    def put(self, request):
+        user_profile = UserProfile.objects.get(user=request.user)
+        serializer = UserProfileSerializer(user_profile, data=request.data, partial=True)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        """
 
 def index(request):
     return HttpResponse('index')
@@ -16,8 +41,10 @@ def profile(request):
 
     context={
         'user':user,
+        'user_id':user.id-1
         
     }
+    print(user.id)
     return render(request,'user_app/user_profile.html',context)
 
 def registration_success(request):

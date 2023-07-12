@@ -95,4 +95,4 @@ class TestViews(TestCase):
 
         # Check if the login fails due to an inactive account
         self.assertEqual(response.status_code, 200)  # Check for a success response
-        self.assertTemplateUsed('templates/user_app/login.html') # If the user is not active the screen should remain on the login page  
+        self.assertTemplateUsed('templates/registration/login.html') # If the user is not active the screen should remain on the login page  
