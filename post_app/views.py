@@ -59,7 +59,7 @@ def experience_detail(request, id):
     #     serializer.is_valid(raise_exception=True)
     #     serializer.save()
     #     return Response(serializer.data)
-    
+
     elif request.method == 'DELETE':
         experience.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
@@ -68,4 +68,17 @@ class ExperienceUpdate(generics.RetrieveUpdateAPIView):
     queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
     #permission_classes = [IsAuthenticated]
+    # def partial_update(self, request, *args, **kwargs):
+    #     instance = self.get_object()
+    #     # Check if 'experience_image' is present in the request data
+    #     if 'experience_image' in request.data:
+    #         # If the image is present, update the 'experience_image' field only
+    #         serializer = self.get_serializer(instance, data={'experience_image': request.data['experience_image']}, partial=True)
+    #     else:
+    #         # If the image is not present, update other fields except 'experience_image'
+    #         serializer = self.get_serializer(instance, data=request.data, partial=True, exclude_fields=['experience_image'])
+
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_update(serializer)
+    #     return Response(serializer.data)
 
