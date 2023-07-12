@@ -24,29 +24,36 @@ def profile(request):
 def registration_success(request):
     return HttpResponse('Registration successful!')
 
+
 def register(request):
     """This function handles the registration"""
     registered = False
 
     if request.method == 'POST':
         user_form = RegistrationForm(data=request.POST)
-        profile_form = UserProfileForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST, files=request.FILES) # files=request.FILES is for the image field
 
         if user_form.is_valid() and profile_form.is_valid():
-            with transaction.atomic():  #for data integrity and stability said chatgpt 
-                user = user_form.save(commit=False)
-                user.set_password(user_form.cleaned_data['password'])
-                user.save()
+            try:
+                with transaction.atomic():  # This will rollback if any exception occurs
+                    user = user_form.save(commit=False)
+                    user.set_password(user_form.cleaned_data['password'])
+                    user.save()
 
-                profile = profile_form.save(commit=False)
-                profile.user = user
-                profile.save()
+                    profile = profile_form.save(commit=False)
+                    profile.user = user
+                    profile.save()
 
-                UserProfile.objects.create(user=user)
+                    UserProfile.objects.get_or_create(user=user)
 
-            messages.success(request, 'Registration successful!')
-            registered = True
-            return redirect('user_app:success')
+                messages.success(request, 'Registration successful!')
+                registered = True
+                return redirect('user_app:success')
+
+            except Exception as e:
+                error_message = 'Registration failed. Please try again.'
+                return render(request, 'user_app/registration.html', {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message})
+
         else:
             error_message = 'Registration failed. Please check the form errors.'
             return render(request, 'user_app/registration.html', {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message})
@@ -60,6 +67,8 @@ def register(request):
         'profile_form': profile_form,
         'registered': registered
     })
+
+
 
 def user_login(request):
     if request.method == 'POST':
@@ -84,5 +93,4 @@ def user_login(request):
         form = UserProfileLoginForm()
     
     return render(request, 'user_app/login.html', {'form': form})
-
 

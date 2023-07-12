@@ -36,7 +36,10 @@ class UserProfile(models.Model):
 
    
     def __str__(self):
-        return self.user.username
+        if self.user:
+            return self.user.username
+        else:
+            return 'No username'
 
 
 class TravelerProfile(models.Model):
