@@ -5,6 +5,7 @@ from django.contrib import messages
 from user_app.forms import UserProfileForm, RegistrationForm,UserProfileLoginForm
 from user_app.models import UserProfile
 from django.contrib.auth.models import User
+from django.db import transaction
 
 def index(request):
     return HttpResponse('index')
@@ -29,35 +30,34 @@ def register(request):
 
     if request.method == 'POST':
         user_form = RegistrationForm(data=request.POST)
+        profile_form = UserProfileForm(data=request.POST)
 
-        if user_form.is_valid():
-            # Save the user_form before checking for username existence
-            
+        if user_form.is_valid() and profile_form.is_valid():
+            with transaction.atomic():
+                user = user_form.save(commit=False)
+                user.set_password(user_form.cleaned_data['password'])
+                user.save()
 
-            username = user_form.cleaned_data['username']
+                profile = profile_form.save(commit=False)
+                profile.user = user
+                profile.save()
 
-            if User.objects.filter(username=username).exists():
+                UserProfile.objects.create(user=user)
 
-                error_message = 'Username already exists. Please choose a different username.'
-                user.delete()  # Delete the user if username exists
-                return render(request, 'user_app/registration.html', {'user_form': user_form, 'error_message': error_message})
-            user = user_form.save(commit=False)
-            user.set_password(user_form.cleaned_data['password'])
-            user.save()
-            # new_user.set_password(user_form.cleaned_data['password'])
-            # Create the UserProfile instance and assign the user_id field
-            
-            UserProfile.objects.create(user=user)
             messages.success(request, 'Registration successful!')
-
             registered = True
             return redirect('user_app:success')
+        else:
+            error_message = 'Registration failed. Please check the form errors.'
+            return render(request, 'user_app/registration.html', {'user_form': user_form, 'profile_form': profile_form, 'error_message': error_message})
 
     else:
         user_form = RegistrationForm()
+        profile_form = UserProfileForm()
 
     return render(request, 'user_app/registration.html', {
         'user_form': user_form,
+        'profile_form': profile_form,
         'registered': registered
     })
 

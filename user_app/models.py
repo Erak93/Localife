@@ -1,4 +1,4 @@
-addfrom django.conf import settings
+from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User, Group, Permission
 #from django_google_maps import fields as map_fields
@@ -7,11 +7,11 @@ from django.contrib.auth.models import User, Group, Permission
 class UserProfile(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, related_name="user_profile",
                                 on_delete=models.CASCADE,null=True)
-    # username = models.CharField(max_length=250, unique=True)
-    # first_name = models.CharField(max_length=250)
-    # last_name = models.CharField(max_length=250)
-    # email = models.EmailField(("email address"), blank=False, unique=True)
-    # password = models.CharField(max_length=200)
+    # username = models.CharField(max_length=250, unique=True, default='dummy_user')
+    # first_name = models.CharField(max_length=250, default='someone')
+    # last_name = models.CharField(max_length=250, default='someone')
+    # email = models.EmailField(("email address"),default='old_user', blank=False, unique=True)
+    # password = models.CharField(max_length=200, default=000)
     # The user inherit from abstractUser which already has username, first name, last name, email and password
    
     location=models.CharField(max_length=200, blank=True)
