@@ -27,14 +27,19 @@ class SearchAPIViewTest(TestCase):
 
     def test_search_experiences_by_region(self):
         url = reverse('search_app:api-list')
-        region = "Region A"  
+        region = "Region A"
 
         response = self.client.get(url, {'region': region})
-        experiences = Experience.objects.filter(region=region)
+        experiences = Experience.objects.filter(region__region_name=region)
         serializer = APISerializer(experiences, many=True)
+        
+
+        print("Response data:", response.data)
+        print("Serializer data:", serializer.data)
 
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, serializer.data)
+
 
     def test_search_experiences_no_results(self):
         url = reverse('search_app:api-list')
