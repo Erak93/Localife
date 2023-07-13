@@ -19,7 +19,7 @@
     </form>
 
     {% for obj in filter2.qs %}
-    {{ obj.host }} - <img src="{{obj.experience_image}}" alt="experience image"><br />
+    {{ obj.host }} - {{obj.title}} <img src="{{obj.experience_image}}" alt="experience image"><br />
 {% endfor %}
 {% endblock %}
 </body>

@@ -25,16 +25,25 @@ def granular(request, f):
 
 from rest_framework import viewsets
 from rest_framework.response import Response
-from django_filters.rest_framework import DjangoFilterBackend
+from django_filters import rest_framework as drfilters
 
 class SearchAPIView(viewsets.ModelViewSet):
         queryset = Experience.objects.all().order_by('region')
         serializer_class = APISerializer
-        filter_backends = [DjangoFilterBackend]
-        filterset_class = APIFilter
+        lookup_field = 'region'
+        #filter_backends =(drfilters.DjangoFilterBackend, )
+        #filterset_class = APIFilter
         #filterset_fields = ['price', 'start_date', 'end_date', 'region__region_name', 'host__username', 'experience_tags__tag_name']
         #filter_instance = APIFilter(request.query_params, queryset=queryset)
         #queryset = filter_instance.qs
 
         #serializer = ExperienceSerializer(queryset, many=True)
-    
+
+        def filter_queryset(self, queryset):
+              filter_backends = (drfilters.DjangoFilterBackend, )
+              
+              for backend in list(filter_backends):
+                    queryset = backend().filter_queryset(self.request, queryset, view=self)
+              return queryset
+        filterset_class = APIFilter
+
