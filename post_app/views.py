@@ -40,13 +40,6 @@ def experience_list(request): #, format=None):
         queryset = Experience.objects.all() #.filter(user=request.user)
         serializer = ExperienceSerializer(queryset, many=True) #, context={'request': request})
         return Response(serializer.data) #, status=status.HTTP_200_OK)
-    
-
-    # elif request.method == 'POST':
-    #     serializer = ExperienceSerializer(data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 @api_view(['GET', 'PUT', 'DELETE']) 
 def experience_detail(request, id):
@@ -54,11 +47,6 @@ def experience_detail(request, id):
     if request.method == 'GET':
         serializer = ExperienceSerializer(experience)
         return Response(serializer.data) 
-    # elif request.method == 'PUT':
-    #     serializer = ExperienceSerializer(experience, data=request.data)
-    #     serializer.is_valid(raise_exception=True)
-    #     serializer.save()
-    #     return Response(serializer.data)
 
     elif request.method == 'DELETE':
         experience.delete()
@@ -68,17 +56,18 @@ class ExperienceUpdate(generics.RetrieveUpdateAPIView):
     queryset = Experience.objects.all()
     serializer_class = ExperienceSerializer
     #permission_classes = [IsAuthenticated]
-    # def partial_update(self, request, *args, **kwargs):
-    #     instance = self.get_object()
-    #     # Check if 'experience_image' is present in the request data
-    #     if 'experience_image' in request.data:
-    #         # If the image is present, update the 'experience_image' field only
-    #         serializer = self.get_serializer(instance, data={'experience_image': request.data['experience_image']}, partial=True)
-    #     else:
-    #         # If the image is not present, update other fields except 'experience_image'
-    #         serializer = self.get_serializer(instance, data=request.data, partial=True, exclude_fields=['experience_image'])
 
-    #     serializer.is_valid(raise_exception=True)
-    #     self.perform_update(serializer)
-    #     return Response(serializer.data)
+    def update(self, request, *args, **kwargs):
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+
+        # Exclude 'experience_image' from request data if it exists
+        request_data = request.data.copy()
+        request_data.pop('experience_image', None)
+
+        serializer = self.get_serializer(instance, data=request_data, partial=partial)
+        serializer.is_valid(raise_exception=True)
+        self.perform_update(serializer)
+
+        return Response(serializer.data)
 
