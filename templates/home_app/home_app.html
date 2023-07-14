@@ -116,7 +116,7 @@
   <body>
     <div class="navbar">
       <a href="#"><span class="logo">Tra<span class="well">Well</span> </span></a>
-      <a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>
+      <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
       <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
       <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
       <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
@@ -130,7 +130,7 @@
     <p class="home-p">
         Embark on a journey of discovery and immerse yourself in the vibrant tapestry of local cultures. Click the button below to explore and book your first authentic local experience, creating memories that will last a lifetime.</p>
     </p>
-    <a class="main-button" href="{% url 'search_app:experience_search_results' %}">Explore</a>
+    <a class="main-button" href="{% url 'search_app:search_index' %}">Explore</a>
 
     <div class="content">{% block content %} {% endblock %}</div>
   </body>
