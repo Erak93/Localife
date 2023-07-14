@@ -1,6 +1,7 @@
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import User, Group, Permission
+from django.utils import timezone
 #from django_google_maps import fields as map_fields
 
 
@@ -63,10 +64,11 @@ class Experience(models.Model):
     host = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(max_length=1000,blank=False)
-    
+    start_date = models.DateField(default=timezone.now)
+    end_date = models.DateField(default=timezone.now)    
     price = models.DecimalField(max_digits=12, decimal_places=2)
     experience_tags = models.ManyToManyField(ExperienceTag, null=True, blank=True)
-    region = models.ManyToOneRel(Region, on_delete=models.CASCADE, field_name='region_name', to='Region') # or models.ForeignKey(Region, on_delete=models.CASCADE)
+    region = models.ForeignKey(Region, on_delete=models.CASCADE,default=1)  # Provide a default value hereRegion, on_delete=models.CASCADE)
     experience_image = models.ImageField(upload_to='experience_pics',blank=True, null=True)
 
 
