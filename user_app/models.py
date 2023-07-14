@@ -89,7 +89,7 @@ class Booking(models.Model):
 
 class Review(models.Model):
     author = models.ForeignKey(TravelerProfile, on_delete=models.CASCADE)
-    listing = models.ForeignKey(Experience, on_delete=models.CASCADE)
+    listing = models.ForeignKey(Booking, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     comment = models.TextField()
 

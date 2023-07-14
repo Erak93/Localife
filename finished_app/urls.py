@@ -7,5 +7,6 @@ app_name="finished_app"
 urlpatterns = [
    
     path("",views.finished_app, name="finished_app"),
+    path("reviews/create/<int:booking_id>/", views.create_review, name='create_review' )
   
 ]
