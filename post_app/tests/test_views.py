@@ -73,7 +73,8 @@ class TestUpdateView(TestCase):
             'price': 10.0,
         }
         self.user_profile = UserProfile.objects.create()
-        self.experience = Experience.objects.create(host=self.user_profile, **self.experience_data)
+        self.experience = Experience.objects.create(host=self.user_profile, **self.experience_data) 
+        #self.experience_data dictionary is unpacked here because the Experience model has the same fields as the dictionary
         self.update_url = reverse('post_app:post_update', args=[self.experience.id])
 
     def test_experience_update_view(self):
