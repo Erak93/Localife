@@ -2,6 +2,8 @@ from rest_framework import serializers
 from user_app.models import Experience
 
 class ExperienceSerializer(serializers.ModelSerializer):
+    experience_image = serializers.ImageField(required=False)
+
     class Meta:
         model = Experience
         fields = '__all__'
