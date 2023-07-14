@@ -41,7 +41,7 @@ def experience_list(request): #, format=None):
         serializer = ExperienceSerializer(queryset, many=True) #, context={'request': request})
         return Response(serializer.data) #, status=status.HTTP_200_OK)
 
-@api_view(['GET', 'PUT', 'DELETE']) 
+@api_view(['GET', 'DELETE']) 
 def experience_detail(request, id):
     experience = get_object_or_404(Experience, pk=id)
     if request.method == 'GET':
@@ -57,17 +57,17 @@ class ExperienceUpdate(generics.RetrieveUpdateAPIView):
     serializer_class = ExperienceSerializer
     #permission_classes = [IsAuthenticated]
 
-    def update(self, request, *args, **kwargs):
-        partial = kwargs.pop('partial', False)
-        instance = self.get_object()
+    # def update(self, request, *args, **kwargs):
+    #     partial = kwargs.pop('partial', False)
+    #     instance = self.get_object()
 
-        # Exclude 'experience_image' from request data if it exists
-        request_data = request.data.copy()
-        request_data.pop('experience_image', None)
+    #     # Exclude 'experience_image' from request data if it exists
+    #     request_data = request.data.copy()
+    #     request_data.pop('experience_image', None)
 
-        serializer = self.get_serializer(instance, data=request_data, partial=partial)
-        serializer.is_valid(raise_exception=True)
-        self.perform_update(serializer)
+    #     serializer = self.get_serializer(instance, data=request_data, partial=partial)
+    #     serializer.is_valid(raise_exception=True)
+    #     self.perform_update(serializer)
 
-        return Response(serializer.data)
+    #     return Response(serializer.data)
 
