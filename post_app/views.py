@@ -15,18 +15,28 @@ from rest_framework.parsers import MultiPartParser, FormParser
 def test_view(request):
     return render(request, 'post_app/test_view.html')
 
+# def create_experience(request):
+#     if request.method == 'POST':
+#         form = ExperienceForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             form.save()
+#             #image = request.FILES.get('experience_image')
+#             #image = Experience.objects.create(experience_image=image)
+#             #image.save()
+            
+#             #return render(request, ('home_app/home_app.html'))
+#             return render(request, 'post_app/test_view.html')
+        
+#     else:
+#         form = ExperienceForm()
+#     return render(request, 'post_app/post_create.html', {'form': form})
+
 def create_experience(request):
     if request.method == 'POST':
         form = ExperienceForm(request.POST, request.FILES)
         if form.is_valid():
-            form.save()
-            #image = request.FILES.get('experience_image')
-            #image = Experience.objects.create(experience_image=image)
-            #image.save()
-            
-            #return render(request, ('home_app/home_app.html'))
+            form.save(host=request.user.user_profile)  # Pass the host argument as the logged-in user's UserProfile
             return render(request, 'post_app/test_view.html')
-        
     else:
         form = ExperienceForm()
     return render(request, 'post_app/post_create.html', {'form': form})
