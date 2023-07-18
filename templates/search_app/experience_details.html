@@ -139,7 +139,19 @@
           {{experience.description}}
           <h2>Price</h2>
           <p>{{experience.price}}</p>
-          <a href="#" class="book-button">Book</a>
+          <!--<a href="" class="book-button" action={{booking}} >Book now</a>-->
+          <button id="book-button" class="book-button">Book now</button>
+
+      <!-- Hidden form for booking -->
+      <form id="booking-form" method="post" action="{% url 'search_app:experience_details' experience_id=experience_id %}">
+        {% csrf_token %}
+        <input type="hidden" name="traveler" value="{{ request.user.user_profile }}">
+        <input type="hidden" name="host" value="{{ experience.host }}">
+        <input type="hidden" name="experience_name" value="{{ experience.title }}">
+      </form>
+          
+          
+          
         </div>
 
         <div class="host-section">
@@ -156,5 +168,14 @@
         </div>
       </div>
     </div>
+
+    <!-- JavaScript script -->
+  <script>
+    document.getElementById("book-button").addEventListener("click", function () {
+      // Submit the booking form
+      const bookingForm = document.getElementById("booking-form");
+      bookingForm.submit();
+    });
+  </script>
   </body>
 </html>

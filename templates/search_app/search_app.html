@@ -187,6 +187,7 @@
         
           <div class="room-results">
               {% for obj in filter2.qs %}
+                {% if obj.host.id != user_id %}
             <div class="room">
               <img src="{{obj.experience_image.url}}" alt="Experience Image" class="experience_image">
               <h2 class="room-title">{{obj.title}}</h2>
@@ -195,9 +196,10 @@
               <a href="{% url 'search_app:experience_details' experience_id=obj.id %}" class="book-button">View details</a>
             </div>
             
-
+                {%endif%} 
    
-{% endfor %}
+            {% endfor %}
+                   
 {% endblock %}
 </body>
 

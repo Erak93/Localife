@@ -7,6 +7,8 @@ from .serializers import ExperienceSerializer, APISerializer
 
 from django.views.generic import ListView
 from django.db.models import Q
+from .models import Booking
+from django.http import HttpResponse
 
 
 
@@ -14,16 +16,59 @@ def search_app_result(request):
     return render(request,'search_app/experience_search_results.html')
 
 def experience_details(request,experience_id):
+    """
+    OLD VERSION (WORKING)
+    
     # Fetch the experience object or handle the case when it doesn't exist
     experience = get_object_or_404(Experience, id=experience_id)
 
+    
+    booking = Booking(
+            traveler=request.user.user_profile,
+            host=experience.host,
+            experience_name=experience.title,
+        )
+
     context = {
         'experience': experience,
-        'experience_id':experience_id
+        'experience_id':experience_id,
+        'booking': booking,  # Pass the booking variable to the template
 
     }
     return render(request, 'search_app/experience_details.html', context)
+"""
 
+    
+    # Fetch the experience object or handle the case when it doesn't exist
+    experience = get_object_or_404(Experience, id=experience_id)
+
+    if request.method == "POST":
+        # Get data from the form submission
+        traveler_post= request.POST.get("traveler")
+        host_post= request.POST.get("host")
+        experience_name = request.POST.get("experience_name")
+
+        # Create the Booking object
+        booking = Booking(
+            traveler=traveler_post,
+            host=host_post,
+            experience_name=experience_name,
+        )
+        booking.save()
+
+        # Redirect to a success page or display a success message
+        return HttpResponse("Booking successful!")
+    else:
+        context = {
+            'experience': experience,
+            'experience_id': experience_id,
+        }
+        return render(request, 'search_app/experience_details.html', context)
+    
+
+
+
+    
 def host_profile(request,experience_id):
     # Fetch the experience object or handle the case when it doesn't exist
     experience = get_object_or_404(Experience, id=experience_id)
@@ -45,10 +90,11 @@ def index(request):
 
     filter2 = SecondFilter(request.GET, queryset=queryset)
     #queryset2 = filter2.qs
-
+    user=request.user
     context = {
         'filter1': filter1,
         'filter2': filter2,
+        'user_id':user.id-1
     }
     return render(request, 'search_app/search_app.html', context)
 """

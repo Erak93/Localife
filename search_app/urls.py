@@ -22,4 +22,5 @@ urlpatterns = [
     path('experiences/search/results/details/<int:experience_id>/host', host_profile, name='host_profile'),
     path('experiences/search/results/details/<int:experience_id>/', experience_details, name='experience_details'),
     
+    
 ]

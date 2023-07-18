@@ -7,6 +7,14 @@ from django.views.generic import ListView
 from django.db.models import Q
 from user_app.models import Experience
 
+class Booking(models.Model):
+    traveler=models.CharField(max_length=50)
+    host=models.CharField(max_length=50)
+    experience_name=models.CharField(max_length=200)
+
+    def __str__(self):
+        return f' traveler: {self.traveler} , host: {self.host} , experience: {self.experience_name}'
+
 
 class ExperienceSearchView(ListView):
     model = Experience
