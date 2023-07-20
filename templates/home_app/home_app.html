@@ -32,57 +32,86 @@
       referrerpolicy="no-referrer"
     /> 
 
+  </head>
+  <body class="background-image">
     
+    <div class="navbar-responsive">
+      <div class="navbar">
+
+        <div class="navbar-container-logo">
+          <a href="#"><span class="logo">Tra<span class="well">Well</span> </span></a>
+        </div>
+
+        <div class="navbar-container-links">
+          <a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>
+          <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+          <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+          <a href="#">About</a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="background-carousel">
+      <div class="background-item"></div>
+      <div class="background-item"></div>
+    </div>
+
+    <div class="content-placement">
+      <div class="main-content-container">
+        <div class="main-heading-container">
+          <h1 class="main-heading">Find your <br><span class="h1-tab">experience</span></h1>
+        </div>
+        <p class="home-p">
+          Embark on a journey of discovery and immerse yourself in the vibrant tapestry of local cultures. 
+          Click the button below to explore and book your </br>first authentic local experience, creating 
+          <br>memories that will last a lifetime.
+        </p>
+        <a class="main-button" href="{% url 'search_app:experience_search_results' %}">Explore</a>
+        <div class="content">{% block content %}{% endblock %}</div>
+      </div>
+    </div>
+
     <script>
       window.addEventListener("load", function () {
         var images = [
-          "https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-          "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
-          "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+          "media/background_pics/unsplash/yunchuan-luo-7emiteIwfuk-unsplash.jpg",
+          "media/background_pics/unsplash/2-ignacio-correia-Q4AW5tWkd8Q-unsplash.jpg",
+          "media/background_pics/unsplash/3-subtle-cinematics-O5Fr1BZ-aR4-unsplash.jpg",
+          "media/background_pics/unsplash/4-ted-bryan-yu-5mezpWin6T8-unsplash.jpg",
+          "media/background_pics/unsplash/Philippines/6-ramon-kagie-4EZKcKxOlRE-unsplash.jpg",
         ];
         var currentIndex = 0;
-        var backgroundCarousel = document.querySelector(".background-carousel");
-        function changeBackgroundImage() {
-          backgroundCarousel.style.backgroundImage = "url(" + images[currentIndex] + ")";
-          currentIndex = (currentIndex + 1) % images.length;
-        }
-
-        // Change background image every 5 seconds
-        setInterval(changeBackgroundImage, 5000);
-      });
-    </script>
+        var backgroundItems = document.querySelectorAll(".background-item");
   
-    
-  </head>
-  <body>
-    
+        function changeBackgroundImage() {
+          var nextIndex = (currentIndex + 1) % images.length;
+          var currentImage = images[currentIndex];
+          var nextImage = images[nextIndex];
+  
+          backgroundItems[0].style.backgroundImage = "url(" + currentImage + ")";
+          backgroundItems[0].style.opacity = 1;
+          backgroundItems[1].style.backgroundImage = "url(" + nextImage + ")";
+          backgroundItems[1].style.opacity = 0;
+  
+          setTimeout(function () {
+            backgroundItems[0].style.opacity = 0;
+            backgroundItems[1].style.opacity = 1;
+            currentIndex = nextIndex;
+          }, 8000);
+        }
+  
+        changeBackgroundImage();
+        setInterval(changeBackgroundImage, 8000);
+      });
+    </script> 
 
-      <div class="navbar">
-        <a href="#"><span class="logo">Tra<span class="well">Well</span> </span></a>
-        <a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>
-        <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
-        <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
-        <a href="#">About</a>
-      </div>
-
-    <!--<div class="background-carousel"> -->
-
-      <div class="main-content">
-        <h1 class="main-heading">Find your experience</h1>
-      </div>
-      <p class="home-p">
-        Embark on a journey of discovery and immerse yourself in the vibrant tapestry of local cultures. Click the button below to explore and book your first authentic local experience, creating memories that will last a lifetime.</p>
-      </p>
-      <a class="main-button" href="{% url 'search_app:experience_search_results' %}">Explore</a>
-      <div class="content">{% block content %} {% endblock %}</div>
-<!--
-    </div> -->
-
-    
-    
   </body>
 </html>
 
 
-
-<!-- var body = document.getElementsByTagName("body")[0];  -->
+<!--
+"https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+"https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
+"https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+-->
