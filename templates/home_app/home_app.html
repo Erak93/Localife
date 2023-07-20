@@ -120,8 +120,10 @@
       <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
       <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
       <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
+      <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
+
       
-      <a href="#">About</a>
+      
     </div>
 
     <div class="main-content">
@@ -135,29 +137,4 @@
     <div class="content">{% block content %} {% endblock %}</div>
   </body>
 </html>
-
-<!--<!DOCTYPE html>
-{% load static %}
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-   <link href="{% static 'home-app.css' %}" rel="stylesheet">
-    <title></title>
-  </head>
-  <body>
-    <ul id="nav">
-        <li id="logo"><a class="navbar-brand" href="{% url 'user_app:index' %}"><img src="../../static/Trawell.png" alt="" id="logo"></a></li>
-        <li id="nav-register"> <a class="nav-link" href="{% url 'user_app:register' %}">Register</a></li>
-        <li id="nav-login"><a class="nav-link" href="{% url 'user_app:login' %}">Login</a></li>
-        <li id="nav-lab"><a href="#">Lab</a></li>
-        <li id="nav-reviews"><a href="#">Reviews</a></li>
-        <li id="nav-contact"><a href="#">Contact</a></li>
-    
-    
- 
-  </body>
-</html>
--->
 

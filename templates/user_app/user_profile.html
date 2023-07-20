@@ -113,8 +113,19 @@
       <div class="profile-biography"><span class="bio">Bio:</span> <br>
         {{user.user_profile.user_bio}}
         <div class="booked-experience-list">
-          <img class="rocket" src="{% static 'rocket.png' %}" alt=""><a href="#">Your upcoming experiences</a><br>
-          <img class="calendar" src="{% static 'calendar.png' %}" alt=""><a href="#">Your hosting experiences</a>
+          <img class="rocket" src="{% static 'rocket.png' %}" alt=""><b>Your upcoming experiences</b><br>
+           {% for i in booking_listing %}
+              {% if i.traveler  == user.username %}
+              
+                <p><b>Experience title:</b><a href=""> {{i.experience_name}}</a></p>
+              {% endif %}
+            {% endfor %}
+          <img class="calendar" src="{% static 'calendar.png' %}" alt=""><b>Your hosting experiences</b>
+          {% for i in booking_listing %}
+              {% if i.host  == user.username %}
+                <p><b>Experience title:</b> {{i.experience_name}}</p>
+              {% endif %}
+            {% endfor %}
         </div>
       </div>
    

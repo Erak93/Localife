@@ -11,6 +11,8 @@ from rest_framework.permissions import IsAuthenticated
 from .models import UserProfile
 from .serializers import UserProfileSerializer
 from rest_framework import generics, status
+from search_app.models import Booking
+from django.shortcuts import render,get_object_or_404
 
 
 class UserProfileUpdate(generics.RetrieveUpdateAPIView):
@@ -38,10 +40,13 @@ def profile(request):
     #Get the loggen-in user
 
     user=request.user
+    booking_listing = Booking.objects.all()
 
     context={
         'user':user,
-        'user_id':user.id-1
+        'user_id':user.id-1,
+        'booking_listing':booking_listing
+        
         
     }
     print(user.id)

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TraWell - {% block title %}{% endblock %}</title>
+    <style>
+      /* Add your custom styles here */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        /**background-image: url(https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80)**/
+        background-repeat: no-repeat;
+        background-size: cover;
+        transition: background-image 2s ease-in-out;
+      }
+      .navbar {
+        background-color: #2a6560;
+        color: #fff;
+        padding: 10px;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      .navbar a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .logo {
+        color: #a94c77;
+        font-size: 30px;
+        margin-right: 10px;
+      }
+
+      .well {
+        color: #fdceaf;
+        font-size: 24px;
+      
+      }
+      .content-container{
+        background-color: rgba(0, 0, 0, 0.558);
+    /* Set the height to occupy the remaining viewport height after the navbar */
+    height: calc(100vh - 50px); /* 50px is the height of the navbar, adjust as needed */
+    overflow: auto; /* Add this to enable scrolling if content overflows */
+      }
+      .main-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        padding: 0 50px;
+        box-sizing: border-box;
+        margin-top: 200px;
+      }
+
+      .main-heading {
+        font-size: 40px;
+        color: #fff;
+        text-align: right;
+      }
+
+      .home-p {
+        margin-left: 50px;
+        margin-bottom: 50px;
+        padding-left: 800px;
+        width: 800px;
+        color: #fff;
+        font-size: 25px;
+      }
+      .main-button {
+        display: block;
+        width: fit-content;
+        margin-top: 10px;
+        margin-left: 50px;
+        padding: 10px 20px;
+        background-color: #a94c77;
+        color: #fff;
+        font-size: 30px;
+        text-decoration: none;
+        border-radius: 10px;
+      }
+      .main-button:hover {
+        background-color: #fdceaf; /* Update with your desired hover color */
+      }
+      /* Owl Carousel styles */
+      .owl-carousel {
+        margin-top: 30px;
+      }
+      .owl-carousel .owl-item {
+        background: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        text-align: center;
+      }
+      .owl-carousel .owl-item p {
+        margin-bottom: 10px;
+        font-size: 18px;
+        color: #444;
+      }
+
+    </style>
+    <script>
+      window.addEventListener("load", function () {
+        var images = [
+          "https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
+          "https://images.unsplash.com/photo-1483728642387-6c3bdd6c93e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1476&q=80",
+          "https://images.unsplash.com/photo-1476820865390-c52aeebb9891?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+        ];
+        var currentIndex = 0;
+        var body = document.getElementsByTagName("body")[0];
+
+        function changeBackgroundImage() {
+          body.style.backgroundImage = "url(" + images[currentIndex] + ")";
+          currentIndex = (currentIndex + 1) % images.length;
+        }
+
+        // Change background image every 5 seconds
+        setInterval(changeBackgroundImage, 5000);
+      });
+    </script>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="#"
+        ><span class="logo">Tra<span class="well">Well</span> </span></a
+      >
+      <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+      <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+      <a class="nav-link" href="{% url 'user_app:user_profile' %}"
+        >My Profile</a
+      >
+
+      
+    </div>
+<div class="content-container">
+    <div class="main-content">
+      <h1 class="main-heading">About us</h1>
+    </div>
+    <p class="home-p">
+      Welcome to TraWell, a pioneering company that is committed to unlocking
+      the hidden gems of uncharted destinations and providing a platform for
+      authentic tourism experiences. Our passion lies in redefining travel,
+      going beyond the beaten path, and fostering meaningful connections between
+      travelers and the local communities they visit.
+    </p>
+    <p class="home-p">
+    <b>Our Mission</b><br>
+    <br>
+      At TraWell, we believe that every destination has a unique
+      story to tell, and it's our mission to ensure that these untold narratives
+      are accessible to all travelers. Our goal is to empower travelers to
+      explore lesser-known locations, embrace diverse cultures, and immerse
+      themselves in authentic experiences that leave lasting memories.
+    </p>
+      <p class="home-p"> 
+      <b>Discovering the Uncharted</b><br>
+      <br> 
+      We are on a constant quest to discover the
+      unexplored corners of the world. Our team of avid explorers and local
+      experts work hand in hand to identify extraordinary destinations that have
+      been overlooked by conventional travel agencies. Whether it's a remote
+      village nestled amidst breathtaking landscapes or a culturally rich urban
+      enclave, TraWell curates exceptional travel experiences for the
+      adventurous at heart. 
+      </p>
+      <p class="home-p">
+      <b>Promoting Authenticity</b><br>
+      <br> 
+      Authenticity is at the core
+      of everything we do. We believe that genuine travel experiences come from
+      connecting with the heart and soul of a place. To achieve this, TraWell
+      collaborates closely with local communities and businesses. We actively
+      support and engage with local artisans, craftsmen, and guides to ensure
+      that our travelers can partake in authentic traditions and witness the
+      beauty of local culture. 
+    </p>
+      <p class="home-p">
+      <b>Empowering Local Communities</b><br>
+      <br> 
+      We believe that tourism
+      should be a force for good, benefiting the communities it touches. By
+      collaborating with locals and involving them in our operations, we aim to
+      create a positive socio-economic impact. We contribute to community
+      projects, promote sustainable practices, and encourage responsible tourism
+      that respects the environment and preserves the natural wonders of the
+      destinations we explore.
+    </p>
+    </p>
+</div>
+   
+
+    <div class="content">{% block content %} {% endblock %}</div>
+  </body>
+</html>
