@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import UserProfile,TravelerProfile,Experience,ExperienceTag,Booking,Review,Region
+from .models import UserProfile,TravelerProfile,Experience,ExperienceTag, Booking,Review,Region
 
 # Register your models here.
 
