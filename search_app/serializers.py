@@ -19,7 +19,7 @@ class HostSerializer(serializers.ModelSerializer):
         fields = ('username')
 
 class APISerializer(serializers.ModelSerializer):
-    host = serializers.CharField(source='host.username')
+    host = serializers.CharField(source='host.user.username')
     experience_tags = serializers.StringRelatedField(many=True)
     region = serializers.CharField(source='region.region_name')
     class Meta:

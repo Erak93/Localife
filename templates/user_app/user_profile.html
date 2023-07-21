@@ -108,7 +108,12 @@
       <div>
         <div class="edit-profile"><a href="{% url 'user_app:profile_update' pk=user_id %}">Edit your info</a></div>
         <div class="profile-name">{{user.username}}</div>
-        <div class="profile-image"><img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
+        <div class="profile-image">
+          {% if user.user_profile.user_profile_image.url != null %}
+          <img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
+          {% else%}
+          <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
+          {% endif %}
       </div>
       <div class="profile-biography"><span class="bio">Bio:</span> <br>
         {{user.user_profile.user_bio}}

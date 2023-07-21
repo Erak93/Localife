@@ -41,16 +41,18 @@ def profile(request):
 
     user=request.user
     booking_listing = Booking.objects.all()
-
-    context={
-        'user':user,
-        'user_id':user.id-1,
-        'booking_listing':booking_listing
-        
-        
-    }
-    print(user.id)
-    return render(request,'user_app/user_profile.html',context)
+    if user.id==None or user.id-1<=0:
+        return HttpResponse("Create profile")
+    else:
+        context={
+            'user':user,
+            'user_id':user.id-1,
+            'booking_listing':booking_listing
+            
+            
+        }
+        print(user.id)
+        return render(request,'user_app/user_profile.html',context)
 
 def registration_success(request):
     return HttpResponse('Registration successful!')

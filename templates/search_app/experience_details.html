@@ -201,7 +201,11 @@
          {% for i in review_list %}
           {% if i.listing.id == experience_id %}
           <div class="review_container">
-            <p><b>Left by:</b>  {{i.author}} <img class="review-host-pic" src="{{i.author.user_profile_image.url}}" alt="host pic"></p>
+            {% if i.author.user_profile_image.url != null %}
+              <p><b>Left by:</b>  {{i.author}} <img class="review-host-pic" src="{{i.author.user_profile_image.url}}" alt="host pic"></p>
+              {% else%}
+              <p><b>Left by:</b>  {{i.author}} <img class="review-host-pic" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg"  alt="host pic"></p>
+            {% endif %}
             <p><b>Rating: {{ i.rating|get_star_emoji }}</b></p>
             <p class="review_comment"><b>Comment:</b> {{i.comment}}</p>
           </div>
