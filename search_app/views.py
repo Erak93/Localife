@@ -48,16 +48,24 @@ def experience_details(request,experience_id):
         host_post= request.POST.get("host")
         experience_name = request.POST.get("experience_name")
 
-        # Create the Booking object
+
+    #If a booking already exists, redirect to other template
         booking = Booking(
             traveler=traveler_post,
             host=host_post,
             experience_name=experience_name,
         )
-        booking.save()
 
-        # Redirect to a success page or display a success message
-        return HttpResponse("Booking successful!")
+        
+        existing_booking=Booking.objects.filter(traveler=request.user.user_profile,host=experience.host,experience_name=experience.title)
+        if existing_booking:
+            return HttpResponse("you fucked up!")
+        else:  
+            
+            
+            booking.save()
+            # Redirect to a success page or display a success message
+            return HttpResponse("Booking successful!")
     else:
         context = {
             'experience': experience,

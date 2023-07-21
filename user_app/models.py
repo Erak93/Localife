@@ -77,7 +77,7 @@ class Experience(models.Model):
 
 
 class Booking(models.Model):
-    traveler = models.ForeignKey(TravelerProfile, on_delete=models.CASCADE)
+    traveler = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     experience = models.ForeignKey(Experience, on_delete=models.CASCADE)
     start_date = models.DateField()
     end_date = models.DateField()
@@ -89,7 +89,7 @@ class Booking(models.Model):
 
 
 class Review(models.Model):
-    author = models.ForeignKey(TravelerProfile, on_delete=models.CASCADE)
+    author = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     listing = models.ForeignKey(Experience, on_delete=models.CASCADE)
     rating = models.IntegerField(choices=[(i, i) for i in range(1, 6)])
     comment = models.TextField()
