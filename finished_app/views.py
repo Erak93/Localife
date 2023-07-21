@@ -15,6 +15,7 @@ def create_review(request, experience_id):
         # If the user doesn't have a booking, render the 'review_not_allowed.html' template
         return render(request, 'finished_app/review_not_allowed.html')
     # Check if the current date is after the enddate of the experience
+    
     if timezone.now().date() < experience.end_date:
         return render(request, 'finished_app/review_untimely.html')
     
