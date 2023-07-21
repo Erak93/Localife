@@ -20,7 +20,7 @@ body {
 .content-placement {
   position: relative;
   display: flex;
-  margin-top: 80px;
+  margin-top: 0px;
   padding-top: 80px;
   justify-content: center;
   height: 100vh; /* viewport height */
@@ -128,10 +128,10 @@ body {
 /*---------------TRANSPARENT CONTENT BOX-----------------*/
 
   .main-content-container {
-    height:fit-content;
+    height:100vh;
     width: 540px;
     background-color: rgba(0, 0, 0, 0.60);
-    border-radius:0.5cm;
+    /*border-radius:0.5cm;*/
     padding: 0px 50px 50px 70px;
   }
 
@@ -156,19 +156,22 @@ body {
     margin-left: 15%;
   }
 
-  .home-p {
+  .home-explore-p {
+    width: 520px;
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+  .home-create-p {
     width: 520px;
     color: #fff;
     font-size: 22px;
     margin-bottom: 50px;
-    padding-left: ;
-    padding-right: ;
   }
-
 /*-----------------------BUTTON-----------------------*/
 
 
-  .main-button {
+  .explore-button {
     display:block;
     width: fit-content;
     padding: 10px 20px;
@@ -182,7 +185,7 @@ body {
     text-decoration: none;
     border-radius: 10px;
   }
-  .main-button:hover {
+  .explore-button:hover {
     background-color: #FDCEAF; 
     font-family: "Londrina Solid";
     letter-spacing: 1px;
@@ -192,6 +195,30 @@ body {
     text-decoration: none;
   }
 
+
+  .create-button {
+    display:block;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-inline-start: 70%;
+    background-color: #A94C77;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  .create-button:hover {
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #A94C77;
+    text-decoration: none;
+  }
 /*------------------------------------------------------------------------------*/
 /*------------------------------SMARTPHONE DISPLAY------------------------------*/
 /*------------------------------------------------------------------------------*/
@@ -252,16 +279,24 @@ body {
   }  
 
 
-  .home-p {
+  .home-explore-p {
     width: 430px;
     color: #fff;
     font-size: 19px;
-    margin-bottom: 70px;
+    margin-bottom: 50px;
+  }
+
+  .home-create-p {
+    width: 430px;
+    color: #fff;
+    font-size: 19px;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 
   /*------------BUTTON------------*/
 
-  .main-button {
+  .explore-button {
     display: block;
     width: fit-content;
     padding: 10px 20px;
@@ -274,11 +309,34 @@ body {
     text-decoration: none;
     border-radius: 10px;
   }
-  .main-button:hover {
+  .explore-button:hover {
     background-color: #FDCEAF; /* Update with your desired hover color */
     font-family: "Londrina Solid";
     letter-spacing: 1px;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #A94C77;
+    text-decoration: none;
+  }
+
+  .create-button {
+    display: block;
+    width: fit-content;
+    padding: 10px 20px;
+    background-color: #A94C77;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 20px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  .create-button:hover {
+    background-color: #FDCEAF; /* Update with your desired hover color */
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 20px;
     font-weight: 400;
     color: #A94C77;
     text-decoration: none;
