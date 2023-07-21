@@ -95,5 +95,5 @@ class Review(models.Model):
     comment = models.TextField()
 
     def __str__(self):
-        return f"{self.author.user_profile.user.username} - {self.listing.title}"
+        return f"{self.author} - {self.listing.title}"
     

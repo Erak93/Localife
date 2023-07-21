@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
-from user_app.models import Experience
+from user_app.models import Experience,Review
 from .filters import ExperienceFilter, SecondFilter, APIFilter
 from .serializers import ExperienceSerializer, APISerializer
 
@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from django.db.models import Q
 from .models import Booking
 from django.http import HttpResponse
+
 
 
 
@@ -41,6 +42,7 @@ def experience_details(request,experience_id):
     
     # Fetch the experience object or handle the case when it doesn't exist
     experience = get_object_or_404(Experience, id=experience_id)
+    review_list=Review.objects.all()
 
     if request.method == "POST":
         # Get data from the form submission
@@ -59,7 +61,7 @@ def experience_details(request,experience_id):
         
         existing_booking=Booking.objects.filter(traveler=request.user.user_profile,host=experience.host,experience_name=experience.title)
         if existing_booking:
-            return HttpResponse("you fucked up!")
+            return HttpResponse("Sorry. You have already booked this experience")
         else:  
             
             
@@ -70,6 +72,8 @@ def experience_details(request,experience_id):
         context = {
             'experience': experience,
             'experience_id': experience_id,
+            'review_list':review_list,
+            
         }
         return render(request, 'search_app/experience_details.html', context)
     
