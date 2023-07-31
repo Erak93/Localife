@@ -218,11 +218,20 @@
 
         <div class="host-section">
           <h2>Your Host</h2>
+          {% if experience.host.user_profile_image.url != null %}
           <a href="{% url 'search_app:host_profile' experience_id=experience_id %}"><img
             class="host-picture"
             src="{{experience.host.user_profile_image.url}}"
             alt="host image"
           /></a>
+          {% else%}
+          <a href="{% url 'search_app:host_profile' experience_id=experience_id %}"><img
+            class="host-picture"
+            src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg"
+            alt="host image"
+          /></a>
+          {% endif %}
+          
           <h2>Name</h2>
           {{experience.host}}
           <h2>Location</h2>

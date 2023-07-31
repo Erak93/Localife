@@ -41,7 +41,7 @@ def experience_details(request,experience_id):
 
     
     if request.user.is_anonymous:
-         return HttpResponse("No user")
+         return HttpResponse("You need to create an account in order to book the experience")
     else:
         # Fetch the experience object or handle the case when it doesn't exist
         experience = get_object_or_404(Experience, id=experience_id)

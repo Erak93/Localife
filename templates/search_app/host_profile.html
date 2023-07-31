@@ -131,7 +131,14 @@
     <div class="profile">
       <div>
         <div class="profile-name">{{experience.host}}</div>
-        <div class="profile-image"><img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic"></div>
+        <div class="profile-image">
+          {% if experience.host.user_profile_image.url != null %}
+          <img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic"></div>
+          {% else%}
+          <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
+          {% endif %}
+          
+          
       </div>
       <div class="profile-biography"><span class="bio">Bio:</span> <br>
         {{experience.host.user_bio}}
