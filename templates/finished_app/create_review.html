@@ -23,4 +23,5 @@
       <li>Rating: {{ review.rating }} - Comment: {{ review.comment }}</li>
     {% endfor %}
   </ul>
-{% endblock %}
+  <a href="{% url 'home_app' %}">To main page</a>
+  {% endblock%}

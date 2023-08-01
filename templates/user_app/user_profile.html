@@ -1,5 +1,6 @@
 {% load static%}
 <!DOCTYPE html>
+{% load custom_filters %}
 <html>
 <head>
   <title>TraWell - {% block title %}{% endblock %}</title>
@@ -122,13 +123,21 @@
            {% for i in booking_listing %}
               {% if i.traveler  == user.username %}
               
-                <p><b>Experience title:</b>{{i.experience_name}}</p>
+              <p><b>Experience title:</b>
+                <a href="{% url 'search_app:experience_details' experience_id=i.experience_name|extract_id %}">
+                    {{ i.experience_name }}
+                </a>  <b>, Host name:</b> {{i.host}}
+            </p>
+           
               {% endif %}
             {% endfor %}
           <img class="calendar" src="{% static 'calendar.png' %}" alt=""><b>Your hosting experiences</b>
           {% for i in booking_listing %}
               {% if i.host  == user.username %}
-                <p><b>Experience title:</b> {{i.experience_name}}</p>
+                <p><b>Experience title:</b>
+                  
+                  {{i.experience_name}}  <b>, Traveler's name:</b> {{i.traveler}} </p>
+                  
               {% endif %}
             {% endfor %}
         </div>

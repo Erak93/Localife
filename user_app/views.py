@@ -12,7 +12,10 @@ from .models import UserProfile
 from .serializers import UserProfileSerializer
 from rest_framework import generics, status
 from search_app.models import Booking
+from user_app.models import Experience
 from django.shortcuts import render,get_object_or_404
+import time
+from django.urls import reverse
 
 
 class UserProfileUpdate(generics.RetrieveUpdateAPIView):
@@ -41,21 +44,32 @@ def profile(request):
 
     user=request.user
     booking_listing = Booking.objects.all()
+    experience_listing=Experience.objects.all()
     if user.id==None or user.id-1<=0:
         return HttpResponse("Create profile")
     else:
         context={
             'user':user,
             'user_id':user.id-1,
-            'booking_listing':booking_listing
+            'booking_listing':booking_listing,
+            'experience_listing':experience_listing
             
             
         }
         print(user.id)
         return render(request,'user_app/user_profile.html',context)
 
+def extract_id(name):
+    experience = Experience.objects.get(title=name)
+    return experience.id
+
+
+
 def registration_success(request):
-    return HttpResponse('Registration successful!')
+   
+    # Redirect to the login page
+    
+    return render(request,'registration/login.html')
 
 def register(request):
     """This function handles the registration"""
