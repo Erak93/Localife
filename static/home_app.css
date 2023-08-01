@@ -1,0 +1,134 @@
+/*-------------WEBSITE CONTENT PLACEMENT---------------*/
+
+.content-placement {
+  position: relative;
+  display: flex;
+  margin-top: 0px;
+  padding-top: 80px;
+  justify-content: center;
+  height: 100vh; /* viewport height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*-------------BACKGROUND IMAGE CAROUSEL---------------*/
+
+
+.background-carousel {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.background-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+/*---------------TRANSPARENT CONTENT BOX-----------------*/
+
+.main-content-container {
+  height:100vh;
+  width: 540px;
+  background-color: rgba(0, 0, 0, 0.60);
+  padding: 0px 50px 50px 70px;
+}
+.main-heading-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  height: fit-content;
+  box-sizing: border-box;
+  margin-bottom: -30px;
+}
+
+/*-----------------------HEADING-----------------------*/
+
+.h1-tab {
+    display: inline-block;
+    margin-left: 15%;
+  }
+
+/*-----------------------PARAGRAPHS-----------------------*/
+
+.home-p1 {
+    width: 520px;
+    color: #fff;
+    font-size: 22px;
+    margin-bottom: 40px;
+  }
+
+.home-p2 {
+  width: 520px;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 50px;
+  }
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
+    .main-content-container {
+        height:100vh;
+        width: 450px;
+        background-color: rgba(0, 0, 0, 0.50);
+        border-radius:0cm;
+        padding: 120px 20px 50px 50px;
+      }
+    
+      .main-heading-container {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        height: fit-content;
+        width: fit-content;
+        margin-bottom: -30px;
+        margin-top: -90px;
+      }
+
+      .home-p1 {
+        width: 430px;
+        color: #fff;
+        font-size: 19px;
+        margin-bottom: 50px;
+      }
+    
+      .home-p2 {
+        width: 430px;
+        color: #fff;
+        font-size: 19px;
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+    }
+
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+
+
+@media screen and (max-width:540px){
+    .main-heading-container {
+        margin-top: -50px;
+    }
+}
+
+
+/*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+
+
+@media screen and (max-width:350px){
+    .main-heading-container {
+        margin-top: -50px;
+    }
+}

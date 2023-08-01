@@ -1,175 +1,153 @@
 <!DOCTYPE html>
+
+{% load static %} 
+
+
 <html>
   <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>TraWell - {% block title %}{% endblock %}</title>
-    <style>
+
+    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <link rel="stylesheet" href="{% static 'experience_search_results.css' %}">
+
+
+    <!-- GOOGLE FONTS: -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&family=Londrina+Solid&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONTAWESOME ICONS: -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> 
+
+  <style>
       /* Add your custom styles here */
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        /**background-image: url(https://images.unsplash.com/photo-1444464666168-49d633b86797?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80)**/;
-        background-color: #f5b489;
-        background-repeat: no-repeat;
-        background-size: cover;
-       
-      }
-      .navbar {
-        background-color: #2a6560;
-        color: #fff;
-        padding: 10px;
-      }
-      .navbar a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 10px;
-      }
-      .navbar a:hover {
-        color: #fff;
-        text-decoration: underline;
-      }
-      .logo {
-        color: #a94c77;
-        font-size: 30px;
-        margin-right: 10px;
-      }
+    
+    
 
-      .well {
-        color: #fdceaf;
-        font-size: 24px;
-      }
-      .main-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        padding: 0 50px;
-        box-sizing: border-box;
-        margin-top: 100px;
-        
-      }
+  
 
-      .main-heading {
-        font-size: 40px;
-        color: #fff;
-        text-align: right;
-      }
-
-      .room-results {
+  .exp-results {
     display: flex;
     justify-content: center;  
     flex-wrap: wrap;
     
   }
 
-  .room {
+  .exp {
   flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
   margin: 20px;
   padding: 20px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
+  border: 3px solid #e00092;
+  border-radius: 10px;
+  background-color: #00000086;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: block;
 }
 
-  .room img {
+  .exp img {
     width: 100%;
     height: auto;
     margin-bottom: 10px;
   }
 
-  .room-title {
+  .exp-title {
     font-size: 24px;
     margin-bottom: 10px;
   }
 
-  .room-description {
+  .exp-description {
     font-size: 14px;
     color: #777;
     margin-bottom: 10px;
   }
 
-  .room-price {
+  .exp-price {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 10px;
   }
 
-  .book-button {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #a94c77;
-    color: #fff;
-    font-size: 16px;
-    text-decoration: none;
-    border-radius: 5px;
-  }
-
-  .book-button:hover {
-    background-color: #fdceaf;}
+  
 
   .experience-image {
     width:100px;
   }
       
-    </style>
-        
-  </head>
+</style>
+</head>
   <body>
-    <div class="navbar">
-      <a href="{% url 'home_app' %}"><span class="logo">Tra<span class="well">Well</span> </span></a>
-      <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
-      <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
-      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
-      <a href="#">About</a>
-    </div>
 
-    <div class="main-content">
-      <h1 class="main-heading">Here are the experiences available in [LOCATION]</h1>
-    </div>
-    
+    <div class="navbar-responsive">
+      <div class="navbar">
+
+        <div class="navbar-container-logo">
+          <a href="{% url 'home_app' %}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+        </div>
+
+        <div class="navbar-container-links">
+          <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+          <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+          <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+          <a href="#">About</a>
+        </div>
       
-        <div class="room-results">
-            
-          <div class="room">
+      </div>
+    </div>  
+    
+    
+ 
+    <div class="content-placement">
+
+      <div class="main-content-container">
+      
+        <div class="main-heading-container">
+          <h1 class="main-heading1">Here are the experiences available in [LOCATION]</h1>
+        </div>
+        
+
+        <div class="exp-results">
+
+          <div class="exp">
             <img src="https://images.unsplash.com/photo-1631461698264-3bab5be9a674?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Experience Image" class="experience-image">
-            <h2 class="room-title">Traditional archery</h2>
-            <p class="room-description">Description of Experience 1</p>
-            <p class="room-price">$99</p>
-            <a href="#" class="book-button">Book Now</a>
+            <h2 class="exp-title">Traditional archery</h2>
+            <p class="exp-description">Description of Experience 1</p>
+            <p class="exp-price">$99</p>
+            <a href="#" class="button1">Book Now</a>
+          </div>
+            
+          <div class="exp">
+            <img src="https://images.unsplash.com/photo-1608700272584-e9b62853fbd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Experience Image" class="experience-image">
+            <h2 class="exp-title">Village in the mountains</h2>
+            <p class="exp-description">Description of Experience 2</p>
+            <p class="exp-price">$50</p>
+            <a href="#" class="button1">Book Now</a>
+          </div>
+                
+          <div class="exp">
+            <img src="https://images.unsplash.com/photo-1511360823-5c672a170787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Experience Image" class="experience-image">
+            <h2 class="exp-title">Traditional Mask Crafting</h2>
+            <p class="exp-description">Description of Experience 2</p>
+            <p class="exp-price">$250</p>
+            <a href="#" class="button1">Book Now</a>
           </div>
 
-          
-           
-
-            <div class="room">
-                <img src="https://images.unsplash.com/photo-1608700272584-e9b62853fbd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Experience Image" class="experience-image">
-                <h2 class="room-title">Village in the mountains</h2>
-                <p class="room-description">Description of Experience 2</p>
-                <p class="room-price">$50</p>
-                <a href="#" class="book-button">Book Now</a>
-              </div>
-            
-            
-              <div class="room">
-                <img src="https://images.unsplash.com/photo-1511360823-5c672a170787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Experience Image" class="experience-image">
-                <h2 class="room-title">Traditional Mask Crafting</h2>
-                <p class="room-description">Description of Experience 2</p>
-                <p class="room-price">$250</p>
-                <a href="#" class="book-button">Book Now</a>
-              </div>
-
-
-            
-        
-      
-          
-
-
-
         </div>
+         </div>
+        <div class="content">{% block content %} {% endblock %}</div>
       </div>
-    <div class="content">{% block content %} {% endblock %}</div>
-  </body>
+</body>
 </html>
