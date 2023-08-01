@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
-{% load static %} 
-
+{% load static %}
 
 <html>
   <head>
@@ -11,9 +10,8 @@
 
     <title>TraWell - {% block title %}{% endblock %}</title>
 
-    <link rel="stylesheet" href="{% static 'main_style.css' %}">
-    <link rel="stylesheet" href="{% static 'experience_search_results.css' %}">
-
+    <link rel="stylesheet" href="{% static 'main_style.css' %}" />
+    <link rel="stylesheet" href="{% static 'experience_search_results.css' %}"/>
 
     <!-- GOOGLE FONTS: -->
 
@@ -31,123 +29,79 @@
       integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
-    /> 
-
-  <style>
-      /* Add your custom styles here */
-    
-    
-
-  
-
-  .exp-results {
-    display: flex;
-    justify-content: center;  
-    flex-wrap: wrap;
-    
-  }
-
-  .exp {
-  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
-  margin: 20px;
-  padding: 20px;
-  border: 3px solid #e00092;
-  border-radius: 10px;
-  background-color: #00000086;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: block;
-}
-
-  .exp img {
-    width: 100%;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .exp-title {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-
-  .exp-description {
-    font-size: 14px;
-    color: #777;
-    margin-bottom: 10px;
-  }
-
-  .exp-price {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-  }
-
-  
-
-  .experience-image {
-    width:100px;
-  }
-      
-</style>
-</head>
+    />
+  </head>
   <body>
-
     <div class="navbar-responsive">
       <div class="navbar">
-
         <div class="navbar-container-logo">
-          <a href="{% url 'home_app' %}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+          <a href="{% url 'home_app' %}"
+            ><span class="logo">Tra<span class="well">Well</span> </span></a
+          >
         </div>
 
         <div class="navbar-container-links">
-          <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
-          <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+          <a
+            class="nav-link"
+            href="{% url 'search_app:experience_search_results' %}"
+            >Search</a
+          >
+          <a class="nav-link" href="{% url 'user_app:register' %}"
+            >Registration</a
+          >
           <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
           <a href="#">About</a>
         </div>
-      
       </div>
-    </div>  
-    
-    
- 
-    <div class="content-placement">
+    </div>
 
+    <div class="content-placement">
       <div class="main-content-container">
-      
         <div class="main-heading-container">
-          <h1 class="main-heading1">Here are the experiences available in [LOCATION]</h1>
+          <h1 class="main-heading1">
+            Here are the experiences available in [LOCATION]
+          </h1>
         </div>
-        
 
         <div class="exp-results">
-
           <div class="exp">
-            <img src="https://images.unsplash.com/photo-1631461698264-3bab5be9a674?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Experience Image" class="experience-image">
+            <img
+              src="https://images.unsplash.com/photo-1631461698264-3bab5be9a674?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Experience Image"
+              class="experience-image"
+            />
             <h2 class="exp-title">Traditional archery</h2>
             <p class="exp-description">Description of Experience 1</p>
             <p class="exp-price">$99</p>
             <a href="#" class="button1">Book Now</a>
           </div>
-            
+
           <div class="exp">
-            <img src="https://images.unsplash.com/photo-1608700272584-e9b62853fbd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Experience Image" class="experience-image">
+            <img
+              src="https://images.unsplash.com/photo-1608700272584-e9b62853fbd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80"
+              alt="Experience Image"
+              class="experience-image"
+            />
             <h2 class="exp-title">Village in the mountains</h2>
             <p class="exp-description">Description of Experience 2</p>
             <p class="exp-price">$50</p>
             <a href="#" class="button1">Book Now</a>
           </div>
-                
+
           <div class="exp">
-            <img src="https://images.unsplash.com/photo-1511360823-5c672a170787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80" alt="Experience Image" class="experience-image">
+            <img
+              src="https://images.unsplash.com/photo-1511360823-5c672a170787?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80"
+              alt="Experience Image"
+              class="experience-image"
+            />
             <h2 class="exp-title">Traditional Mask Crafting</h2>
             <p class="exp-description">Description of Experience 2</p>
             <p class="exp-price">$250</p>
             <a href="#" class="button1">Book Now</a>
           </div>
-
         </div>
-         </div>
-        <div class="content">{% block content %} {% endblock %}</div>
       </div>
-</body>
+      <div class="content">{% block content %} {% endblock %}</div>
+    </div>
+  </body>
 </html>

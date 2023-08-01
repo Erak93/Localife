@@ -6,3 +6,45 @@ body{
     font-family: "Londrina Solid";
     color: rgba(0, 0, 0, 0.6) ;
 }
+
+.exp-results {
+    display: flex;
+    justify-content: center;  
+    flex-wrap: wrap;
+    
+  }
+
+.exp {
+  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+  margin: 20px;
+  padding: 20px;
+  border: 3px solid #2900e0;
+  border-radius: 10px;
+  background-color: #00000086;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.exp img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.exp-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.exp-description {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 10px;
+}
+.exp-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.experience-image {
+  width:100px;
+}
