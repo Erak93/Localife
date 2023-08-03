@@ -1,0 +1,185 @@
+body{
+    background-image: url("/media/background_pics/unsplash/pop-zebra-qX-04R51kTc-unsplash.jpg");
+}
+
+/*-------------WEBSITE CONTENT PLACEMENT---------------*/
+
+.content-placement {
+  border: 5px solid red;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  padding-top: 80px;
+  height: 200vh; /* viewport height */
+ 
+}
+
+
+
+/*---------------TRANSPARENT CONTENT BOX-----------------*/
+
+.main-content-container {
+  border: 2px solid rgb(9, 255, 0);
+  height:fit-content;
+  width: 540px;
+  background-color: rgba(0, 0, 0, 0.60);
+  padding: 0px 50px 50px 50px;
+}
+
+
+/*-----------------------HEADINGS-----------------------------*/
+
+.main-heading1 {
+  border: 2px solid rgb(255, 0, 251);
+
+  font-family: "Londrina Shadow";
+  color: #fdceaf;
+  font-size: 100px;
+  font-weight: 400;
+  letter-spacing: 7px;
+  padding-left: 10px;
+}
+
+.form-container h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #e00092;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.exp-available-content h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #fdceaf;
+  font-size: 40px;
+  font-weight: 200;
+
+}
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+.form-container{
+  border: 2px solid rgb(255, 183, 0);
+
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: center;
+  padding-left: 10px;
+  margin-top: -30px;
+}
+
+.form-container label {
+  padding-right: 20px;
+  font-size: 22px;
+  color: #fdceaf;
+}
+  
+.form-container input{
+  background-color: #fdceaf;
+  border-radius: 5px;
+  margin-left: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-right: 80px;
+  float: right;
+}
+
+.form-container input[type="submit"],
+.form-container select{
+  margin-left: 20px;
+  padding-top: 5px;
+  padding: 10px 20px;
+  background-color: #e00092;
+  color:#fdceaf;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+  }
+
+
+/*-------------MAIN CONTENT BOX---------------*/
+
+.exp-available-content {
+  border: 2px solid rgb(0, 13, 255);
+/*
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+*/
+  height:fit-content;
+  width: 550px;
+  padding: 0 20px;
+  /*box-sizing: border-box;*/
+  margin-top: 20px;
+  background-color: #2a6560;
+  border-radius: 5px;
+  
+}
+
+
+/*--------------------EXP CONTAINER--------------------------*/
+
+.exp-results {
+  border: 2px solid rgb(38, 255, 0);
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin-bottom: 20px;
+}
+
+.exp {
+  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+  border: 2px solid rgb(255, 0, 0);
+
+  margin: 0px;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: block;
+}
+
+.exp img {
+  border: 2px solid rgb(250, 46, 195);
+
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.exp-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.exp-host {
+  font-size: 18px;
+  
+  margin-bottom: 10px;
+}
+.exp-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+/*-----------------------BUTTONS------------------------------*/
+
+.button1 {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #e00092;
+  color: #fff;
+  font-size: 16px;
+  text-decoration: none;
+  border-radius: 5px;
+}
+
+.button1:hover {
+  background-color: #fdceaf;}
+
