@@ -1,0 +1,180 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1503&q=80);
+}
+
+.edit-profile{
+    align-self: flex-start;
+    margin-bottom: 50px;
+    margin-top: 2px;
+}
+
+.edit-profile a{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    padding:10px;
+    border:solid black 1px;
+    
+    
+
+
+}
+
+.profile-picture-file{
+    width: 300px;
+    height: 270px;
+    border-radius: 50%;
+
+}
+
+.profile-image{
+    height: 270px;
+    width: 300px;
+    border: solid purple;
+    border-radius: 50%;
+    margin:auto
+}
+
+.edit-profile{
+    margin-top: 180px;
+}
+
+.profile-container{
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width:700px;
+    margin:auto;
+    
+   
+    padding-left:20px;
+    padding-right:20px;
+    background-color: #fee6d6
+    
+    
+}
+
+.profile-name{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    margin:auto;
+    margin-bottom: 20px;
+    margin-top: 120px;
+}
+
+.profile-biography{
+    margin:auto;
+    margin-bottom: 50px;
+    margin-top:50px
+
+}
+
+.bio{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    
+   
+}
+
+.booked-experience-list{
+    margin-left: 0px;
+}
+
+.rocket{
+    width:50px
+
+}
+
+.calendar{
+    width:50px
+
+}
+
+
+
+
+.exp-results {
+    
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    margin-bottom: 20px;
+  }
+  
+
+  .experience-offered-heading{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+  }
+
+  .exp {
+    flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+    
+  
+    margin: 0px;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: block;
+    border-radius: 10px;
+  }
+  
+  .exp img {
+    
+  
+    width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+  }
+  .exp_title {
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 10px;}
+
+
+
+
+.exp-button{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    padding:10px;
+    padding-right: 5px;
+    border:solid black 1px;
+    margin-top: 10px;
+    margin-left: 0px;
+}
+
+.exp-button:hover{
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none
+}

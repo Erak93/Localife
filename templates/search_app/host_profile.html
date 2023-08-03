@@ -1,166 +1,82 @@
 <!DOCTYPE html>
+{% load custom_filters %}
+{% load static%}
 <html>
 <head>
-  <title>TraWell - {% block title %}{% endblock %}</title>
-  <style>
-    /* Add your custom styles here */
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: Arial, sans-serif;
-      background-color: #fdceaf;
-    }
-    .navbar {
-      background-color: #2a6560;
-      color: #fff;
-      padding: 10px;
-    }
-    .navbar a {
-      color: #fff;
-      text-decoration: none;
-      margin-right: 10px;
-    }
-    .navbar a:hover {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .logo {
-      color: #a94c77;
-      font-size: 30px;
-      margin-right: 10px;
-    }
-    .well {
-      color: #fdceaf;
-      font-size: 24px;
-    }
-    .content {
-      padding: 20px;
-      background-color: #fff;
-      margin: 20px;
-      display: flex;
-    }
-    /* Profile Section Styles */
-    .profile {
-      display: flex;
-      align-items: flex-start;
-    }
-    .profile-image {
-      width: 300px;
-      height: 300px;
-      border-radius: 50%;
-      background-color: #a94c77;
-      margin-right: 20px;
-    }
+  <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TraWell - search app</title>
+    <link rel="stylesheet" href="{% static 'main_style.css' %}" />
+    <link rel="stylesheet" href="{% static 'host_profile.css' %}" />
+    <!-- GOOGLE FONTS: -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&family=Londrina+Solid&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap"
+      rel="stylesheet"
+    />
+    <!-- FONTAWESOME ICONS: -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"/>
 
-    .profile-picture-file{
-      width: 300px;
-      height: 300px;
-       
-      border-radius: 50%;
-      border:6px solid #a94c77;
-      margin-right: 20px;
-    }
-    .profile-name {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 35px;
-      margin-top: 30px;
-    }
-    .profile-biography {
-      font-size: 18px;
-      line-height: 1.5;
-      margin-left:30px;
-      margin-top:100px
-    }
-
-    .bio{
-        font-size: 18px;
-        font-weight:bold;
-
-    }
-
-    .experience_container{
-      background-color: rgba(17, 80, 208, 0.171);
-      border-radius: 15px;
-
-    }
-
-    .experience_title{
-      margin-left: 10px;
-      padding-top:20px;
-      margin-bottom: 2px;
-    }
-    .experience_image_file{
-      margin-left: 10px;
-      padding-top:2px;
-      width:600px
-    }
-    .experience_description{
-      margin-left: 10px;
-      padding-top:5px;
-      padding-bottom: 15px;
-    }
-    .experience_button {
-        display: inline-block;
-        width: fit-content;
-        margin-top: 5px;
-        margin-left: 400px;
-        padding: 10px 20px;
-        background-color: #a94c77;
-        color: #fff;
-        font-size: 30px;
-        text-decoration: none;
-        border-radius: 10px;
-        height: auto;
-      }
-      .experience_button:hover {
-        background-color: #fdceaf; /* Update with your desired hover color */
-      }
-  </style>
 </head>
+ 
 <body>
-  <div class="navbar">
-    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
-    <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
-    <a class="nav-link" href="{% url 'home_app' %}">Logout</a> <!--Needs to be updated-->
-
-    <a href="#">About</a>
+  <div class="navbar-responsive">
+    <div class="navbar">
+      <div class="navbar-container-logo">
+      <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+      </div>
+      <div class="navbar-container-links">
+        <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+        <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+        <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+        <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
+      </div>
+    </div>
   </div>
  
-  <div class="content">
-    <div class="profile">
-      <div>
+  
+  <div class="profile-container">
+      
         <div class="profile-name">{{experience.host}}</div>
         <div class="profile-image">
           {% if experience.host.user_profile_image.url != null %}
-          <img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic"></div>
+          <img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic">
           {% else%}
           <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
           {% endif %}
+        </div>
           
-          
-      </div>
+      
       <div class="profile-biography"><span class="bio">Bio:</span> <br>
         {{experience.host.user_bio}}
-        <div class="experiences-offered">
-          <h2>Experiences offered by this host</h2>
+      </div>
+        <div class="exp-results">
+          <p class="experience-offered-heading">Experiences offered by this host</p>
           
           {% for i in all_experiences %}
             {% if i.host == experience.host %}
-                  <div class="experience_container">
-                  <h2 class="experience_title">{{i.title }}</h2>
-                  <img class="experience_image_file" src="{{i.experience_image.url}}" alt="">
-                  <a class="experience_button"href="{% url 'search_app:experience_details' experience_id=i.id %}">View more</a>
-                   <p class="experience_description">{{ i.description }}</p>
+                  <div class="exp">
+                  <h2 class="exp_title">{{i.title }}</h2>
+                  <img class="experience_image" src="{{i.experience_image.url}}" alt="">
+                   <!--<p class="experience_description">{{ i.description }}</p> DO WE WANT THE DESCRIPTION IN PREVIEW? -->
+                   <a class="exp-button" href="{% url 'search_app:experience_details' experience_id=i.id %}">View more</a>
     <!-- Add more fields as needed -->
                   </div>
             {%endif%}
           {% endfor %}
         </div>
-      </div>
       
-    </div>
   </div>
+      
+    
+  
   
 </body>
 </html>
