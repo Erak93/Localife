@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+{% load custom_filters %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      /* Add your custom styles here */
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif;
+        background-color: #fdceaf;
+      }
+      .navbar {
+        background-color: #2a6560;
+        color: #fff;
+        padding: 10px;
+      }
+      .navbar a {
+        color: #fff;
+        text-decoration: none;
+        margin-right: 10px;
+      }
+      .navbar a:hover {
+        color: #fff;
+        text-decoration: underline;
+      }
+      .logo {
+        color: #a94c77;
+        font-size: 30px;
+        margin-right: 10px;
+      }
+      .well {
+        color: #fdceaf;
+        font-size: 24px;
+      }
+      .content {
+        padding: 20px;
+        background-color: #fff;
+        margin: 20px;
+        display: flex;
+      }
+      /* Profile Section Styles */
+      .experience {
+        display: flex;
+        align-items: flex-start;
+      }
+      .experience-picture {
+        width: 700px;
+        height: 500px;
+        /**border-radius: 50%;**/
+        background-color: #a94c77;
+        margin-right: 20px;
+      }
+
+      .experience-picture-file {
+        width: 700px;
+        height: 500px;
+
+        /**border-radius: 50%;**/
+        border: 6px solid #a94c77;
+        margin-right: 20px;
+      }
+      .experience-title {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 35px;
+        margin-top: 30px;
+      }
+      .experience-description {
+        font-size: 18px;
+        line-height: 1.5;
+        margin-left: 30px;
+        margin-top: 100px;
+      }
+      .book-button {
+        display: inline-block;
+        width: fit-content;
+        margin-top: 100px;
+        margin-left: 0px;
+        padding: 10px 20px;
+        background-color: #a94c77;
+        color: #fff;
+        font-size: 30px;
+        text-decoration: none;
+        border-radius: 10px;
+        height: auto;
+      }
+      .book-button:hover {
+        background-color: #fdceaf; /* Update with your desired hover color */
+      }
+
+      .review_container{
+        background-color: rgba(17, 80, 208, 0.171);
+        border-radius: 15px;
+
+      }
+
+      .review_container p{
+        margin-left: 20px;
+        padding-top: 10px;
+
+      }
+
+      .review_comment{
+        background-color: rgb(254, 254, 255);
+        border-radius: 10px;
+        margin-bottom: 30px;
+        margin-right: 10px;
+        padding-left: 5px;
+        padding-bottom: 5px;
+
+      }
+
+      .review-host-pic{
+        width:35px;
+        height:35px;
+        border-radius: 50px;
+      }
+
+      .review-button {
+        display: inline-block;
+        width: fit-content;
+        margin-top: 20px;
+        margin-left: 0px;
+        padding: 10px 20px;
+        background-color: #a94c77;
+        color: #fff;
+        font-size: 30px;
+        text-decoration: none;
+        border-radius: 10px;
+        height: auto;
+      }
+      .review-button:hover {
+        background-color: #fdceaf; /* Update with your desired hover color */
+      }
+
+      .host-section {
+        margin-left: 700px;
+      }
+
+      .host-section h2 {
+        font-size: 24px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .host-picture {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <a href="{% url 'home_app' %}"
+        ><span class="logo">Tra<span class="well">Well</span> </span></a
+      >
+      <!--<a class="nav-link" href="{% url 'search_app:experience_search_results' %}">Search</a>-->
+      <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+      <a href="#">About</a>
+    </div>
+
+    <div class="content">
+      <div class="experience">
+        <div>
+          <div class="experience-title">{{experience.title}}</div>
+          <div class="experience_picture">
+            <img
+              class="experience-picture-file"
+              src="{{experience.experience_image.url}}"
+              alt="experience image"
+            />
+          </div>
+        </div>
+        <div class="experience-description">
+          <br />
+          <h2>Description</h2>
+          {{experience.description}}
+          <h2>Price</h2>
+          <p>{{experience.price}}</p>
+          <!--<a href="" class="book-button" action={{booking}} >Book now</a>-->
+          <button id="book-button" class="book-button">Book now</button>
+
+      <!-- Hidden form for booking -->
+      <form id="booking-form" method="post" action="{% url 'search_app:experience_details' experience_id=experience_id %}">
+        {% csrf_token %}
+        <input type="hidden" name="traveler" value="{{ request.user.user_profile }}">
+        <input type="hidden" name="host" value="{{ experience.host }}">
+        <input type="hidden" name="experience_name" value="{{ experience.title }}">
+      </form>
+          
+      <h2>Reviews</h2>
+
+         {% for i in review_list %}
+          {% if i.listing.id == experience_id %}
+          <div class="review_container">
+            {% if i.author.user_profile_image.url != null %}
+              <p><b>Left by:</b>  {{i.author}} <img class="review-host-pic" src="{{i.author.user_profile_image.url}}" alt="host pic"></p>
+              {% else%}
+              <p><b>Left by:</b>  {{i.author}} <img class="review-host-pic" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg"  alt="host pic"></p>
+            {% endif %}
+            <p><b>Rating: {{ i.rating|get_star_emoji }}</b></p>
+            <p class="review_comment"><b>Comment:</b> {{i.comment}}</p>
+          </div>
+          {% endif %}
+        {% endfor %}
+        <h2>Write your own review and help other travelers like you!</h2>
+        <a class="review-button" href="{%url 'finished_app:create_review' experience_id=experience_id%}"> Write review</a>
+          
+        </div>
+
+        <div class="host-section">
+          <h2>Your Host</h2>
+          {% if experience.host.user_profile_image.url != null %}
+          <a href="{% url 'search_app:host_profile' experience_id=experience_id %}"><img
+            class="host-picture"
+            src="{{experience.host.user_profile_image.url}}"
+            alt="host image"
+          /></a>
+          {% else%}
+          <a href="{% url 'search_app:host_profile' experience_id=experience_id %}"><img
+            class="host-picture"
+            src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg"
+            alt="host image"
+          /></a>
+          {% endif %}
+          
+          <h2>Name</h2>
+          {{experience.host}}
+          <h2>Location</h2>
+            {{experience.host.location}}
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript script -->
+  <script>
+    document.getElementById("book-button").addEventListener("click", function () {
+      // Submit the booking form
+      const bookingForm = document.getElementById("booking-form");
+      bookingForm.submit();
+    });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,189 @@
+
+body{
+    background-image: url(https://images.unsplash.com/photo-1593069567131-53a0614dde1d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1932&q=80);
+}
+
+
+
+
+
+.experience-picture-file{
+    width: 500px;
+    height: auto;
+    border-radius: 10%;
+
+}
+
+.experience-picture{
+    /*height: 270px;*/
+    width: 500px;
+    /*border: solid purple;*/
+    border-radius: 10%;
+    margin:auto
+}
+
+.edit-profile{
+    margin-top: 180px;
+}
+
+.experience-container{
+    
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width:700px;
+    margin:auto;
+    
+   
+    padding-left:20px;
+    padding-right:20px;
+    background-color: #fee6d6
+    
+    
+}
+
+.experience-title{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    margin:auto;
+    margin-bottom: 20px;
+    margin-top:180px;
+}
+
+.experience-description-header{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom:5px;
+
+}
+.experience-description{
+    margin:auto;
+    margin-bottom: 5px;
+    margin-top:5px
+
+}
+
+.experience-price-header{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.price{
+    margin-top: 5px;
+    margin-bottom:10px
+}
+
+.book-button{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.book-button:hover{
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none
+}
+
+.host-header{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+}
+.host-picture{
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+}
+
+.host-location{
+    font-weight: bold;
+}
+
+.host-email{
+    font-weight: bold;
+}
+
+.reviews-header{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+
+.review-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    width:700px;
+    margin:auto;
+}
+
+.review-box{
+    /*background-color: #e00092;*/
+    border-radius: 10px;
+}
+
+.review-comment{
+    background-color: white;
+    width:85%;
+    margin:auto;
+    padding: 10px 20px;
+    border-radius: 10px;
+}
+
+.review-host-pic{
+    height:50px;
+    width:50px;
+    border-radius: 50%;
+}
+
+.author-name{
+   margin-bottom: 2px;
+}
+
+.review-button{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding:5px 5px;
+    border: solid #245652 1px;
+}
+
+.review-button:hover{
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none
+}
+
