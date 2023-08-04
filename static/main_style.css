@@ -137,14 +137,14 @@ body {
     display: flex;
     justify-content:space-between;
     align-items:end;
+    padding-bottom: 40px;
     padding-left: 20px;
   }
-
   .navbar-container-links {
-    position:fixed;
-    top: 30px;
-    right: 20px;
-    font-size: 20px;
+   position:fixed;
+   top: 70px;
+   right: 20px;
+   font-size: 20px;
   }
 
 /*---------------------HEADING---------------------*/
@@ -159,26 +159,12 @@ body {
 /*---------------------BUTTON---------------------*/
 
   .button1 {
-    display: block;
-    width: fit-content;
-    padding: 10px 20px;
-    background-color: #e00092;
-    font-family: "Londrina Solid";
-    letter-spacing: 1px;
+    padding: 2vw 3vw;
     font-size: 20px;
-    font-weight: 400;
-    color: #FDCEAF;
-    text-decoration: none;
-    border-radius: 5px;
+    white-space: nowrap;
   }
   .button1:hover {
-    background-color: #FDCEAF; /* Update with your desired hover color */
-    font-family: "Londrina Solid";
-    letter-spacing: 1px;
     font-size: 20px;
-    font-weight: 400;
-    color: #e00092;
-    text-decoration: none;
   }
 
 }
@@ -200,7 +186,7 @@ body {
    position:fixed;
    top: 70px;
    right: 20px;
-   font-size: 20px;
+   font-size: 18px;
   }
 
 }

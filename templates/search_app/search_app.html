@@ -58,6 +58,7 @@
           <form method="get">
             {{ filter1.form.as_p }} {{ filter2.form.as_p }}
             <input type="submit" />
+
           </form>
         </div>
 
@@ -81,7 +82,8 @@
                 class="button1"
                 >View details</a>
             </div> <!--exp-->
-
+            {%endif%}
+                {% endfor %}
           </div> <!--exp-results-->
 
         </div> <!--exp-available-content-->
@@ -89,7 +91,7 @@
       </div> <!--main-content-container-->
 
     </div> <!--content-placement-->
-  
-    {%endif%} {% endfor %} {% endblock %}
+
+    {% endblock %}
   </body>
 </html>
