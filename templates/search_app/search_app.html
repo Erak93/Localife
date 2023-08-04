@@ -38,6 +38,7 @@
           <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
           <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
           <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+          <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
           <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
         </div>
       </div>
@@ -57,7 +58,8 @@
           <h1>Customize your search</h1>
           <form method="get">
             {{ filter1.form.as_p }} {{ filter2.form.as_p }}
-            <input type="submit"/>
+            <input type="submit" />
+
           </form>
         </div>
 
@@ -80,11 +82,9 @@
                 href="{% url 'search_app:experience_details' experience_id=obj.id %}"
                 class="button1"
                 >View details</a>
-                
             </div> <!--exp-->
             {%endif%}
                 {% endfor %}
-
           </div> <!--exp-results-->
 
         </div> <!--exp-available-content-->
@@ -92,7 +92,7 @@
       </div> <!--main-content-container-->
 
     </div> <!--content-placement-->
-  
-      {% endblock %}
+
+    {% endblock %}
   </body>
 </html>

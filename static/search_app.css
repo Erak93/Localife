@@ -1,18 +1,16 @@
 body{
-    background-image: url("/media/background_pics/unsplash/pop-zebra-qX-04R51kTc-unsplash.jpg");
+  background-image: url(https://images.unsplash.com/photo-1595742446666-c51b9fee49c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80);
 }
 
 /*-------------WEBSITE CONTENT PLACEMENT---------------*/
 
 .content-placement {
-  border: 5px solid red;
-  position: relative;
-  display: flex;
-  justify-content: center;
-  margin-top: 0px;
-  padding-top: 80px;
-  height: 200vh; /* viewport height */
- 
+position: relative;
+display: flex;
+justify-content: center;
+margin-top: 0px;
+padding-top: 80px;
+height: fit content;
 }
 
 
@@ -20,165 +18,382 @@ body{
 /*---------------TRANSPARENT CONTENT BOX-----------------*/
 
 .main-content-container {
-  border: 2px solid rgb(9, 255, 0);
-  height:fit-content;
-  width: 540px;
-  background-color: rgba(0, 0, 0, 0.60);
-  padding: 0px 50px 50px 50px;
+height:fit-content;
+width: 600px;
+background-color: rgba(0, 0, 0, 0.55);
+padding: 0px 30px 20px 30px;
 }
 
 
 /*-----------------------HEADINGS-----------------------------*/
 
 .main-heading1 {
-  border: 2px solid rgb(255, 0, 251);
+font-family: "Londrina Shadow";
+color: #fdceaf;
+font-size: 100px;
+font-weight: 400;
+letter-spacing: 7px;
+padding-left: 10px;
+}
 
-  font-family: "Londrina Shadow";
-  color: #fdceaf;
-  font-size: 100px;
-  font-weight: 400;
-  letter-spacing: 7px;
-  padding-left: 10px;
+.h1-tab {
+display: inline-block;
+margin-left: 15%;
 }
 
 .form-container h1 {
-  font-family: "Londrina Solid";
-  letter-spacing: 3px;
-  color: #e00092;
-  font-size: 40px;
-  font-weight: 200;
+font-family: "Londrina Solid";
+letter-spacing: 3px;
+color: #e00092;
+font-size: 40px;
+font-weight: 200;
 }
 
 .exp-available-content h1 {
-  font-family: "Londrina Solid";
-  letter-spacing: 3px;
-  color: #fdceaf;
-  font-size: 40px;
-  font-weight: 200;
-
+font-family: "Londrina Solid";
+letter-spacing: 3px;
+color: #204d49;
+font-size: 40px;
+font-weight: 200;
 }
 
 /*--------------------FORM CONTAINER--------------------------*/
 
 .form-container{
-  border: 2px solid rgb(255, 183, 0);
-
-  background-attachment: fixed;
-  background-position: center;
-  background-size: cover;
-  position: center;
-  padding-left: 10px;
-  margin-top: -30px;
+border: 10px double #fcd09e4f;
+border-radius: 20px;
+background-color: rgba(0, 0, 0, 0.25);
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+position: center;
+height: fit-content;
+max-width: 550px;
+padding: 0px 0px 70px 30px;
+margin-top: -20px;
 }
 
 .form-container label {
-  padding-right: 20px;
-  font-size: 22px;
-  color: #fdceaf;
+font-size: 22px;
+color: #fdceaf;
 }
-  
+
 .form-container input{
-  background-color: #fdceaf;
-  border-radius: 5px;
-  margin-left: 20px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-right: 80px;
-  float: right;
+background-color: #fdceaf;
+border-radius: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-left: 50px;
+margin-right: 30px;
+float: right;
+width: 190px;
 }
 
 .form-container input[type="submit"],
 .form-container select{
-  margin-left: 20px;
-  padding-top: 5px;
-  padding: 10px 20px;
-  background-color: #e00092;
-  color:#fdceaf;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 5px;
-  }
+display:block;
+width: fit-content;
+padding: 10px 20px;
+margin-inline-start: 70%;
+background-color: #e00092;
+font-family: "Londrina Solid";
+letter-spacing: 1px;
+font-size: 20px;
+font-weight: 400;
+color: #FDCEAF;
+text-decoration: none;
+border-radius: 10px;
+}
 
+.form-container input[type="submit"]:hover {
+background-color: #FDCEAF; /* Update with your desired hover color */
+font-family: "Londrina Solid";
+letter-spacing: 1px;
+font-size: 20px;
+font-weight: 400;
+color: #e00092;
+text-decoration: none;
+}
 
-/*-------------MAIN CONTENT BOX---------------*/
+/*--------------------EXP AVAILABLE BOX----------------------*/
 
 .exp-available-content {
-  border: 2px solid rgb(0, 13, 255);
-/*
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-*/
-  height:fit-content;
-  width: 550px;
-  padding: 0 20px;
-  /*box-sizing: border-box;*/
-  margin-top: 20px;
-  background-color: #2a6560;
-  border-radius: 5px;
-  
+border-radius: 20px;
+background-color: #fcd09ea2;
+height:fit-content;
+width: fit-content;
+padding: 5px 30px 10px 30px;
+margin-top: 40px;  
+margin-bottom: 40px;
 }
 
 
 /*--------------------EXP CONTAINER--------------------------*/
 
-.exp-results {
-  border: 2px solid rgb(38, 255, 0);
-  flex-direction: column;
-  align-items: center;
-  display: flex;
-  flex-wrap: wrap;
-  height: fit-content;
-  margin-bottom: 20px;
-}
-
 .exp {
-  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
-  border: 2px solid rgb(255, 0, 0);
-
-  margin: 0px;
-  padding: 20px;
-  border-radius: 5px;
-  background-color: #fff;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: block;
+flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+border-top: 3px solid rgba(0, 0, 0, 0.25);
+margin-bottom: 20px;
+padding: 30px 20px 10px 20px;
+/*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+display: block;
 }
 
 .exp img {
-  border: 2px solid rgb(250, 46, 195);
-
-  width: 100%;
-  height: auto;
-  margin-bottom: 10px;
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.25);
+width: 100%;
+height: auto;
+margin-bottom: 10px;
 }
 .exp-title {
-  font-size: 24px;
-  margin-bottom: 10px;
+font-size: 28px;
+color: #204d49;
+margin-bottom: 10px;
 }
 .exp-host {
-  font-size: 18px;
-  
-  margin-bottom: 10px;
+font-size: 18px;
+
+margin-bottom: 10px;
 }
 .exp-price {
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 10px;
+font-size: 18px;
+font-weight: bold;
+margin-bottom: 10px;
 }
 
 
 /*-----------------------BUTTONS------------------------------*/
 
 .button1 {
-  display: inline-block;
-  padding: 10px 20px;
-  background-color: #e00092;
-  color: #fff;
-  font-size: 16px;
-  text-decoration: none;
-  border-radius: 5px;
+font-size: 20px;
 }
 
 .button1:hover {
-  background-color: #fdceaf;}
+font-size: 20px;
+}
+
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
+.main-content-container {
+  height:fit-content;
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 0px 30px 20px 30px;
+}
+
+/*-------------------HEADINGS-------------------------*/
+
+.main-heading1 {
+  font-family: "Londrina Shadow";
+  color: #fdceaf;
+  font-size: 15vw;
+  font-weight: 400;
+  letter-spacing: 5px;
+  padding-left: 2vw;
+  margin-top: 7vh;
+}
+
+.form-container h1 {
+  letter-spacing: 2px;
+}
+
+.exp-available-content h1 {
+  letter-spacing: 2px;
+}
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+.form-container label {
+  font-size: 20px;
+}
+.form-container input{
+  margin-left: 6vw;
+  width: 28vw;
+}
+
+/*-----------------------BUTTONS------------------------------*/
+
+.button1 {
+  padding: 2vw 3vw;
+  font-size: 3vw;
+}
+.button1:hover {
+  padding: 2vw 3vw;
+  font-size: 3vw;
+}
+
+}
+
+
+/*------------------------------------------------------------------------------------*/
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width:540px){
+
+.main-heading1 {
+  font-family: "Londrina Shadow";
+  color: #fdceaf;
+  font-size: 15vw;
+  font-weight: 400;
+  letter-spacing: 4px;
+  padding-left: 2vw;
+  padding-right: 7vw;
+  margin-top: 10vh;
+}
+
+.form-container h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 2px;
+  color: #e00092;
+  font-size: 7vw;
+  font-weight: 200;
+}
+
+.exp-available-content h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 2px;
+  color: #204d49;
+  font-size: 7vw;
+  font-weight: 200;
+}
+
+.form-container label {
+  font-size: 3vw;
+  color: #fdceaf;
+}
+.form-container input{
+  background-color: #fdceaf;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 6vw;
+  margin-right: 30px;
+  float: right;
+  width: 24vw;
+}
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+.form-container{
+border: 10px double #fcd09e4f;
+border-radius: 20px;
+background-color: rgba(0, 0, 0, 0.25);
+background-attachment: fixed;
+background-position: center;
+background-size: cover;
+position: center;
+height: fit-content;
+max-width: 550px;
+padding: 0px 0px 70px 30px;
+margin-top: -20px;
+}
+
+.form-container label {
+font-size: 19px;
+color: #fdceaf;
+}
+
+.form-container input{
+background-color: #fdceaf;
+border-radius: 5px;
+padding-top: 5px;
+padding-bottom: 5px;
+margin-left: 30px;
+margin-right: 30px;
+float: right;
+width: 24vw;
+}
+
+.form-container input[type="submit"],
+.form-container select{
+display:block;
+width: fit-content;
+padding: 10px 20px;
+margin-inline-start: 70%;
+background-color: #e00092;
+font-family: "Londrina Solid";
+letter-spacing: 1px;
+font-size: 20px;
+font-weight: 400;
+color: #FDCEAF;
+text-decoration: none;
+border-radius: 10px;
+}
+
+.form-container input[type="submit"]:hover {
+background-color: #FDCEAF; /* Update with your desired hover color */
+font-family: "Londrina Solid";
+letter-spacing: 1px;
+font-size: 20px;
+font-weight: 400;
+color: #e00092;
+text-decoration: none;
+}
+/*------------------EXP CONTAINER---------------------*/
+
+.exp {
+  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+  border-top: 3px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  padding: 30px 20px 10px 20px;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);*/
+  display: block;
+}
+
+.exp img {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.exp-title {
+  font-size: 26px;
+  color: #204d49;
+  margin-bottom: 10px;
+}
+.exp-host {
+  font-size: 16px;
+
+  margin-bottom: 10px;
+}
+.exp-price {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+
+
+}
+
+
+/*--------------------------------------------------------------------------------------*/
+/*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:350px){
+.main-content-container {
+  border: red solid 2px;
+  
+}
+
+.main-heading1 {
+  font-family: "Londrina Shadow";
+  color: #fdceaf;
+  font-size: 15vw;
+  font-weight: 400;
+  letter-spacing: 3px;
+  padding-left: 7vw;
+  margin-top: 10vh;
+}
+
+
+}
