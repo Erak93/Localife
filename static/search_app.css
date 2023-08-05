@@ -9,8 +9,8 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 0px;
-  padding-top: 80px;
-  height: fit content;
+  padding-top: 0px;
+  height:fit-content;
 }
 
 /*---------------TRANSPARENT CONTENT BOX-----------------*/
@@ -181,7 +181,6 @@ body{
     font-size: 15vw;
     letter-spacing: 5px;
     padding-left: 2vw;
-    margin-top: 10vh;
   }
 
   .form-container h1 {
