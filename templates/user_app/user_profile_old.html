@@ -1,0 +1,152 @@
+{% load static%}
+<!DOCTYPE html>
+{% load custom_filters %}
+<html>
+<head>
+  <title>TraWell - {% block title %}{% endblock %}</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdceaf;
+    }
+    .navbar {
+      background-color: #2a6560;
+      color: #fff;
+      padding: 10px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .logo {
+      color: #a94c77;
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    .well {
+      color: #fdceaf;
+      font-size: 24px;
+    }
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px;
+      display: flex;
+      /**background-image: url("https://wallpaperswide.com/download/light_background-wallpaper-1920x1080.jpg");
+      background-size: cover; **/
+    }
+    /* Profile Section Styles */
+    .profile {
+      display: flex;
+      align-items: flex-start;
+      
+    }
+    .profile-image {
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background-color: #a94c77;
+      margin-right: 20px;
+    }
+
+    .profile-picture-file{
+      width: 300px;
+      height: 300px;
+       
+      border-radius: 50%;
+      border:6px solid #a94c77;
+      margin-right: 20px;
+    }
+    .profile-name {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 35px;
+      margin-top: 30px;
+    }
+    .profile-biography {
+      font-size: 18px;
+      line-height: 1.5;
+      margin-left:40px;
+      margin-top:100px
+    }
+
+    .bio{
+        font-size: 18px;
+        font-weight:bold;
+
+    }
+
+    .rocket{
+      width: 40px;
+      margin-top: 30px;
+    }
+
+    .calendar{
+      width: 40px;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+    <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+    <a class="nav-link" href="{% url 'home_app' %}">Logout</a> <!--Needs to be updated-->
+
+    <a href="#">About</a>
+  </div>
+  {% if user.is_authenticated %}
+  <div class="content">
+    <div class="profile">
+      <div>
+        <div class="edit-profile"><a href="{% url 'user_app:profile_update' pk=user_id %}">Edit your info</a></div>
+        <div class="profile-name">{{user.username}}</div>
+        <div class="profile-image">
+          {% if user.user_profile.user_profile_image.url != null %}
+          <img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic"></div>
+          {% else%}
+          <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
+          {% endif %}
+      </div>
+      <div class="profile-biography"><span class="bio">Bio:</span> <br>
+        {{user.user_profile.user_bio}}
+        <div class="booked-experience-list">
+          <img class="rocket" src="{% static 'rocket.png' %}" alt=""><b>Your upcoming experiences</b><br>
+           {% for i in booking_listing %}
+              {% if i.traveler  == user.username %}
+              
+              <p><b>Experience title:</b>
+                <a href="{% url 'search_app:experience_details' experience_id=i.experience_name|extract_id %}">
+                    {{ i.experience_name }}
+                </a>  <b>, Host name:</b> {{i.host}}
+            </p>
+           
+              {% endif %}
+            {% endfor %}
+          <img class="calendar" src="{% static 'calendar.png' %}" alt=""><b>Your hosting experiences</b>
+          {% for i in booking_listing %}
+              {% if i.host  == user.username %}
+                <p><b>Experience title:</b>
+                  
+                  {{i.experience_name}}  <b>, Traveler's name:</b> {{i.traveler}} </p>
+                  
+              {% endif %}
+            {% endfor %}
+        </div>
+      </div>
+   
+    </div>
+  </div>
+  {% else %}
+  <h1>Please create an account to view your profile</h1>
+  {% endif %}
+</body>
+</html>

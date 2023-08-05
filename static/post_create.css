@@ -1,0 +1,80 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1646036246326-eeedd141e627?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1632&q=80);
+}
+
+.host-CTA{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.mb-3{
+    color: rgb(12, 12, 12);
+    margin-top: 20px;
+    margin-left: 20px;
+
+}
+.form-container{
+    margin-top: 80px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fdceafb3;
+    padding-top: 1px;
+    margin-top: 250px;
+    margin-bottom: 50px;
+    
+}
+
+.submit-button{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    margin-left: 180px;
+    margin-bottom: 20px;
+}
+
+.submit-button:hover{
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none
+}
+
+.login-button{
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+    padding:10px;
+    border:solid black 1px
+}
+
+.login-button:hover{
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none
+}
+.card-footer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    background-color: #fdceafb3;
+}

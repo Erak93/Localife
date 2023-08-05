@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 786c8c01efb9ad466e7b86b959eee0731d74d5e9
 {% block content %}
   <h2>Create Review</h2>
   <form method="POST" action="{% url 'finished_app:create_review' experience_id=experience.id %}">
@@ -25,4 +28,5 @@
       <li>Rating: {{ review.rating }} - Comment: {{ review.comment }}</li>
     {% endfor %}
   </ul>
-{% endblock %}
+  <a href="{% url 'home_app' %}">To main page</a>
+  {% endblock%}

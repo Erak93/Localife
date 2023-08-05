@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>TraWell - {% block title %}{% endblock %}</title>
+  <style>
+    /* Add your custom styles here */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-color: #fdceaf;
+    }
+    .navbar {
+      background-color: #2a6560;
+      color: #fff;
+      padding: 10px;
+    }
+    .navbar a {
+      color: #fff;
+      text-decoration: none;
+      margin-right: 10px;
+    }
+    .navbar a:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .logo {
+      color: #a94c77;
+      font-size: 30px;
+      margin-right: 10px;
+    }
+    .well {
+      color: #fdceaf;
+      font-size: 24px;
+    }
+    .content {
+      padding: 20px;
+      background-color: #fff;
+      margin: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    
+  </style>
+</head>
+<body>
+  <div class="navbar">
+    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+    <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+    <a class="nav-link" href="{% url 'home_app' %}">Logout</a> <!--Needs to be updated-->
+
+    <a href="#">About</a>
+  </div>
+ 
+  <div class="content">
+    <h1>Congratulations!</h1>
+    <p></p>
+    <img src="https://images.unsplash.com/photo-1502920514313-52581002a659?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80" alt="">
+    <p></p>
+    <h2>You successfully booked your first experience</h2>
+  </div>
+  
+</body>
+</html>

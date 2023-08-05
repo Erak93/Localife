@@ -48,7 +48,8 @@ INSTALLED_APPS = [
     "post_app",
     "match_app",
     "finished_app",
-    
+    "drf_spectacular",
+    "drf_spectacular_sidecar"
 ]
 
 MIDDLEWARE = [
@@ -182,3 +183,17 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 LOGIN_REDIRECT_URL='home_app'
 LOGIN_URL= 'user_app:login'
 LOGOUT_URL='home_app' 
+
+REST_FRAMEWORK = {
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'SWAGGER_UI_DIST': 'SIDECAR',  # shorthand to use the sidecar instead
+    'SWAGGER_UI_FAVICON_HREF': 'SIDECAR',
+    'REDOC_DIST': 'SIDECAR',
+    'TITLE': 'DJANGO DRF TraWell',
+    'DESCRIPTION': 'Your project description',
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+}

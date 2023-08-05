@@ -11,10 +11,23 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ExperienceForm
 from rest_framework.parsers import MultiPartParser, FormParser
+from drf_spectacular.utils import extend_schema, extend_schema_view
 
 def test_view(request):
     return render(request, 'post_app/test_view.html')
 
+
+def create_experience(request):
+    if request.method == 'POST':
+        form = ExperienceForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save(host=request.user.user_profile)  # Pass the host argument as the logged-in user's UserProfile
+            return render(request, 'post_app/test_view.html')
+    else:
+        form = ExperienceForm()
+    return render(request, 'post_app/post_create.html', {'form': form})
+
+"""
 def create_experience(request):
     if request.method == 'POST':
         form = ExperienceForm(request.POST, request.FILES)
@@ -30,10 +43,10 @@ def create_experience(request):
     else:
         form = ExperienceForm()
     return render(request, 'post_app/post_create.html', {'form': form})
+"""
 
 
-
-
+@extend_schema(responses=ExperienceSerializer)
 @api_view(['GET'])
 def experience_list(request): #, format=None):
     if request.method == 'GET': # and request.user.is_authenticated:
@@ -43,7 +56,11 @@ def experience_list(request): #, format=None):
     
 
     
-
+@extend_schema_view(
+        get=extend_schema(responses=ExperienceSerializer),
+        put=extend_schema(responses=ExperienceSerializer),
+        delete=extend_schema(responses=ExperienceSerializer)
+)
 @api_view(['GET', 'PUT', 'DELETE']) 
 def experience_detail(request, id):
     experience = get_object_or_404(Experience, pk=id)

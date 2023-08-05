@@ -1,7 +1,7 @@
 from django.shortcuts import render,get_object_or_404
 
 # Create your views here.
-from user_app.models import Experience
+from user_app.models import Experience,Review
 from .filters import ExperienceFilter, SecondFilter, APIFilter
 from .serializers import ExperienceSerializer, APISerializer
 
@@ -9,6 +9,7 @@ from django.views.generic import ListView
 from django.db.models import Q
 from .models import Booking
 from django.http import HttpResponse
+
 
 
 
@@ -39,32 +40,46 @@ def experience_details(request,experience_id):
 """
 
     
-    # Fetch the experience object or handle the case when it doesn't exist
-    experience = get_object_or_404(Experience, id=experience_id)
-
-    if request.method == "POST":
-        # Get data from the form submission
-        traveler_post= request.POST.get("traveler")
-        host_post= request.POST.get("host")
-        experience_name = request.POST.get("experience_name")
-
-        # Create the Booking object
-        booking = Booking(
-            traveler=traveler_post,
-            host=host_post,
-            experience_name=experience_name,
-        )
-        booking.save()
-
-        # Redirect to a success page or display a success message
-        return HttpResponse("Booking successful!")
+    if request.user.is_anonymous:
+         return HttpResponse("You need to create an account in order to book the experience")
     else:
-        context = {
-            'experience': experience,
-            'experience_id': experience_id,
-        }
-        return render(request, 'search_app/experience_details.html', context)
-    
+        # Fetch the experience object or handle the case when it doesn't exist
+        experience = get_object_or_404(Experience, id=experience_id)
+        review_list=Review.objects.all()
+
+        if request.method == "POST":
+            # Get data from the form submission
+            traveler_post= request.POST.get("traveler")
+            host_post= request.POST.get("host")
+            experience_name = request.POST.get("experience_name")
+
+
+            #If a booking already exists, redirect to other template
+            booking = Booking(
+                traveler=traveler_post,
+                host=host_post,
+                experience_name=experience_name,
+                )
+
+                
+            existing_booking=Booking.objects.filter(traveler=request.user.user_profile,host=experience.host,experience_name=experience.title)
+            if existing_booking:
+                return HttpResponse("Sorry. You have already booked this experience")
+            else:  
+                    
+                    
+                booking.save()
+                # Redirect to a success page or display a success message
+                return HttpResponse("Booking successful!")
+        else:
+            context = {
+                    'experience': experience,
+                    'experience_id': experience_id,
+                    'review_list':review_list,
+                    
+                }
+            return render(request, 'search_app/experience_details.html', context)
+        
 
 
 
@@ -90,13 +105,26 @@ def index(request):
 
     filter2 = SecondFilter(request.GET, queryset=queryset)
     #queryset2 = filter2.qs
+    
     user=request.user
-    context = {
-        'filter1': filter1,
-        'filter2': filter2,
-        'user_id':user.id-1
-    }
-    return render(request, 'search_app/search_app.html', context)
+    if user.id==None or user.id-1<=0:
+         user.id=1
+         context = {
+                'filter1': filter1,
+                'filter2': filter2,
+                'user_id':user.id-1
+            }
+         return render(request, 'search_app/search_app.html', context)
+    else:
+         context = {
+                'filter1': filter1,
+                'filter2': filter2,
+                'user_id':user.id-1
+            }
+         return render(request, 'search_app/search_app.html', context)
+
+
+    
 """
 def granular(request, f):
     f2 = SecondFilter(request.GET, queryset=f)

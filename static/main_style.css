@@ -1,0 +1,227 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+  }
+  
+  body {
+    font-family: "Nunito", sans-serif;
+    font-size: 20px;
+    background-color: #462032;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  /*----------------------NAVIGATION-----------------------*/
+  
+  .navbar-responsive {
+    z-index: 2;
+    background-color: #245652;
+    border-bottom: 3px solid #FDCEAF;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin-bottom:auto;
+    padding-left: 5%;
+  }
+  
+  .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    align-items:end;
+    flex-wrap: wrap;
+    color: #fff;
+    padding: 15px;
+  }
+  
+  
+  .navbar-container-links {
+    margin-top: 12px;
+    margin-left: 10px;
+    padding-bottom: 5px;
+  }
+  
+  .navbar a {
+    color: #ffffff;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  
+  .navbar a:hover {
+    color: #FDCEAF;
+    text-decoration: none;
+  }
+  
+  .navbar a:active {
+    color: #FDCEAF;
+    text-decoration: underline;
+  }
+  
+  /*-------------------------LOGO-------------------------*/
+  
+  .logo {
+    color: #e00092;
+    font-family: "Londrina Solid";
+    /*font-family: "Permanent Marker";*/
+    letter-spacing: 1px;
+    font-size: 50px;
+    font-weight: normal;
+    margin-right: 10px;
+  }
+  
+  .well {
+    color: #FDCEAF;
+    font-family: "Londrina Solid";
+    /*font-family: "Permanent Marker";*/
+    letter-spacing: 2px;
+    font-size: 44px;
+    font-weight: normal;
+  }
+  
+  /*-----------------------HEADINGS-----------------------*/
+  
+  .main-heading1 {
+    font-family: "Londrina Shadow";
+    font-size: 100px;
+    letter-spacing: 5px;
+    font-weight: 400;
+    color: #FDCEAF;
+  }
+      
+  /*-----------------------BUTTON-----------------------*/
+  
+  .button1 {
+    display:block;
+    width: fit-content;
+    padding: 10px 20px;
+    margin-inline-start: 70%;
+    background-color: #e00092;
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-decoration: none;
+    border-radius: 10px;
+  }
+  .button1:hover {
+    background-color: #FDCEAF; 
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    color: #e00092;
+    text-decoration: none;
+  }
+  
+  /*------------------------------------------------------------------------------*/
+  /*------------------------------SMARTPHONE DISPLAY------------------------------*/
+  /*------------------------------------------------------------------------------*/
+  
+  @media screen and (max-width:700px){
+    body {
+      font-size: 20px;
+      background-color: #462032;
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+  
+  /*---------------------NAVBAR---------------------*/
+  
+    .navbar-responsive {
+      z-index: 2;
+      display: flex;
+      justify-content:space-between;
+      align-items:end;
+      padding-left: 20px;
+    }
+  
+    .navbar-container-links {
+      position:fixed;
+      top: 30px;
+      right: 20px;
+      font-size: 20px;
+    }
+  
+  /*---------------------HEADING---------------------*/
+  
+  
+    .main-heading1 {
+      font-size: 70px;
+      letter-spacing: 3px;
+      font-weight: 400;
+    }
+     
+  /*---------------------BUTTON---------------------*/
+  
+    .button1 {
+      display: block;
+      width: fit-content;
+      padding: 10px 20px;
+      background-color: #e00092;
+      font-family: "Londrina Solid";
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: 400;
+      color: #FDCEAF;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+    .button1:hover {
+      background-color: #FDCEAF; /* Update with your desired hover color */
+      font-family: "Londrina Solid";
+      letter-spacing: 1px;
+      font-size: 20px;
+      font-weight: 400;
+      color: #e00092;
+      text-decoration: none;
+    }
+  
+  }
+  
+  /*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+  
+  
+  @media screen and (max-width:540px){
+    
+    .navbar-responsive {
+      z-index: 2;
+      display: flex;
+      justify-content:space-between;
+      align-items:end;
+      padding-bottom: 40px;
+      padding-left: 20px;
+    }
+    .navbar-container-links {
+     position:fixed;
+     top: 70px;
+     right: 20px;
+     font-size: 20px;
+    }
+  
+  }
+  
+  /*------------------------------SMALLEST SMARTPHONE DISPLAY------------------------------*/
+  
+  
+  @media screen and (max-width:350px){
+  
+    .navbar-responsive {
+      z-index: 2;
+      display: flex;
+      justify-content:space-between;
+      align-items:end;
+      padding-bottom: 40px;
+      padding-left: 20px;
+    }
+    .navbar-container-links {
+      position:fixed;
+      top: 70px;
+      right: 20px;
+    }
+  
+  }

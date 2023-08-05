@@ -6,12 +6,19 @@ from django.db import models
 from django.views.generic import ListView
 from django.db.models import Q
 from user_app.models import Experience
+from user_app.models import UserProfile,Experience
 
 class Booking(models.Model):
+    
     traveler=models.CharField(max_length=50)
     host=models.CharField(max_length=50)
     experience_name=models.CharField(max_length=200)
-
+    """
+    traveler=models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+    host=models.ForeignKey(UserProfile, on_delete=models.CASCADE ,related_name='host_bookings')
+    experience_name=models.ForeignKey(Experience,on_delete=models.CASCADE, related_name='bookings')
+    """
+    
     def __str__(self):
         return f' traveler: {self.traveler} , host: {self.host} , experience: {self.experience_name}'
 
