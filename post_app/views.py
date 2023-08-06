@@ -58,10 +58,9 @@ def experience_list(request): #, format=None):
     
 @extend_schema_view(
         get=extend_schema(responses=ExperienceSerializer),
-        put=extend_schema(responses=ExperienceSerializer),
         delete=extend_schema(responses=ExperienceSerializer)
 )
-@api_view(['GET', 'PUT', 'DELETE']) 
+@api_view(['GET', 'DELETE']) 
 def experience_detail(request, id):
     experience = get_object_or_404(Experience, pk=id)
     if request.method == 'GET':
