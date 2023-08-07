@@ -137,8 +137,10 @@ body {
   width: 550px;
   color: #fff;
   font-size: 22px;
+  margin-bottom: 40px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-top: 80px;
 }
 
 /*-----------------------BUTTON-----------------------*/
@@ -277,7 +279,6 @@ body {
   /*-----------------------PARAGRAPHS-----------------------*/
 
   .p1 {
-    padding-right: 30px;
     font-size: 19px;
     letter-spacing: 1px;
   }
