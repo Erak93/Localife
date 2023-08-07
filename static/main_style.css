@@ -146,8 +146,10 @@ body {
 .button1 {
   display:block;
   width:fit-content;
-  padding: 8px 16px;
-  margin-inline-start: 75%;
+  padding: 6px 16px;
+  /*margin-inline-start: 75%;*/
+  float: right;
+  margin-right: 20px;
   background-color: #e00092;
   font-family: "Londrina Solid";
   letter-spacing: 1px;
@@ -155,6 +157,7 @@ body {
   font-weight: 400;
   color: #FDCEAF;
   text-decoration: none;
+  white-space: nowrap;
   border-radius: 10px;
 }
 .button1:hover {
@@ -287,10 +290,10 @@ body {
 
   .button1 {
     margin-inline-start: 70%;
-    font-size: 22px;
+    font-size: 19px;
   }
   .button1:hover {
-    font-size: 22px;
+    font-size: 19px;
   }
 
 }

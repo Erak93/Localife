@@ -1,20 +1,78 @@
-{% extends 'user_app/base.html' %}
-{% load static %}
-{% block body_block %}
+<!DOCTYPE html>
 
-<div class="container">
+{% load static %} 
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>TraWell</title>
+    <link rel="stylesheet" href="{% static 'main_style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'registration.css' %}"/>
+
+    <!-- GOOGLE FONTS: -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Londrina+Outline&family=Londrina+Shadow&family=Londrina+Sketch&family=Londrina+Solid&family=Nunito:ital,wght@0,300;0,400;0,500;0,700;1,400;1,500;1,700&family=Permanent+Marker&family=Sedgwick+Ave+Display&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- FONTAWESOME ICONS: -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    /> 
+
+  </head>
+  
+  <body>
+    
+    <div class="navbar-responsive">
+      <div class="navbar">
+
+        <div class="navbar-container-logo">
+          <a href="{% url 'home_app' %}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+        </div>
+
+        <div class="navbar-container-links">
+          <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+          <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+          <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+          <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
+          <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
+    
+        </div>
+
+      </div>
+    </div>
+
+<div class="content-placement">
   <div class="row justify-content-center">
     <div class="col-md-6">
+
+      <div class="main-content-container">
+
       <div class="card mt-5">
         <div class="card-body">
           <div class="text-center">
             {% if registered %}
             <h1 class="mb-4">Thank you for registering!</h1>
             {% else %}
-            <h1 class="mb-4">Register Here!</h1>
-            <h3 class="mb-4">Fill out the form:</h3>
+
+            <h1 class="mb-3">Register Here!</h1>
+            <div class="register-CTA">
+            <h2 class="mb-4">Fill out the form to create your account!</h2>
+            </div>
             {% endif %}
-          </div>
+           <!--text center-->
+          
           <form enctype="multipart/form-data" method="post" class="row g-3">
             {% csrf_token %}
             <div class="col-12">
@@ -25,19 +83,23 @@
               <p class="text-danger">{{ error_message }}</p>
             </div>
             {% endif %}
-            <div class="col-12 text-center">
-              <button type="submit" class="btn btn-primary">Register</button>
-            </div>
+            <!--<div class="col-12 text-center">-->
+              <button type="submit" class="button1">Register</button>
+            <!--</div>-->
           </form>
+         </div> <!--text center-->
         </div>
         {% if not registered %}
-        <div class="card-footer text-muted text-center">
-          Already have an account? <a href="{% url 'user_app:login' %}">Log in</a>
+        <div class="card-footer">
+          <h2>Already have an account?<h2> <a class="button1" href="{% url 'user_app:login' %}">Log in</a>
         </div>
         {% endif %}
       </div>
+
+    </div>
+
     </div>
   </div>
 </div>
-
-{% endblock %}
+  </body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You</title>
+</head>
+<body>
+    <h1>Thank You</h1>
+    <p>Thank you for your booking!</p>
+    <p>We appreciate your business and look forward to serving you.</p>
+</body>
+
+<h2>Your Reviews</h2>
+<ul>
+  {% for review in user_reviews %}
+    <li>Rating: {{ review.rating }} - Comment: {{ review.comment }}</li>
+  {% endfor %}
+</ul>
+</html>

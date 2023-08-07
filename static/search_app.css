@@ -204,6 +204,7 @@ body{
 /*-----------------------BUTTONS------------------------------*/
 
   .button1 {
+    white-space: nowrap;
     padding: 2vw 3vw;
     font-size: 3vw;
   }

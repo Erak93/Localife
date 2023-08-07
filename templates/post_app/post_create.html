@@ -1,17 +1,15 @@
 <!DOCTYPE html>
-
 {% load static %} 
-
-
 <html>
   <head>
+    <title>TraWell</title>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>TraWell - {% block title %}{% endblock %}</title>
-
-    <link rel="stylesheet" href="{% static 'main_style.css' %}">
+    <title>TraWell</title>
+    <link rel="stylesheet" href="{% static 'main_style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'post_create.css' %}"/>
 
     <!-- GOOGLE FONTS: -->
 
@@ -30,130 +28,45 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     /> 
-
   
-  <!--
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        font-family: Arial, sans-serif;
-        background-image: url(https://images.unsplash.com/photo-1435527173128-983b87201f4d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1467&q=80);
-        background-repeat: no-repeat;
-        background-size: cover;
-        transition: background-image 2s ease-in-out;
-      }
-      .navbar {
-        background-color: #2a6560;
-        color: #fff;
-        padding: 10px;
-      }
-      .navbar a {
-        color: #fff;
-        text-decoration: none;
-        margin-right: 10px;
-      }
-      .navbar a:hover {
-        color: #fff;
-        text-decoration: underline;
-      }
-      .logo {
-        color: #a94c77;
-        font-size: 30px;
-        margin-right: 10px;
-      }
-
-      .well {
-        color: #fdceaf;
-        font-size: 24px;
-      
-      }
-      .content-container{
-        background-color: rgba(0, 0, 0, 0.558);
-
-        /* Set the height to occupy the remaining viewport height after the navbar  */
-        
-        height: calc(100vh - 50px);  /*50px is the height of the navbar, adjust as needed */
-        overflow: auto;
-      }
-      .main-content {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100px;
-        padding: 0 50px;
-        box-sizing: border-box;
-        margin-top: 200px;
-      }
-
-      .main-heading {
-        font-size: 40px;
-        color: #fff;
-        text-align: right;
-      }
-
-      .home-p {
-        margin-left: 50px;
-        margin-bottom: 50px;
-        padding-left: 900px;
-        width: 800px;
-        color: #fff;
-        font-size: 25px;
-      }
-      .main-button {
-        display: block;
-        width: fit-content;
-        margin-top: 10px;
-        margin-left: 50px;
-        padding: 10px 20px;
-        background-color: #a94c77;
-        color: #fff;
-        font-size: 30px;
-        text-decoration: none;
-        border-radius: 10px;
-      }
-      .main-button:hover {
-        background-color: #fdceaf;
-      }
-
-      .form{
-        margin-left: 1000px;
-      }
-      
-
-    </style>
-  -->
+   
   </head>
   <body>
     <div class="navbar-responsive">
-      <div class="navbar">
+    <div class="navbar">
+      <div class="navbar-container-logo">
+      <a href="{% url 'home_app' %}"
+        ><span class="logo">Tra<span class="well">Well</span> </span></a
+      >
+    </div>
+    <div class="navbar-container-links">
+      <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+      <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+      <a class="nav-link" href="{% url 'user_app:user_profile' %}"
+        >My Profile</a
+      >
 
-        <div class="navbar-container-logo">
-          <a href="#"><span class="logo">Tra<span class="well">Well</span> </span></a>
-        </div>
-
-        <div class="navbar-container-links">
-          <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
-          <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
-          <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
-          <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
-        </div>
       
-      </div>
     </div>
-
-  <div class="content-container">
+  </div>
+</div>
+<div class="content-container">
     <div class="main-content">
-      <h1 class="main-heading">Become a host!</h1>
+      <h2 class="host-CTA">Become a host!</h2>
     </div>
-    <p class="home-p">Create your own experience for travelers to see</p>
+    
+    <div class="form-container">
+      <h2 class="host-CTA">Become a host!</h2>
+    <p class="mb-3">Create your own experience for travelers to see</p>
     
 
 <form class=form method="POST"  enctype = "multipart/form-data" action="{% url 'post_app:post_create' %}"> 
   {% csrf_token %}
   {{ form.as_p }}
-  <button type="submit">Submit</button>
+  <button class="submit-button" type="submit">Submit</button>
 </form>
+</div>
      
 </div>
 
