@@ -132,7 +132,7 @@ body{
   flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
   border-top: 3px solid rgba(0, 0, 0, 0.25);
   margin-bottom: 20px;
-  padding: 30px 20px 10px 20px;
+  padding: 30px 20px 40px 20px;
   display: block;
 }
 
@@ -162,6 +162,7 @@ body{
 
 .button1 {
   font-size: 20px;
+  margin-right: 0px;
 }
 
 .button1:hover {
@@ -205,11 +206,9 @@ body{
 
   .button1 {
     white-space: nowrap;
-    padding: 2vw 3vw;
-    font-size: 3vw;
+    margin-right: 0px;
   }
   .button1:hover {
-    padding: 2vw 3vw;
     font-size: 3vw;
   }
 }
