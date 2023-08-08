@@ -6,7 +6,7 @@ body{
 .edit-profile{
     align-self: flex-end;
     margin-bottom: 20px;
-    margin-top: 2px;
+    margin-top: 130px;
 }
 
 .edit-profile a{
@@ -14,7 +14,7 @@ body{
     letter-spacing: 1px;
     font-size: 22px;
     font-weight: 400;
-    color: #e00092;
+    color: #FDCEAF;
     text-shadow: #000000 1px 1px 3px;
     text-decoration: none;
     border-bottom: #FDCEAF 2px solid;
@@ -49,10 +49,6 @@ body{
     }
   }
 
-.edit-profile{
-    margin-top: 130px;
-
-}
 
 .main-content-container{
     display: flex;
@@ -60,6 +56,7 @@ body{
     flex-direction: column;
     align-items: flex-start;
     height: fit-content; 
+    padding-bottom: 50px;
 }
 
 .profile-name{
@@ -101,7 +98,7 @@ body{
     font-size: 19px;
 }
 
-.booked-experience-list a, a:visited {
+.booked-experience-list a{
     color: #FDCEAF;
     text-shadow: #e00092 2px 2px 4px;
     text-decoration: none;
