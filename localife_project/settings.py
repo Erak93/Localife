@@ -29,7 +29,7 @@ SECRET_KEY = "django-insecure--vt!%vxq#cxy83g9r0h#j08ttw6@e+uhujky6kc6&-#aup)032
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['35.242.222.32']
 
 
 # Application definition
@@ -89,25 +89,25 @@ WSGI_APPLICATION = "localife_project.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.sqlite3",
-        "NAME": BASE_DIR / "db.sqlite3",
-    }
-}
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.sqlite3",
+#         "NAME": BASE_DIR / "db.sqlite3",
+#     }
+# }
 
-"""
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'localife_db',
-        'USER': 'localife',
-        'PASSWORD': 'simpleton',
+        'NAME': 'trawelldb',
+        'USER': 'hotlocals',
+        'PASSWORD': '1234',
         'HOST': 'localhost',
         'PORT': '',
     }
 }
-"""
+
 
 #Password hasher
 """
