@@ -1,0 +1,60 @@
+
+
+/*-------------BACKGROUND IMAGE CAROUSEL---------------*/
+
+
+.background-carousel {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+.background-item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+
+/*-----------------------PARAGRAPHS-----------------------*/
+
+.p1 {
+    margin-bottom: 40px;
+  }
+
+.p2 {
+    margin-top: 50px;
+  }
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
+    
+      
+    }
+
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+
+
+@media screen and (max-width:540px){
+    
+}
+
+
+/*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+
+
+@media screen and (max-width:350px){
+    
+}

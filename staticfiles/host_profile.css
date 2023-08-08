@@ -1,0 +1,152 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1503&q=80);
+}
+
+
+.profile-image-container{
+    align-self: flex-start;
+    width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+    /*border:10px solid rgb(70, 32, 50, 0.50);*/
+    border: #e00092 3px solid;
+    overflow: hidden;
+    margin-top: 150px;
+}
+
+.profile-picture-file{
+    display:block;
+    margin:0px auto;
+    height: 300px;
+    width: auto;
+}
+
+@media all and (max-width: 1200px){
+    .profile-image{
+      height:100%;
+      width:auto;
+    }
+  }
+
+
+.main-content-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content; 
+    padding: 0px 40px 50px 70px;
+}
+
+.profile-name{
+    align-self: center;
+    font-family: "Londrina Shadow";
+    color: #FDCEAF;
+    text-shadow: #e00092 2px 2px 4px;
+    letter-spacing: 1px;
+    font-size: 100px;
+    font-weight: 400;    
+    margin-left: 20px;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+
+.bio{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    text-shadow: #000000 1px 1px 3px;
+    padding-bottom: 30px;
+}
+
+.p1 {
+    font-size: 19px;
+
+}
+
+.exp-results {
+    flex-direction: column;
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    height: fit-content;
+    width: fit-content;
+    margin: 0px 30px 20px 0px;
+  }
+  
+
+  .experience-offered-heading{
+    font-family: "Londrina Solid";
+    color: #e00092;
+    text-shadow: #000000 1px 1px 3px;
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    align-self: flex-start;
+  }
+
+  .exp {
+    flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+    border-radius: 10px;
+    background-color: rgb(70, 32, 50, 0.50);
+    display: block;
+    margin-bottom: 55px;
+    padding: 5px 35px 40px 30px;
+}
+  
+  .exp img {
+    width: 100%;
+    height: auto;
+    margin: 20px 0px;
+    border: #e00092 3px solid;
+    border-radius: 10px;
+  }
+  .exp_title {
+    font-family: "Londrina Solid";
+    color:#FDCEAF;
+    text-shadow: #000000 1px 1px 3px;
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  .button1{
+    margin-right: -6px;
+  }
+
+  @media all and (max-width: 700px){
+    
+    .profile-image-container{
+        margin-top: 180px;
+
+    }
+
+    .profile-name{
+        align-self: flex-end;
+        margin-right: 55px;
+    }
+
+    }
+
+@media all and (max-width: 500px){
+    
+ /*---------------------NAVBAR---------------------*/
+
+ .navbar-responsive {
+    z-index: 2;
+    display: flex;
+    justify-content:space-between;
+    align-items:end;
+    padding-bottom: 60px;
+    padding-left: 20px;
+  }
+  .navbar-container-links {
+   position:fixed;
+   top: 70px;
+   right: 20px;
+   font-size: 20px;
+  }
+
+}

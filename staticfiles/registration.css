@@ -1,0 +1,197 @@
+body{
+    background-image: url(https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1410&q=80);
+}
+
+.content-placement {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  height:fit-content;
+}
+
+.main-content-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;    
+    height:fit-content;
+    width: fit-content;
+    background-color: rgb(70, 32, 50, 0.35);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 150px;
+}
+
+.mb-3{
+  display: none;
+}
+/*---FORM HEADLINE--*/
+.mb-4{
+  font-family: "Londrina Solid";
+  color: rgba(0, 0, 0, 0.60);
+  font-size: 50px;
+  font-weight: 400;
+  letter-spacing: 7px;
+}
+
+/*--REQUIREMENT TEXT--*/
+.col-12{
+  font-size: 15px;
+  color:#fbc098;
+  margin-top: 3px;
+}
+
+
+
+.text-center {
+  border: 10px double #fcd09e4f;
+  border-radius: 20px;
+  background-color: rgb(70, 32, 50, 0.65);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: center;
+  height: fit-content;
+  max-width: 400px;
+  padding: 0px 30px 60px 40px;
+    
+}
+
+
+.card-body label {
+  font-size: 22px;
+  color: #fdceaf;
+  text-shadow: black 1px 1px 2px;
+
+}
+    
+.card-body input{
+  background-color: #fdceaf;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 30px;
+  margin-right: 20px;
+  float: right;
+  width: 180px;
+}
+
+.card-body h2 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #fdceaf;
+  font-size: 40px;
+  font-weight: 200;
+  text-shadow: black 1px 1px 2px;
+
+}
+
+.card-body input[type="submit"],
+.card-body select{
+  display:block;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #e00092;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FDCEAF;
+  text-decoration: none;
+  border-radius: 10px;
+  }
+
+.card-body input[type="submit"]:hover {
+  background-color: #FDCEAF;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #e00092;
+  text-decoration: none;
+}
+
+.card-footer{
+  border-radius: 20px;
+  display: flex;
+  flex-direction: wrap;
+  background-color: rgb(70, 32, 50, 0.55);
+  height: fit-content;
+  max-width: 410px;
+  padding: 10px 30px 10px 40px;
+  margin-top: 20px;
+}
+
+.card-footer h2{
+    color: #FDCEAF;
+    font-size: 22px;
+    text-shadow: black 1px 1px 2px;
+}
+.card-footer a{
+    margin-left: 30px;
+    text-shadow: none;
+    box-shadow: black 1px 1px 3px;
+}
+
+
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
+    .main-content-container {
+        margin-top: 180px;
+      }
+
+/*-------------------HEADINGS-------------------------*/
+
+  .card-body h2{
+      letter-spacing: 2px;
+  }
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+  .card-body label {
+    font-size: 20px;
+  }
+  .card-body input{
+    margin-left: 5vw;
+    width: 28vw;
+}
+
+}
+/*------------------------------------------------------------------------------------*/
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:540px){
+  
+    .card-body h2 {
+      letter-spacing: 2px;
+      font-size: 7vw;
+    }
+  
+  /*--------------------FORM CONTAINER--------------------------*/
+  
+  .card-body label {
+    font-size: 19px;
+    color: #fdceaf;
+  }
+    
+  .card-body input{
+    margin-left: 30px;
+    width: 24vw;
+  }
+}
+  
+  /*--------------------------------------------------------------------------------------*/
+  /*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+  /*--------------------------------------------------------------------------------------*/
+  
+  @media screen and (max-width:350px){
+    
+  }
+  

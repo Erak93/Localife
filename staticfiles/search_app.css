@@ -1,0 +1,286 @@
+body{
+  background-image: url(https://images.unsplash.com/photo-1595742446666-c51b9fee49c2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1974&q=80);
+}
+/*-------------WEBSITE CONTENT PLACEMENT---------------*/
+
+.content-placement {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+  padding-top: 0px;
+  height:fit-content;
+}
+
+/*---------------TRANSPARENT CONTENT BOX-----------------*/
+
+.main-content-container {
+  height:fit-content;
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.55);
+  padding: 0px 30px 20px 30px;
+}
+
+
+/*-----------------------HEADINGS-----------------------------*/
+
+.main-heading1 {
+  font-family: "Londrina Shadow";
+  color: #fdceaf;
+  font-size: 100px;
+  font-weight: 400;
+  letter-spacing: 7px;
+  padding-left: 10px;
+}
+
+.h1-tab {
+  display: inline-block;
+  margin-left: 15%;
+}
+
+.form-container h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #e00092;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+.exp-available-content h1 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #204d49;
+  font-size: 40px;
+  font-weight: 200;
+}
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+.form-container{
+  border: 10px double #fcd09e4f;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.25);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: center;
+  height: fit-content;
+  max-width: 550px;
+  padding: 0px 0px 70px 30px;
+  margin-top: -20px;
+}
+
+.form-container label {
+  font-size: 22px;
+  color: #fdceaf;
+}
+  
+.form-container input{
+  background-color: #fdceaf;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 50px;
+  margin-right: 30px;
+  float: right;
+  width: 190px;
+}
+
+.form-container input[type="submit"],
+.form-container select{
+  display:block;
+  width: fit-content;
+  padding: 8px 16px;
+  margin-inline-start: 70%;
+  background-color: #e00092;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #FDCEAF;
+  text-decoration: none;
+  border-radius: 10px;
+  }
+
+.form-container input[type="submit"]:hover {
+  background-color: #FDCEAF;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #e00092;
+  text-decoration: none;
+}
+
+/*--------------------EXP AVAILABLE BOX----------------------*/
+
+.exp-available-content {
+  border-radius: 20px;
+  background-color: #fcd09ea2;
+  height:fit-content;
+  width: fit-content;
+  padding: 5px 30px 10px 30px;
+  margin-top: 40px;  
+  margin-bottom: 40px;
+}
+
+
+/*--------------------EXP CONTAINER--------------------------*/
+
+.exp {
+  flex: 0 0 calc(33.33% - 40px); /* Adjust the percentage and margin as needed */
+  border-top: 3px solid rgba(0, 0, 0, 0.25);
+  margin-bottom: 20px;
+  padding: 30px 20px 40px 20px;
+  display: block;
+}
+
+.exp img {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.25);
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+.exp-title {
+  font-size: 28px;
+  color: #204d49;
+  margin-bottom: 10px;
+}
+.exp-host {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+.exp-price {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+/*-----------------------BUTTONS--------------------------*/
+
+.button1 {
+  font-size: 20px;
+  margin-right: 0px;
+}
+
+.button1:hover {
+  font-size: 20px;
+}
+
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
+  
+/*-------------------HEADINGS-------------------------*/
+
+  .main-heading1 {
+    font-size: 15vw;
+    letter-spacing: 5px;
+    padding-left: 2vw;
+  }
+
+  .form-container h1 {
+    letter-spacing: 2px;
+  }
+
+  .exp-available-content h1 {
+    letter-spacing: 2px;
+  }
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+  .form-container label {
+    font-size: 20px;
+  }
+  .form-container input{
+    margin-left: 6vw;
+    width: 28vw;
+  }
+
+/*-----------------------BUTTONS------------------------------*/
+
+.form-container input[type="submit"],
+.form-container select{
+  font-size: 22px;
+  }
+
+.form-container input[type="submit"]:hover {
+  font-size: 22px;
+  }
+
+  .button1 {
+    white-space: nowrap;
+    margin-right: 0px;
+  }
+  .button1:hover {
+    font-size: 3vw;
+  }
+}
+
+/*------------------------------------------------------------------------------------*/
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:540px){
+  
+  .main-heading1 {
+    letter-spacing: 4px;
+    padding-right: 7vw;
+  }
+
+  .form-container h1 {
+    letter-spacing: 2px;
+    font-size: 7vw;
+  }
+
+  .exp-available-content h1 {
+    letter-spacing: 2px;
+    font-size: 7vw;
+  }
+
+/*--------------------FORM CONTAINER--------------------------*/
+
+.form-container label {
+  font-size: 19px;
+  color: #fdceaf;
+}
+  
+.form-container input{
+  margin-left: 30px;
+  width: 24vw;
+}
+
+.form-container input[type="submit"],
+.form-container select{
+  font-size: 20px;
+  }
+
+.form-container input[type="submit"]:hover {
+  font-size: 20px;
+  }
+/*------------------EXP CONTAINER---------------------*/
+
+  .exp-title {
+    font-size: 26px;
+  }
+  .exp-host {
+    font-size: 16px;
+  }
+  .exp-price {
+    font-size: 16px;
+  }
+}
+
+/*--------------------------------------------------------------------------------------*/
+/*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+/*--------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:350px){
+  .main-heading1 {
+    letter-spacing: 3px;
+  }
+}

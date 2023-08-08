@@ -1,0 +1,146 @@
+
+body{
+    background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1503&q=80);
+}
+
+.edit-profile{
+    align-self: flex-end;
+    margin-bottom: 20px;
+    margin-top: 130px;
+}
+
+.edit-profile a{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #FDCEAF;
+    text-shadow: #000000 1px 1px 3px;
+    text-decoration: none;
+    border-bottom: #FDCEAF 2px solid;
+
+    padding:8px 14px;
+    /*border-radius: 10px;
+    box-shadow: #FDCEAF 1px 1px 3px;*/
+}
+
+.profile-image-container{
+    align-self: flex-start;
+    width: 300px;
+    max-height: 300px;
+    border-radius: 50%;
+    /*border:10px solid rgb(70, 32, 50, 0.50);*/
+    border: #e00092 3px solid;
+    overflow: hidden;
+    margin-top: -30px;
+    /*background-color: #FDCEAF;*/
+    background-image: url(https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-255379.jpg&fm=jpg);
+    background-size: cover;
+}
+
+.profile-picture-file{
+    display:block;
+    margin:0px auto;
+    height: 300px;
+    width: 300px;
+    border-radius: 50%;
+    object-fit: contain; /* This property maintains aspect ratio and covers the container */
+
+}
+
+@media all and (max-width: 1200px){
+    .profile-image{
+      height:100%;
+      width:auto;
+    }
+  }
+
+
+.main-content-container{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: flex-start;
+    height: fit-content; 
+    padding-bottom: 50px;
+}
+
+.profile-name{
+    align-self: center;
+    font-family: "Londrina Shadow";
+    color: #FDCEAF;
+    text-shadow: #e00092 2px 2px 4px;
+    letter-spacing: 1px;
+    font-size: 100px;
+    font-weight: 400;    
+    margin-left: 20px;
+    margin-top: -100px;
+    margin-bottom: 30px;
+}
+
+.profile-biography{
+    margin:auto;
+    margin-bottom: 50px;
+    margin-top:50px
+
+}
+
+.bio{
+    font-family: "Londrina Solid";
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+    text-shadow: #000000 1px 1px 3px;
+    padding-bottom: 30px;
+}
+
+.p1 {
+    font-size: 19px;
+}
+
+.booked-experience-list{
+    margin-left: 0px;
+    color: white;
+    font-size: 19px;
+}
+
+.booked-experience-list a{
+    color: #FDCEAF;
+    text-shadow: #e00092 2px 2px 4px;
+    text-decoration: none;
+}
+
+.rocket{
+    width:50px;
+    margin-right: 20px;
+}
+
+.calendar{
+    width: 50px;
+    margin-right: 20px;
+
+}
+
+.experience-list-head{
+    font-family: "Londrina Solid";
+    color: #e00092;
+    text-shadow: #000000 1px 1px 3px;
+    letter-spacing: 1px;
+    font-size: 28px;
+    font-weight: 400;
+}
+
+
+
+@media all and (max-width: 700px){
+   
+.edit-profile{
+    margin-top: 160px;
+}
+
+
+.profile-name{
+    align-self: flex-end;
+    margin-right: 55px;
+}
+}
