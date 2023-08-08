@@ -36,44 +36,54 @@
         <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
         <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
         <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+        <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
+        <a class="current-link" href="#">Host Profile</a>
         <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
       </div>
     </div>
   </div>
  
   
-  <div class="profile-container">
+  <div class="content-placement">
+      <div class="main-content-container">
       
-        <div class="profile-name">{{experience.host}}</div>
-        <div class="profile-image">
+        <div class="profile-image-container">
           {% if experience.host.user_profile_image.url != null %}
           <img class="profile-picture-file" src="{{experience.host.user_profile_image.url}}" alt="host pic">
           {% else%}
           <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
           {% endif %}
         </div>
+
+        <div class="profile-name">{{experience.host}}</div>
           
       
-      <div class="profile-biography"><span class="bio">Bio:</span> <br>
-        {{experience.host.user_bio}}
-      </div>
+        <div class="p1"><span class="bio">Bio:</span> <br>
+          {{experience.host.user_bio}}
+        </div>
+
         <div class="exp-results">
           <p class="experience-offered-heading">Experiences offered by this host</p>
           
           {% for i in all_experiences %}
             {% if i.host == experience.host %}
-                  <div class="exp">
+
+                <div class="exp">
                   <h2 class="exp_title">{{i.title }}</h2>
                   <img class="experience_image" src="{{i.experience_image.url}}" alt="">
                    <!--<p class="experience_description">{{ i.description }}</p> DO WE WANT THE DESCRIPTION IN PREVIEW? -->
-                   <a class="exp-button" href="{% url 'search_app:experience_details' experience_id=i.id %}">View more</a>
-    <!-- Add more fields as needed -->
-                  </div>
+                   <a class="button1" href="{% url 'search_app:experience_details' experience_id=i.id %}">View more</a>
+                <!-- Add more fields as needed -->
+                </div>
+
             {%endif%}
           {% endfor %}
+
         </div>
-      
+      </div>
+
   </div>
+
       
     
   
