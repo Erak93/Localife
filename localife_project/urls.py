@@ -19,7 +19,8 @@ from django.urls import path , include
 from home_app import views
 from django.conf import settings 
 from django.conf.urls.static import static 
-
+#from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 
 urlpatterns = [
     path("admin/", admin.site.urls),
@@ -30,6 +31,8 @@ urlpatterns = [
     path("post/",include('post_app.urls')),
     path("book/",include('match_app.urls')),
     path("finished/",include('finished_app.urls')),
+    path("schema/", SpectacularAPIView.as_view(), name="schema"),
+    path("schema/docs/", SpectacularSwaggerView.as_view(url_name="schema"), name="schema_docs"), 
 ] + static(settings.MEDIA_URL,
            document_root=settings.MEDIA_ROOT) 
 

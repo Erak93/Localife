@@ -11,6 +11,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 from .forms import ExperienceForm
 from rest_framework.parsers import MultiPartParser, FormParser
+from drf_spectacular.utils import extend_schema, extend_schema_view
 
 def test_view(request):
     return render(request, 'post_app/test_view.html')
@@ -45,7 +46,7 @@ def create_experience(request):
 """
 
 
-
+@extend_schema(responses=ExperienceSerializer)
 @api_view(['GET'])
 def experience_list(request): #, format=None):
     if request.method == 'GET': # and request.user.is_authenticated:
@@ -55,8 +56,11 @@ def experience_list(request): #, format=None):
     
 
     
-
-@api_view(['GET', 'PUT', 'DELETE']) 
+@extend_schema_view(
+        get=extend_schema(responses=ExperienceSerializer),
+        delete=extend_schema(responses=ExperienceSerializer)
+)
+@api_view(['GET','DELETE']) 
 def experience_detail(request, id):
     experience = get_object_or_404(Experience, pk=id)
     if request.method == 'GET':

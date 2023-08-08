@@ -33,6 +33,9 @@ body{
     border: #e00092 3px solid;
     overflow: hidden;
     margin-top: -30px;
+    /*background-color: #FDCEAF;*/
+    background-image: url(https://images.pexels.com/photos/255379/pexels-photo-255379.jpeg?cs=srgb&dl=pexels-miguel-%C3%A1-padri%C3%B1%C3%A1n-255379.jpg&fm=jpg);
+    background-size: cover;
 }
 
 .profile-picture-file{
@@ -41,6 +44,8 @@ body{
     height: 300px;
     width: 300px;
     border-radius: 50%;
+    object-fit: contain; /* This property maintains aspect ratio and covers the container */
+
 }
 
 @media all and (max-width: 1200px){
