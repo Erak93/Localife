@@ -57,6 +57,7 @@ body {
   margin-top: 12px;
   margin-left: 10px;
   padding-bottom: 5px;
+  text-shadow: #462032 2px 2px 4px;
 }
 
 .navbar a {
@@ -71,8 +72,13 @@ body {
 }
 
 .navbar a:active {
+  color:#e00092;
+}
+
+.navbar-container-links a.current-link {
   color: #FDCEAF;
-  text-decoration: underline;
+  font-weight:bold;
+  text-shadow: #e00092 2px 2px 4px;
 }
 
 /*-------------------------LOGO-------------------------*/
@@ -85,6 +91,7 @@ body {
   font-size: 50px;
   font-weight: normal;
   margin-right: 10px;
+  text-shadow: black 2px 2px 4px;
 }
 
 .well {
@@ -94,6 +101,8 @@ body {
   letter-spacing: 2px;
   font-size: 44px;
   font-weight: normal;
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+
 }
 
 /*---------------TRANSPARENT CONTENT BOX-----------------*/
@@ -102,7 +111,7 @@ body {
   height:100%;
   width: 600px;
   background-color: rgba(0, 0, 0, 0.50);
-  padding: 0px 50px 0px 70px;
+  padding: 0px 40px 0px 70px;
 }
 
 /*-----------------------HEADINGS-----------------------*/

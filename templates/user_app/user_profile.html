@@ -28,34 +28,37 @@
 </head>
 <body>
   <div class="navbar-responsive">
-  <div class="navbar">
-    <div class="navbar-container-logo">
-    <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
-    </div>
-    <div class="navbar-container-links">
-      <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
-      <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
-      <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
-      <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
+    <div class="navbar">
+      <div class="navbar-container-logo">
+        <a href="{% url 'home_app'%}"><span class="logo">Tra<span class="well">Well</span> </span></a>
+      </div>
+      
+      <div class="navbar-container-links">
+        <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
+        <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
+        <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+        <a class="current-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
+        <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
+      </div>
     </div>
   </div>
-</div>
    
   </div>
   {% if user.is_authenticated %}
-  
-      <div class="profile-container">
+  <div class="content-placement">
+      <div class="main-content-container">
         <div class="edit-profile"><a href="{% url 'user_app:profile_update' pk=user_id %}">Edit your info</a></div>
-        <div class="profile-name">{{user.username}}</div>
-        <div class="profile-image">
+        <div class="profile-image-container">
           {% if user.user_profile.user_profile_image.url != null %}
           <img class="profile-picture-file" src="{{user.user_profile.user_profile_image.url}}" alt="User pic">
           {% else%}
           <img class="profile-picture-file" src="https://pbs.twimg.com/profile_images/901947348699545601/hqRMHITj.jpg" alt="">
           {% endif %}
         </div>
+        <div class="profile-name">{{user.username}}</div>
+
       
-      <div class="profile-biography"><span class="bio">Bio:</span> <br>
+      <div class="p1"><span class="bio">Bio:</span> <br>
         {{user.user_profile.user_bio}}
       </div>
         <div class="booked-experience-list">
@@ -82,7 +85,7 @@
             {% endfor %}
         </div>
       </div>
-   
+  </div> 
    
   {% else %}
   <h1>Please create an account to view your profile</h1>

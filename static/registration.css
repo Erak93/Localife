@@ -131,6 +131,8 @@ body{
 }
 .card-footer a{
     margin-left: 30px;
+    text-shadow: none;
+    box-shadow: black 1px 1px 3px;
 }
 
 

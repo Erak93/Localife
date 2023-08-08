@@ -91,12 +91,12 @@ body{
 .form-container select{
   display:block;
   width: fit-content;
-  padding: 10px 20px;
+  padding: 8px 16px;
   margin-inline-start: 70%;
   background-color: #e00092;
   font-family: "Londrina Solid";
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
   color: #FDCEAF;
   text-decoration: none;
@@ -107,7 +107,7 @@ body{
   background-color: #FDCEAF;
   font-family: "Londrina Solid";
   letter-spacing: 1px;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
   color: #e00092;
   text-decoration: none;
@@ -204,6 +204,15 @@ body{
 
 /*-----------------------BUTTONS------------------------------*/
 
+.form-container input[type="submit"],
+.form-container select{
+  font-size: 22px;
+  }
+
+.form-container input[type="submit"]:hover {
+  font-size: 22px;
+  }
+
   .button1 {
     white-space: nowrap;
     margin-right: 0px;
@@ -246,6 +255,14 @@ body{
   width: 24vw;
 }
 
+.form-container input[type="submit"],
+.form-container select{
+  font-size: 20px;
+  }
+
+.form-container input[type="submit"]:hover {
+  font-size: 20px;
+  }
 /*------------------EXP CONTAINER---------------------*/
 
   .exp-title {
