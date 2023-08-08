@@ -1,227 +1,331 @@
 html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-  }
-  
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+body {
+  font-family: "Nunito", sans-serif;
+  font-size: 20px;
+  background-color: #462032;
+  background-size: cover;
+  background-position: center;
+}
+
+/*-------------WEBSITE CONTENT PLACEMENT---------------*/
+
+.content-placement {
+  position: relative;
+  display: flex;
+  margin-top: 0px;
+  padding-top: 0px;
+  justify-content: center;
+  height: 100vh; /* viewport height */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+/*----------------------NAVIGATION-----------------------*/
+/*---CONTENT UNDERNEATH NEEDS AT LEAST 80px PADDING------*/
+/*---------OR MARGIN AT BOTTOM DUE TO Z-INDEX: 2---------*/
+
+.navbar-responsive {
+  z-index: 2;
+  background-color: #245652;
+  border-bottom: 3px solid #FDCEAF;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding-left: 5%;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content:flex-start;
+  align-items:end;
+  flex-wrap: wrap;
+  color: #fff;
+  padding: 15px;
+}
+
+.navbar-container-links {
+  margin-top: 12px;
+  margin-left: 10px;
+  padding-bottom: 5px;
+  text-shadow: #462032 2px 2px 4px;
+}
+
+.navbar a {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+
+.navbar a:hover {
+  color: #FDCEAF;
+  text-decoration: none;
+}
+
+.navbar a:active {
+  color:#e00092;
+}
+
+.navbar-container-links a.current-link {
+  color: #FDCEAF;
+  font-weight:bold;
+  text-shadow: #e00092 2px 2px 4px;
+}
+
+/*-------------------------LOGO-------------------------*/
+
+.logo {
+  color: #e00092;
+  font-family: "Londrina Solid";
+  /*font-family: "Permanent Marker";*/
+  letter-spacing: 1px;
+  font-size: 50px;
+  font-weight: normal;
+  margin-right: 10px;
+  text-shadow: black 2px 2px 4px;
+}
+
+.well {
+  color: #FDCEAF;
+  font-family: "Londrina Solid";
+  /*font-family: "Permanent Marker";*/
+  letter-spacing: 2px;
+  font-size: 44px;
+  font-weight: normal;
+  text-shadow: rgb(0, 0, 0) 2px 2px 4px;
+
+}
+
+/*---------------TRANSPARENT CONTENT BOX-----------------*/
+
+.main-content-container {
+  height:100%;
+  width: 600px;
+  background-color: rgba(0, 0, 0, 0.50);
+  padding: 0px 40px 0px 70px;
+}
+
+/*-----------------------HEADINGS-----------------------*/
+
+.main-heading1 {
+  font-family: "Londrina Shadow";
+  font-size: 100px;
+  letter-spacing: 5px;
+  font-weight: 400;
+  color: #FDCEAF;
+  padding-left: 2%;
+  padding-top: 80px;
+}
+
+.h1-tab {
+  display: inline-block;
+  margin-left: 15%;
+}
+
+/*-----------------------PARAGRAPHS-----------------------*/
+
+.p1 {
+  width: 550px;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.p2 {
+  width: 550px;
+  color: #fff;
+  font-size: 22px;
+  margin-bottom: 40px;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 80px;
+}
+
+/*-----------------------BUTTON-----------------------*/
+
+.button1 {
+  display:block;
+  width:fit-content;
+  padding: 6px 16px;
+  /*margin-inline-start: 75%;*/
+  float: right;
+  margin-right: 20px;
+  background-color: #e00092;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #FDCEAF;
+  text-decoration: none;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+.button1:hover {
+  background-color: #FDCEAF; 
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 25px;
+  font-weight: 400;
+  color: #e00092;
+  text-decoration: none;
+}
+
+/*------------------------------------------------------------------------------*/
+/*------------------------------SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------*/
+
+@media screen and (max-width:700px){
   body {
-    font-family: "Nunito", sans-serif;
     font-size: 20px;
-    background-color: #462032;
-    background-size: cover;
-    background-position: center;
   }
-  
-  /*----------------------NAVIGATION-----------------------*/
-  
+
+/*---------------------NAVBAR---------------------*/
+
   .navbar-responsive {
     z-index: 2;
-    background-color: #245652;
-    border-bottom: 3px solid #FDCEAF;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    margin-bottom:auto;
-    padding-left: 5%;
-  }
-  
-  .navbar {
     display: flex;
-    flex-direction: row;
-    justify-content:flex-start;
+    justify-content:space-between;
     align-items:end;
-    flex-wrap: wrap;
-    color: #fff;
-    padding: 15px;
+    padding-bottom: 40px;
+    padding-left: 20px;
   }
-  
-  
   .navbar-container-links {
-    margin-top: 12px;
-    margin-left: 10px;
-    padding-bottom: 5px;
+   position:fixed;
+   top: 70px;
+   right: 20px;
+   font-size: 20px;
   }
-  
-  .navbar a {
-    color: #ffffff;
-    text-decoration: none;
-    margin-right: 10px;
+
+/*---------------TRANSPARENT CONTENT BOX-----------------*/
+
+  .main-content-container {
+    width: 450px;
+    padding: 0px 50px 0px 50px;
   }
-  
-  .navbar a:hover {
-    color: #FDCEAF;
-    text-decoration: none;
-  }
-  
-  .navbar a:active {
-    color: #FDCEAF;
-    text-decoration: underline;
-  }
-  
-  /*-------------------------LOGO-------------------------*/
-  
-  .logo {
-    color: #e00092;
-    font-family: "Londrina Solid";
-    /*font-family: "Permanent Marker";*/
-    letter-spacing: 1px;
-    font-size: 50px;
-    font-weight: normal;
-    margin-right: 10px;
-  }
-  
-  .well {
-    color: #FDCEAF;
-    font-family: "Londrina Solid";
-    /*font-family: "Permanent Marker";*/
-    letter-spacing: 2px;
-    font-size: 44px;
-    font-weight: normal;
-  }
-  
-  /*-----------------------HEADINGS-----------------------*/
+
+/*---------------------HEADING---------------------*/
   
   .main-heading1 {
-    font-family: "Londrina Shadow";
-    font-size: 100px;
-    letter-spacing: 5px;
-    font-weight: 400;
-    color: #FDCEAF;
+    font-size: 80px;
+    letter-spacing: 3px;
+    padding-top: 130px;
+    margin-bottom: 50px;
   }
-      
-  /*-----------------------BUTTON-----------------------*/
-  
-  .button1 {
-    display:block;
-    width: fit-content;
-    padding: 10px 20px;
-    margin-inline-start: 70%;
-    background-color: #e00092;
-    font-family: "Londrina Solid";
+
+/*-----------------------PARAGRAPHS-----------------------*/
+
+  .p1 {
+    width: 430px;
+    font-size: 19px;
     letter-spacing: 1px;
-    font-size: 28px;
-    font-weight: 400;
-    color: #FDCEAF;
-    text-decoration: none;
-    border-radius: 10px;
+  }
+
+  .p2 {
+    width: 430px;
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+
+/*-----------------------BUTTON-----------------------*/
+
+  .button1 {
+    font-size: 22px;
   }
   .button1:hover {
-    background-color: #FDCEAF; 
-    font-family: "Londrina Solid";
-    letter-spacing: 1px;
-    font-size: 28px;
-    font-weight: 400;
-    color: #e00092;
-    text-decoration: none;
+    font-size: 22px;
   }
-  
-  /*------------------------------------------------------------------------------*/
-  /*------------------------------SMARTPHONE DISPLAY------------------------------*/
-  /*------------------------------------------------------------------------------*/
-  
-  @media screen and (max-width:700px){
-    body {
-      font-size: 20px;
-      background-color: #462032;
-      background-repeat: no-repeat;
-      background-size: cover;
-    }
-  
+
+}
+
+/*------------------------------------------------------------------------------------*/
+/*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+/*------------------------------------------------------------------------------------*/
+
+
+@media screen and (max-width:540px){
+
+  .main-content-container {
+    height:100%;
+    background-color: rgba(0, 0, 0, 0.50);
+    border-radius:0cm;
+    padding: 0px 50px 0px 60px;
+  }
+
   /*---------------------NAVBAR---------------------*/
-  
-    .navbar-responsive {
-      z-index: 2;
-      display: flex;
-      justify-content:space-between;
-      align-items:end;
-      padding-left: 20px;
-    }
-  
-    .navbar-container-links {
-      position:fixed;
-      top: 30px;
-      right: 20px;
-      font-size: 20px;
-    }
-  
-  /*---------------------HEADING---------------------*/
-  
-  
-    .main-heading1 {
-      font-size: 70px;
-      letter-spacing: 3px;
-      font-weight: 400;
-    }
-     
-  /*---------------------BUTTON---------------------*/
-  
-    .button1 {
-      display: block;
-      width: fit-content;
-      padding: 10px 20px;
-      background-color: #e00092;
-      font-family: "Londrina Solid";
-      letter-spacing: 1px;
-      font-size: 20px;
-      font-weight: 400;
-      color: #FDCEAF;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    .button1:hover {
-      background-color: #FDCEAF; /* Update with your desired hover color */
-      font-family: "Londrina Solid";
-      letter-spacing: 1px;
-      font-size: 20px;
-      font-weight: 400;
-      color: #e00092;
-      text-decoration: none;
-    }
-  
+
+  .navbar-responsive {
+    z-index: 2;
+    display: flex;
+    justify-content:space-between;
+    align-items:end;
+    padding-left: 20px;
   }
-  
-  /*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
-  
-  
-  @media screen and (max-width:540px){
-    
-    .navbar-responsive {
-      z-index: 2;
-      display: flex;
-      justify-content:space-between;
-      align-items:end;
-      padding-bottom: 40px;
-      padding-left: 20px;
-    }
-    .navbar-container-links {
-     position:fixed;
-     top: 70px;
-     right: 20px;
-     font-size: 20px;
-    }
-  
+  .navbar-container-links {
+   position:fixed;
+   top: 70px;
+   right: 20px;
+   font-size: 18px;
   }
-  
-  /*------------------------------SMALLEST SMARTPHONE DISPLAY------------------------------*/
-  
-  
-  @media screen and (max-width:350px){
-  
-    .navbar-responsive {
-      z-index: 2;
-      display: flex;
-      justify-content:space-between;
-      align-items:end;
-      padding-bottom: 40px;
-      padding-left: 20px;
-    }
-    .navbar-container-links {
-      position:fixed;
-      top: 70px;
-      right: 20px;
-    }
-  
+
+  /*-----------------------HEADING-----------------------*/
+
+  .main-heading1 {
+    padding-top: 130px;
+    padding-left: 3vw;
   }
+
+  /*-----------------------PARAGRAPHS-----------------------*/
+
+  .p1 {
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+
+  .p2 {
+    font-size: 19px;
+    letter-spacing: 1px;
+  }
+  /*-----------------------BUTTON-----------------------*/
+
+  .button1 {
+    margin-inline-start: 70%;
+    font-size: 19px;
+  }
+  .button1:hover {
+    font-size: 19px;
+  }
+
+}
+
+/*---------------------------------------------------------------------------------------*/
+/*------------------------------SMALLEST SMARTPHONE DISPLAY------------------------------*/
+/*---------------------------------------------------------------------------------------*/
+
+@media screen and (max-width:350px){
+
+  /*---------------------NAVBAR---------------------*/
+
+  .navbar-responsive {
+    z-index: 2;
+    display: flex;
+    justify-content:space-between;
+    align-items:end;
+    padding-left: 20px;
+  }
+  .navbar-container-links {
+    position:fixed;
+    top: 70px;
+    right: 20px;
+  }
+}

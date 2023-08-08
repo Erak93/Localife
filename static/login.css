@@ -1,5 +1,6 @@
 body{
-    background-image: url(https://images.unsplash.com/photo-1515859005217-8a1f08870f59?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1410&q=80);
+    background-image: url(https://images.unsplash.com/photo-1522509585149-c9cd39d1ff08?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1497&q=80);
+
 }
 
 .register-CTA{
@@ -10,58 +11,158 @@ body{
 
 .mb-4{
     color: rgb(12, 12, 12);
-    margin-top: 80px;
     margin-left: 20px;
 
 }
+
+.main-content-container {
+    display: flex;
+    justify-content: center;    
+    height:fit-content;
+    width: fit-content;
+    background-color: rgb(70, 32, 50, 0.35);
+    border-radius: 20px;
+    padding: 30px;
+    margin-top: 70px;
+  }
+
 .card-body{
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    background-color: #fdceafd6;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    justify-content: center;
-    margin-top: 250px;
-    margin-bottom: 50px;
-    
-    
+  border: 10px double #fcd09e4f;
+  border-radius: 20px;
+  background-color: rgb(70, 32, 50, 0.60);
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  position: center;
+  height: fit-content;
+  max-width: 400px;
+  padding: 0px 30px 30px 40px;
+  margin-top: 0px;
 }
 
+.card-body label {
+  font-size: 22px;
+  color:#FDCEAF;
+  text-shadow: black 1px 1px 2px;
+}
+    
 .card-body input{
-    margin: 20px;
+  background-color: #fdceaf;
+  border-radius: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-left: 50px;
+  margin-right: 20px;
+  float: right;
+  width: 200px;
+}
+
+.card-body h2 {
+  font-family: "Londrina Solid";
+  letter-spacing: 3px;
+  color: #fdceaf;
+  font-size: 40px;
+  font-weight: 200;
+  text-shadow: black 1px 1px 2px;
+}
+
+.card-body input[type="submit"],
+.card-body select{
+  display:block;
+  width: fit-content;
+  padding: 10px 20px;
+  background-color: #e00092;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #FDCEAF;
+  text-decoration: none;
+  border-radius: 10px;
+  }
+
+.card-body input[type="submit"]:hover {
+  background-color: #FDCEAF;
+  font-family: "Londrina Solid";
+  letter-spacing: 1px;
+  font-size: 20px;
+  font-weight: 400;
+  color: #e00092;
+  text-decoration: none;
 }
 
 
+  
+  /*------------------------------------------------------------------------------*/
+  /*------------------------------SMARTPHONE DISPLAY------------------------------*/
+  /*------------------------------------------------------------------------------*/
+  
+  @media screen and (max-width:700px){
+    .main-content-container {
+        margin-top: 100px;
+      }
+  
+  /*-------------------HEADINGS-------------------------*/
+  
+    .card-body h2{
+        letter-spacing: 2px;
+    }
+  
+  /*--------------------FORM CONTAINER--------------------------*/
+  
+    .card-body label {
+      font-size: 20px;
+    }
+    .card-body input{
+      margin-left: 6vw;
+      width: 200px;
+  }
+  /*-----------------------BUTTONS------------------------------*/
+  
+    .button1 {
+      white-space: nowrap;
+      padding: 1vw 2vw;
+      font-size: 19px;
+    }
+    .button1:hover {
+      padding: 1vw 2vw;
+      font-size: 19px;
+    }
+  }
+  
+  /*------------------------------------------------------------------------------------*/
+  /*------------------------------SMALL SMARTPHONE DISPLAY------------------------------*/
+  /*------------------------------------------------------------------------------------*/
+  
+  @media screen and (max-width:540px){
 
-
-.login-button{
-    background-color: #e00092;
-    font-family: "Londrina Solid";
-    letter-spacing: 1px;
-    font-size: 28px;
-    font-weight: 400;
-    color: #FDCEAF;
-    text-decoration: none;
-    border-radius: 10px;
-    padding:10px;
-    border:solid black 1px;
-    margin-left: 150px;
-}
-
-.login-button:hover{
-    background-color: #FDCEAF; 
-    font-family: "Londrina Solid";
-    letter-spacing: 1px;
-    font-size: 28px;
-    font-weight: 400;
-    color: #e00092;
-    text-decoration: none
-}
-.card-footer{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-left: 20px;
-    background-color: #fdceafb3;
-}
+    .main-content-container {
+        margin-top: 100px;
+      }
+    
+      .card-body h2 {
+        letter-spacing: 2px;
+        font-size: 7vw;
+      }
+    
+    /*--------------------FORM CONTAINER--------------------------*/
+    
+    .card-body label {
+      font-size: 19px;
+      color: #fdceaf;
+    }
+      
+    .card-body input{
+      margin-left: 30px;
+      width: 35vw;
+    }
+  }
+    
+    /*--------------------------------------------------------------------------------------*/
+    /*------------------------------SMALLER SMARTPHONE DISPLAY------------------------------*/
+    /*--------------------------------------------------------------------------------------*/
+    
+    @media screen and (max-width:350px){
+      
+    }
+    

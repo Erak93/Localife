@@ -44,32 +44,32 @@
         <div class="navbar-container-links">
           <a class="nav-link" href="{% url 'search_app:search_index' %}">Search</a>
           <a class="nav-link" href="{% url 'user_app:register' %}">Registration</a>
-          <a class="nav-link" href="{% url 'user_app:login' %}">Login</a>
+          <a class="current-link" href="{% url 'user_app:login' %}">Login</a>
           <a class="nav-link" href="{% url 'user_app:user_profile' %}">My Profile</a>
           <a class="nav-link" href="{% url 'home_app:about' %}">About</a>
-    
         </div>
 
       </div>
     </div>
 
 
-<div class="container">
+<div class="content-placement">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="card mt-5">
                 <div class="card-header">
                     <h1 class="text-center">Please Login</h1>
                 </div>
-                
-                <div class="card-body">
-                    <h2>Insert your credentials to login</h2>
-                    <form action="{% url 'user_app:login' %}" method="post">
-                        {% csrf_token %}
-                        {{ form.as_p }}
-                        <button type="submit" class="login-button">Login</button>
-                    </form>
-                </div>
+                  <div class="main-content-container">
+                    <div class="card-body">
+                        <h2>Insert your credentials to login</h2>
+                        <form action="{% url 'user_app:login' %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <button type="submit" class="button1">Login</button>
+                        </form>
+                    </div>
+                  </div>
             </div>
         </div>
     </div>
