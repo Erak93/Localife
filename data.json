@@ -1,0 +1,857 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-08-08T20:34:50.636Z",
+    "user": 2,
+    "content_type": 13,
+    "object_id": "1",
+    "object_repr": "Region object (1)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-08-08T20:34:52.840Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "('turtle', 7)",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-08-08T21:07:09.946Z",
+    "user": 2,
+    "content_type": 7,
+    "object_id": "7",
+    "object_repr": "('turtle', 7)",
+    "action_flag": 3,
+    "change_message": ""
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add experience",
+    "content_type": 7,
+    "codename": "add_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change experience",
+    "content_type": 7,
+    "codename": "change_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete experience",
+    "content_type": 7,
+    "codename": "delete_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view experience",
+    "content_type": 7,
+    "codename": "view_experience"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add experience tag",
+    "content_type": 8,
+    "codename": "add_experiencetag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change experience tag",
+    "content_type": 8,
+    "codename": "change_experiencetag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete experience tag",
+    "content_type": 8,
+    "codename": "delete_experiencetag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view experience tag",
+    "content_type": 8,
+    "codename": "view_experiencetag"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add user profile",
+    "content_type": 9,
+    "codename": "add_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change user profile",
+    "content_type": 9,
+    "codename": "change_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete user profile",
+    "content_type": 9,
+    "codename": "delete_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view user profile",
+    "content_type": 9,
+    "codename": "view_userprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add traveler profile",
+    "content_type": 10,
+    "codename": "add_travelerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change traveler profile",
+    "content_type": 10,
+    "codename": "change_travelerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete traveler profile",
+    "content_type": 10,
+    "codename": "delete_travelerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view traveler profile",
+    "content_type": 10,
+    "codename": "view_travelerprofile"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 41,
+  "fields": {
+    "name": "Can add review",
+    "content_type": 11,
+    "codename": "add_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 42,
+  "fields": {
+    "name": "Can change review",
+    "content_type": 11,
+    "codename": "change_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 43,
+  "fields": {
+    "name": "Can delete review",
+    "content_type": 11,
+    "codename": "delete_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 44,
+  "fields": {
+    "name": "Can view review",
+    "content_type": 11,
+    "codename": "view_review"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 45,
+  "fields": {
+    "name": "Can add booking",
+    "content_type": 12,
+    "codename": "add_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 46,
+  "fields": {
+    "name": "Can change booking",
+    "content_type": 12,
+    "codename": "change_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 47,
+  "fields": {
+    "name": "Can delete booking",
+    "content_type": 12,
+    "codename": "delete_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 48,
+  "fields": {
+    "name": "Can view booking",
+    "content_type": 12,
+    "codename": "view_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 49,
+  "fields": {
+    "name": "Can add region",
+    "content_type": 13,
+    "codename": "add_region"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 50,
+  "fields": {
+    "name": "Can change region",
+    "content_type": 13,
+    "codename": "change_region"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 51,
+  "fields": {
+    "name": "Can delete region",
+    "content_type": 13,
+    "codename": "delete_region"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 52,
+  "fields": {
+    "name": "Can view region",
+    "content_type": 13,
+    "codename": "view_region"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 53,
+  "fields": {
+    "name": "Can add booking",
+    "content_type": 14,
+    "codename": "add_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 54,
+  "fields": {
+    "name": "Can change booking",
+    "content_type": 14,
+    "codename": "change_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 55,
+  "fields": {
+    "name": "Can delete booking",
+    "content_type": 14,
+    "codename": "delete_booking"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 56,
+  "fields": {
+    "name": "Can view booking",
+    "content_type": 14,
+    "codename": "view_booking"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$8fSx6Ui9YoMlZMauGHIzdS$3uGmlKm0O3Qx2+FirIimJxD7C1ken8Shyu4Q4G3HU1E=",
+    "last_login": "2023-08-08T13:58:42.442Z",
+    "is_superuser": false,
+    "username": "Mori",
+    "first_name": "Mori",
+    "last_name": "Fazel",
+    "email": "mori@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-08T13:58:02.983Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$mEFI7zW4nt79fDvHJP1k9B$gELwJgSoBo3yg6qyF65qd5mXWRzsIQOEhUz37NTc72s=",
+    "last_login": "2023-08-09T10:26:43.898Z",
+    "is_superuser": true,
+    "username": "hotlocals",
+    "first_name": "",
+    "last_name": "",
+    "email": "hotlocals@mail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-08-08T14:17:38.770Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$fbBIaHs23vxUh2lDdacfMK$TDeuulnPy/eh/IpCzfvRSH3Djld1uxpqeKApw8BCD68=",
+    "last_login": "2023-08-08T21:10:15.475Z",
+    "is_superuser": false,
+    "username": "MoriFazel",
+    "first_name": "Mori",
+    "last_name": "Fazel",
+    "email": "mf@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-08T14:19:53.418Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$600000$vCaZqyCWolrns221ykj982$www5VZeRmzAnHIh0OVDsoy8BY27xKWYCvH90aPdbKLY=",
+    "last_login": "2023-08-09T07:36:49.274Z",
+    "is_superuser": false,
+    "username": "Narzisse",
+    "first_name": "narges",
+    "last_name": "naderloo",
+    "email": "nn@mail.com",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2023-08-08T21:06:09.420Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "user_app",
+    "model": "experience"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "user_app",
+    "model": "experiencetag"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "user_app",
+    "model": "userprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "user_app",
+    "model": "travelerprofile"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 11,
+  "fields": {
+    "app_label": "user_app",
+    "model": "review"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 12,
+  "fields": {
+    "app_label": "user_app",
+    "model": "booking"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 13,
+  "fields": {
+    "app_label": "user_app",
+    "model": "region"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 14,
+  "fields": {
+    "app_label": "search_app",
+    "model": "booking"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "4p7ox17f97ek11bk1xfds44s1odpkgsp",
+  "fields": {
+    "session_data": ".eJxVjLsOAiEUBf-F2hDw8oiW9n4DuQ-QVQPJslsZ_1032ULbMzPnpRKuS03ryHOaRJ0VqMPvRsiP3DYgd2y3rrm3ZZ5Ib4re6dDXLvl52d2_g4qjfutCBY8sEb03JbOLjq1jQAoeOOfgT0WErTGeOMaAMYRgyFBksEBQ1PsDFfs4sA:1qTQqw:e9jZcIYpb_6GP5h-E3IxjzglZUOEP9T6S4ern4uh9Qk",
+    "expire_date": "2023-08-22T17:50:42.393Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "mw946gsidsjow54gbxfcrgsxrncoo42m",
+  "fields": {
+    "session_data": ".eJxVjDsOwjAQBe_iGlmJvf6Ekj5nsHazGxxAthQnFeLuKFIKaN_MvLdKuG857U3WtLC6KqMuvxvh9JRyAH5guVc91bKtC-lD0Sdteqwsr9vp_h1kbPmoHXfoZsDItgcTZkbjKABPvnMyR7RBQrBWSDx4dgNZEz0NYIaewIL6fAHxDjes:1qTgOp:d1vKCd7wczWUHwZDkpTm4kaGyIGTPa0s1Q0uCAzjwTA",
+    "expire_date": "2023-08-23T10:26:43.903Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "qxk3pslykk8z50teuqqfhgm9pnbufj2d",
+  "fields": {
+    "session_data": ".eJxVjLsOAiEUBf-F2hDw8oiW9n4DuQ-QVQPJslsZ_1032ULbMzPnpRKuS03ryHOaRJ0VqMPvRsiP3DYgd2y3rrm3ZZ5Ib4re6dDXLvl52d2_g4qjfutCBY8sEb03JbOLjq1jQAoeOOfgT0WErTGeOMaAMYRgyFBksEBQ1PsDFfs4sA:1qTTRM:31ExGGlSwBqXeoVLyZN2l1F0mx8OPdp5lhhOMkfNwf4",
+    "expire_date": "2023-08-22T20:36:28.382Z"
+  }
+},
+{
+  "model": "user_app.userprofile",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "location": "",
+    "user_profile_image": "",
+    "user_bio": "Insert bio",
+    "user_permissions": [],
+    "groups": []
+  }
+},
+{
+  "model": "user_app.userprofile",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "location": "",
+    "user_profile_image": "user_app/profile_pics/t2.jpg",
+    "user_bio": "Mori is a local host from Iran who can take you to the mysterious content of the Persianiality.",
+    "user_permissions": [],
+    "groups": []
+  }
+},
+{
+  "model": "user_app.userprofile",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "location": "",
+    "user_profile_image": "user_app/profile_pics/pythonxing.jpg",
+    "user_bio": "Insert bio",
+    "user_permissions": [],
+    "groups": []
+  }
+},
+{
+  "model": "user_app.region",
+  "pk": 1,
+  "fields": {
+    "region_name": "region1",
+    "region_desc": "thisn is a region"
+  }
+},
+{
+  "model": "user_app.experience",
+  "pk": 8,
+  "fields": {
+    "host": 2,
+    "title": "persian gulf",
+    "description": "turtles",
+    "start_date": "2023-08-08",
+    "end_date": "2023-08-08",
+    "price": "1000.00",
+    "region": 1,
+    "experience_image": "experience_pics/turtle_6jfCnSU.jpg",
+    "experience_tags": []
+  }
+},
+{
+  "model": "user_app.experience",
+  "pk": 9,
+  "fields": {
+    "host": 2,
+    "title": "zar ceremony",
+    "description": "Qeshm Island",
+    "start_date": "2023-08-08",
+    "end_date": "2023-08-08",
+    "price": "120.00",
+    "region": 1,
+    "experience_image": "experience_pics/55e8ca66-0001-0004-0000-000000611075_w1200_r1.33_fpx28.15_fpy54.99.jpg",
+    "experience_tags": []
+  }
+},
+{
+  "model": "user_app.experience",
+  "pk": 10,
+  "fields": {
+    "host": 2,
+    "title": "zar ceremony",
+    "description": "Qeshm Island",
+    "start_date": "2023-08-08",
+    "end_date": "2023-08-08",
+    "price": "120.00",
+    "region": 1,
+    "experience_image": "experience_pics/55e8ca66-0001-0004-0000-000000611075_w1200_r1.33_fpx28.15_fpy54.99_U9XYcW6.jpg",
+    "experience_tags": []
+  }
+},
+{
+  "model": "user_app.experience",
+  "pk": 11,
+  "fields": {
+    "host": 2,
+    "title": "purification234",
+    "description": "adrenaline",
+    "start_date": "2023-08-08",
+    "end_date": "2023-08-08",
+    "price": "124.00",
+    "region": 1,
+    "experience_image": "experience_pics/beats.jpg",
+    "experience_tags": []
+  }
+}
+]
