@@ -50,7 +50,7 @@ def profile(request):
     else:
         context={
             'user':user,
-            'user_id':user.id-1,
+            'user_id':user.id,
             'booking_listing':booking_listing,
             'experience_listing':experience_listing
             
